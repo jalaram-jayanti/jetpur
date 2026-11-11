@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>૨૨૭મી જલારામ જયંતિ | રઘુવંશી યુથ ક્લબ જેતપુર</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;600;700;800&family=Yatra+One&display=swap');
+:root{--nd:#020d1f;--n:#03152e;--nl:#062C5A;--g:#d4af37;--gb:#f5c542;--gp:#fff2b3;--gd:#b8860b;--fl:#f5a623;--cr:#fff8e7}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto Sans Gujarati',sans-serif;-webkit-tap-highlight-color:transparent}
+#scene{position:fixed;inset:0;perspective:1400px;overflow:hidden}
+.palace-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,175,55,.18) 0%,transparent 45%),radial-gradient(ellipse at 50% 115%,rgba(245,166,35,.22) 0%,transparent 55%),radial-gradient(ellipse at 50% -15%,rgba(13,67,134,.65) 0%,transparent 55%),linear-gradient(180deg,#010a18 0%,#03152e 20%,#062C5A 50%,#041e3f 78%,#020d1f 100%)}
+.stars{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle var(--d) ease-in-out infinite;animation-delay:var(--dl)}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:1;transform:scale(1.25)}}
+.toran{position:absolute;top:0;left:0;width:100%;height:70px;display:flex;justify-content:space-around;pointer-events:none;z-index:50}
+.ti{display:flex;flex-direction:column;align-items:center;animation:sway 3s ease-in-out infinite;transform-origin:top center}
+.ti:nth-child(odd){animation-delay:.5s}.ti:nth-child(3n){animation-delay:1s}
+@keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.ts{width:2px;height:20px;background:linear-gradient(var(--g),var(--gd))}
+.tl{width:12px;height:18px;background:linear-gradient(135deg,#ff6b35,#e85d04);border-radius:0 50% 0 50%}
+.tf{width:16px;height:16px;margin-top:2px;background:radial-gradient(circle,var(--gb),var(--gd));border-radius:50%;box-shadow:0 0 12px rgba(245,197,66,.6)}
+.scene-layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:opacity 1.2s,visibility 1.2s;padding:16px 16px 280px}
+.scene-layer.hidden{opacity:0;visibility:hidden;pointer-events:none}
+#env-scene{z-index:100;flex-direction:column}
+.env-group{display:flex;flex-direction:column;align-items:center;gap:34px;width:100%;max-width:460px}
+.envelope-wrapper{position:relative;animation:envFloat 4s ease-in-out infinite;width:min(420px,88vw);margin:0 auto}
+@keyframes envFloat{0%,100%{transform:translateY(0) rotateX(4deg)}50%{transform:translateY(-12px) rotateX(-4deg)}}
+.envelope{position:relative;width:100%;aspect-ratio:420/280;cursor:pointer;transition:transform .3s}
+.envelope:hover{transform:scale(1.02)}
+.env-back{position:absolute;inset:0;background:linear-gradient(145deg,#0d4386,var(--n));border-radius:10px;box-shadow:0 30px 70px rgba(0,0,0,.65),0 0 0 1px rgba(212,175,55,.35)}
+.fomo{position:absolute;top:-20px;left:50%;transform:translateX(-50%);z-index:8;display:flex;align-items:center;gap:8px;padding:10px 20px;background:linear-gradient(135deg,#fff8e1,#ffe9a8 45%,#f5c542);border:1px solid rgba(184,134,11,.55);border-radius:30px;box-shadow:0 6px 20px rgba(0,0,0,.5),0 0 30px rgba(245,197,66,.6);white-space:nowrap;max-width:96%;animation:rg 2s ease-in-out infinite}
+@keyframes rg{0%,100%{box-shadow:0 6px 20px rgba(0,0,0,.5),0 0 24px rgba(245,197,66,.45)}50%{box-shadow:0 6px 24px rgba(0,0,0,.55),0 0 46px rgba(245,197,66,.95)}}
+.fomo .sp{font-size:.9rem;animation:spk 1.4s ease-in-out infinite}.fomo .sp:last-child{animation-delay:.7s}
+@keyframes spk{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1.25)}}
+.fomo .txt{font-size:clamp(.72rem,2.6vw,.88rem);font-weight:700;color:#5a3a0a}
+.env-letter{position:absolute;left:5%;top:5%;width:90%;height:90%;background:linear-gradient(160deg,#fffdf5,var(--cr));border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 16px;text-align:center;transition:transform 1s cubic-bezier(.4,0,.2,1) .4s;z-index:2;gap:6px}
+.env-letter .lt{font-family:'Yatra One',sans-serif;font-size:clamp(1.1rem,4vw,1.5rem);font-weight:800;color:var(--n);line-height:1.3}
+.env-letter .ls{font-size:clamp(.75rem,2.4vw,.9rem);font-weight:700;color:var(--gd);line-height:1.4}
+.env-letter .lc{font-size:clamp(.7rem,2.2vw,.82rem);font-weight:600;color:#6b7280;font-style:italic;margin-top:4px}
+.env-pocket{position:absolute;inset:0;background:linear-gradient(160deg,var(--nl),var(--n) 60%);border-radius:10px;clip-path:polygon(0 0,50% 45%,100% 0,100% 100%,0 100%);z-index:3;box-shadow:inset 0 2px 10px rgba(0,0,0,.35)}
+.env-flap{position:absolute;top:0;left:0;width:100%;height:55%;background:linear-gradient(180deg,#11509e,var(--n));clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s cubic-bezier(.4,0,.2,1);z-index:4;border-radius:10px 10px 0 0}
+.env-seal{position:absolute;bottom:6%;left:50%;transform:translateX(-50%);width:54px;height:54px;background:radial-gradient(circle at 35% 35%,var(--gb),var(--gd));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Yatra One',sans-serif;font-weight:700;color:var(--nd);font-size:1.4rem;z-index:5;animation:sg 2s ease-in-out infinite}
+@keyframes sg{0%,100%{box-shadow:0 4px 15px rgba(212,175,55,.5)}50%{box-shadow:0 4px 32px rgba(245,197,66,.95)}}
+.env-border{position:absolute;inset:6px;border:1px solid rgba(212,175,55,.4);border-radius:7px;z-index:6;pointer-events:none}
+.envelope.open .env-flap{transform:rotateX(180deg);z-index:1}
+.envelope.open .env-letter{transform:translateY(-108%) scale(1.04);z-index:10}
+.envelope.open .env-seal,.envelope.open .fomo{opacity:0;transition:opacity .3s}
+.open-cta{display:flex;align-items:center;justify-content:center;gap:12px;padding:18px 38px;font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.9rem,3vw,1.05rem);font-weight:800;color:var(--nd);background:linear-gradient(135deg,var(--gb),var(--g) 50%,var(--gd));background-size:200% auto;border:2px solid rgba(255,248,231,.85);border-radius:50px;cursor:pointer;animation:ctaP 1.6s ease-in-out infinite;transition:transform .25s;white-space:nowrap}
+.open-cta:hover{transform:translateY(-3px) scale(1.05)}
+@keyframes ctaP{0%,100%{box-shadow:0 10px 30px rgba(0,0,0,.6),0 0 45px rgba(245,197,66,.6)}50%{box-shadow:0 10px 30px rgba(0,0,0,.6),0 0 80px rgba(245,197,66,1)}}
+.open-cta .ar{animation:ab 1.2s ease-in-out infinite}@keyframes ab{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+#invite-scene{z-index:90;padding:10px 14px 280px}
+.invite-card{position:relative;width:min(920px,96vw);max-height:calc(100dvh - 300px);background:linear-gradient(165deg,rgba(6,44,90,.75),rgba(3,21,46,.9));border:1px solid rgba(212,175,55,.55);border-radius:20px;padding:16px 20px 18px;text-align:center;backdrop-filter:blur(14px);animation:ce 1.4s cubic-bezier(.34,1.56,.64,1) .3s both;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--g) transparent}
+@keyframes ce{from{transform:translateY(40px) rotateX(-10deg) scale(.92);opacity:0}to{transform:none;opacity:1}}
+.title-badge{display:inline-block;background:linear-gradient(135deg,var(--gb),var(--g) 50%,var(--gd));color:var(--nd);padding:8px 22px;border-radius:50px;font-family:'Yatra One',sans-serif;font-size:clamp(1.1rem,3.8vw,1.5rem);font-weight:800;margin:4px auto 10px;box-shadow:0 8px 25px rgba(212,175,55,.35)}
+.welcome{font-size:clamp(.85rem,2.4vw,1rem);color:#e2e8f0;line-height:1.5;margin-bottom:10px;font-weight:600}
+.club-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.3);border-radius:12px;padding:8px 16px;margin:0 auto 12px;color:var(--gb);font-size:clamp(.95rem,3vw,1.2rem);font-weight:800}
+.trad-box{background:var(--cr);color:var(--nd);padding:12px 16px;border-radius:12px;font-size:clamp(.78rem,2.2vw,.92rem);font-weight:700;line-height:1.6;margin-bottom:12px;border-left:4px solid var(--g);border-right:4px solid var(--g);text-align:left}
+.det-box{background:rgba(3,21,46,.6);border:1.5px solid var(--g);border-radius:12px;padding:12px 16px;margin-bottom:12px;text-align:left}
+.det-title{color:var(--gb);font-size:clamp(.95rem,2.8vw,1.15rem);font-weight:800;margin-bottom:8px;text-align:center}
+.det-item{font-size:clamp(.8rem,2.3vw,.95rem);color:#cbd5e1;margin-bottom:6px;line-height:1.5}
+.det-item strong{color:var(--gb)}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;text-align:left}
+@media(max-width:600px){.info-grid{grid-template-columns:1fr}}
+.icard{background:linear-gradient(180deg,rgba(13,67,134,.6),rgba(4,30,63,.9));border:1px solid rgba(212,175,55,.4);border-radius:10px;padding:10px 12px}
+.icard h4{color:var(--gb);border-bottom:1px solid rgba(212,175,55,.4);padding-bottom:6px;margin-bottom:8px;font-size:clamp(.85rem,2.5vw,1rem);font-weight:800;text-align:center}
+.lr{display:flex;justify-content:space-between;font-size:clamp(.72rem,2vw,.85rem);margin-bottom:5px;color:#e2e8f0}
+.lr span:first-child{color:var(--gb);font-weight:bold}
+.map-wrap{position:relative;border-radius:10px;overflow:hidden;border:1.5px solid var(--g);margin-bottom:10px}
+.map-wrap iframe{width:100%;height:160px;border:none;display:block;filter:invert(90%) hue-rotate(180deg) contrast(1.1)}
+.map-btn{position:absolute;bottom:8px;right:8px;display:inline-flex;align-items:center;gap:5px;padding:7px 14px;background:linear-gradient(135deg,var(--gb),var(--g) 55%,var(--gd));color:var(--nd);border:1px solid rgba(255,248,231,.7);border-radius:30px;font-size:.72rem;font-weight:800;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.5);transition:.3s;z-index:2}
+.map-btn:hover{transform:translateY(-2px) scale(1.05)}
+/* FOOTER 2 SECTIONS */
+.footer-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(212,175,55,.4);text-align:center}
+.footer-2 .fsec{background:rgba(3,21,46,.5);border:1px solid rgba(212,175,55,.35);border-radius:10px;padding:10px 12px}
+.footer-2 .fsec-label{font-size:clamp(.68rem,2vw,.78rem);font-weight:700;color:var(--gb);letter-spacing:.5px;margin-bottom:4px;text-transform:uppercase}
+.footer-2 .fsec-val{font-size:clamp(.78rem,2.3vw,.92rem);font-weight:700;color:#e2e8f0;line-height:1.4}
+.footer-2 .fsec-val a{color:var(--gb);text-decoration:none;font-weight:800}
+.footer-2 .fsec-val a:hover{text-decoration:underline}
+@media(max-width:500px){.footer-2{grid-template-columns:1fr}}
+.footer{color:var(--g);font-weight:700;font-size:clamp(.78rem,2.3vw,.92rem);margin-top:10px}
+/* bottom stack */
+.bstack{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:400;display:flex;flex-direction:column;align-items:center;gap:14px;width:max-content;max-width:96vw;pointer-events:none}
+.bstack .bbar,.bstack .bbar *{pointer-events:auto}
+.bbar{display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 22px 9px;background:linear-gradient(160deg,rgba(13,67,134,.94),rgba(4,30,63,.96));border:1px solid rgba(212,175,55,.55);border-radius:18px;backdrop-filter:blur(16px);box-shadow:0 0 0 4px rgba(212,175,55,.15),0 16px 40px rgba(0,0,0,.7);max-width:96vw;position:relative}
+.bbar-label{font-size:.72rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gb);display:flex;align-items:center;gap:8px}
+.bbar-label::before,.bbar-label::after{content:'';height:1px;width:20px;background:linear-gradient(90deg,transparent,var(--g),transparent)}
+.game-buttons{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap}
+.gbtn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:62px;height:62px;border-radius:13px;border:1px solid rgba(255,248,231,.5);background:linear-gradient(145deg,var(--gb),var(--g) 55%,var(--gd));color:var(--nd);cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.45);transition:.3s cubic-bezier(.34,1.56,.64,1);font-family:'Noto Sans Gujarati',sans-serif;position:relative;overflow:hidden}
+.gbtn:hover{transform:translateY(-5px) scale(1.08);box-shadow:0 12px 28px rgba(0,0,0,.6),0 0 40px rgba(245,197,66,.9)}
+.gbtn .gi{font-size:1.35rem;line-height:1}.gbtn .gn{font-size:.48rem;font-weight:800;line-height:1.1;text-align:center;padding:0 2px}
+.social-links{display:flex;align-items:center;gap:12px}
+.slink{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:13px;color:var(--nd);background:linear-gradient(145deg,var(--gb),var(--g) 55%,var(--gd));border:1px solid rgba(255,248,231,.6);box-shadow:0 6px 16px rgba(0,0,0,.45);transition:.35s cubic-bezier(.34,1.56,.64,1);cursor:pointer}
+.slink:hover{transform:translateY(-5px) scale(1.12)}
+.slink svg{width:22px;height:22px;display:block;pointer-events:none}
+/* FLOATING WHATSAPP (LEFT) + CALL (RIGHT) */
+.float-wa{position:fixed;left:14px;bottom:270px;z-index:390;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(145deg,#25D366,#128C7E);box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 24px rgba(37,211,102,.5);text-decoration:none;animation:fa 3s ease-in-out infinite;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.float-wa:hover{transform:scale(1.12) translateY(-3px)}
+.float-wa svg{width:28px;height:28px;display:block;pointer-events:none}
+.float-call{position:fixed;right:14px;bottom:270px;z-index:390;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(145deg,#34b7f1,#0d6efd);box-shadow:0 8px 22px rgba(0,0,0,.55),0 0 24px rgba(52,183,241,.5);text-decoration:none;animation:fa 3s ease-in-out infinite .5s;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.float-call:hover{transform:scale(1.12) translateY(-3px)}
+.float-call svg{width:28px;height:28px;display:block;pointer-events:none}
+@keyframes fa{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+/* modal */
+.modal-ov{position:fixed;inset:0;z-index:500;background:rgba(2,13,31,.9);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:15px;opacity:0;visibility:hidden;transition:.3s}
+.modal-ov.open{opacity:1;visibility:visible}
+.modal-c{position:relative;width:min(520px,95vw);max-height:90vh;overflow-y:auto;background:linear-gradient(160deg,var(--nl),var(--nd));border:2px solid var(--g);border-radius:20px;padding:24px 22px;text-align:center;transform:scale(.9) translateY(20px);transition:.3s cubic-bezier(.34,1.56,.64,1)}
+.modal-ov.open .modal-c{transform:none}
+.modal-close{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:none;background:linear-gradient(145deg,var(--gb),var(--gd));color:var(--nd);font-size:1.5rem;font-weight:bold;cursor:pointer;z-index:10}
+.modal-title{color:var(--gb);font-size:1.2rem;font-weight:800;margin-bottom:8px;font-family:'Yatra One',sans-serif}
+.modal-desc{color:#cbd5e1;font-size:.9rem;margin-bottom:16px}
+.quiz-score{background:rgba(212,175,55,.15);border:1px solid var(--g);border-radius:10px;padding:8px 14px;margin-bottom:12px;color:var(--gb);font-weight:800;font-size:.95rem}
+.quiz-q{color:#fff;font-size:1rem;margin-bottom:14px;font-weight:600}
+.quiz-opt{display:block;width:100%;margin:8px 0;padding:12px;background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(212,175,55,.4);border-radius:10px;cursor:pointer;text-align:left;font-family:inherit;font-size:.95rem;transition:.2s;position:relative}
+.quiz-opt:hover{background:rgba(212,175,55,.2)}
+.quiz-opt.correct{background:rgba(46,204,113,.35);border-color:#2ecc71;color:#fff}
+.quiz-opt.wrong{background:rgba(231,76,60,.35);border-color:#e74c3c;color:#fff}
+.quiz-opt .mark{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:1.3rem;font-weight:bold}
+.quiz-opt.correct .mark{color:#2ecc71}.quiz-opt.wrong .mark{color:#e74c3c}
+.quiz-feedback{margin-top:10px;padding:10px;border-radius:8px;font-weight:700;font-size:.9rem}
+.quiz-feedback.right{background:rgba(46,204,113,.2);color:#2ecc71;border:1px solid #2ecc71}
+.quiz-feedback.wrong{background:rgba(231,76,60,.2);color:#e74c3c;border:1px solid #e74c3c}
+.game-btn-action{background:var(--n);color:var(--gb);border:1px solid var(--g);padding:10px 22px;margin:5px;border-radius:10px;cursor:pointer;font-family:inherit;font-size:.95rem;font-weight:700;transition:.2s}
+.game-btn-action:hover{background:var(--g);color:var(--nd)}
+.game-ui p{color:#fff;font-size:1rem;margin-bottom:14px;font-weight:600}
+.ttt-board{display:grid;grid-template-columns:repeat(3,70px);gap:6px;justify-content:center;margin-bottom:15px}
+.ttt-cell{width:70px;height:70px;background:var(--n);border:2px solid rgba(212,175,55,.5);border-radius:10px;color:var(--gb);font-size:1.8rem;font-weight:bold;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;font-family:inherit}
+.ttt-cell:hover{background:rgba(212,175,55,.1)}
+.click-area{height:160px;background:rgba(255,255,255,.05);border:2px dashed var(--g);border-radius:15px;display:flex;align-items:center;justify-content:center;cursor:pointer;margin-bottom:15px;user-select:none;transition:.1s}
+.click-area:active{transform:scale(.98);background:rgba(212,175,55,.15)}
+.click-area span{font-size:1.5rem;font-weight:800;color:var(--gb);text-shadow:0 0 15px var(--g)}
+.rang-wrap{position:relative;width:100%;max-width:280px;aspect-ratio:1;margin:0 auto 12px;border-radius:50%;background:radial-gradient(circle,rgba(255,248,231,.06),rgba(3,21,46,.4));border:2px dashed rgba(212,175,55,.5);overflow:hidden}
+#rangCanvas{width:100%;height:100%;display:block;cursor:crosshair;touch-action:none}
+.colors{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+.csw{width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,248,231,.4);cursor:pointer;transition:.2s}
+.csw.active{border-color:#fff;transform:scale(1.2)}
+.word-hint{font-style:italic;color:rgba(255,248,231,.8);text-align:center;font-size:.9rem;margin-bottom:12px}
+.word-slots{display:flex;gap:6px;justify-content:center;margin-bottom:12px;flex-wrap:wrap}
+.word-slot{width:36px;height:44px;border-radius:10px;background:rgba(3,21,46,.8);border:2px solid rgba(212,175,55,.5);display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:800;color:var(--gb)}
+.word-slot.filled{border-color:var(--gb)}.word-slot.correct{background:linear-gradient(145deg,#2d6a4f,#1b4332);border-color:#7bed9f;color:#c8f7c5}
+.word-letters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.word-letter{width:38px;height:38px;border-radius:10px;border:1px solid rgba(212,175,55,.5);background:linear-gradient(145deg,var(--nl),var(--n));color:var(--gb);font-size:1rem;font-weight:800;cursor:pointer;transition:.2s;font-family:inherit}
+.word-letter:hover{border-color:var(--gb)}.word-letter.used{opacity:.3;pointer-events:none}
+.tap-area{position:relative;width:100%;max-width:300px;height:200px;margin:0 auto;border-radius:16px;background:radial-gradient(circle at 50% 50%,rgba(13,67,134,.6),rgba(3,21,46,.9));border:1px solid rgba(212,175,55,.3);overflow:hidden;cursor:crosshair;touch-action:none}
+.tap-target{position:absolute;width:44px;height:44px;border-radius:50%;background:radial-gradient(circle,#fff9c2,var(--gb) 40%,var(--fl) 70%);border:2px solid rgba(255,248,231,.7);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transform:translate(-50%,-50%);animation:tp 1s ease-in-out infinite}
+@keyframes tp{0%,100%{box-shadow:0 0 20px var(--fl)}50%{box-shadow:0 0 30px var(--gb)}}
+.count-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;max-width:280px;margin:0 auto 12px}
+.ccell{aspect-ratio:1;border-radius:10px;background:rgba(3,21,46,.6);border:1px solid rgba(212,175,55,.3);display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.ccell.has{background:linear-gradient(145deg,rgba(245,166,35,.25),rgba(212,175,55,.15));border-color:var(--gb)}
+.count-opts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.count-opt{min-width:48px;height:48px;padding:0 14px;border-radius:12px;border:2px solid rgba(212,175,55,.5);background:linear-gradient(145deg,var(--nl),var(--n));color:var(--gb);font-size:1.1rem;font-weight:800;cursor:pointer;font-family:inherit;transition:.25s}
+.count-opt:hover{transform:translateY(-2px)}
+.count-opt.correct{background:linear-gradient(145deg,#2d6a4f,#1b4332);border-color:#7bed9f;color:#c8f7c5}
+.count-opt.wrong{background:linear-gradient(145deg,#6a1b1b,#3d0e0e);border-color:#ff8a80;color:#ffcdc7}
+.snake-wrap{width:100%;max-width:280px;margin:0 auto 10px;display:flex;flex-direction:column;align-items:center;gap:8px}
+#snakeCanvas{width:100%;aspect-ratio:1;border-radius:14px;background:rgba(3,21,46,.8);border:2px solid rgba(212,175,55,.5);display:block;touch-action:none}
+.snake-controls{display:grid;grid-template-columns:repeat(3,42px);grid-template-rows:repeat(2,42px);gap:5px}
+.sdpad{width:42px;height:42px;border-radius:10px;border:1px solid rgba(212,175,55,.5);background:linear-gradient(145deg,var(--nl),var(--n));color:var(--gb);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
+.sdpad:active{transform:scale(.92)}
+.sdpad.up{grid-column:2;grid-row:1}.sdpad.left{grid-column:1;grid-row:2}.sdpad.down{grid-column:2;grid-row:2}.sdpad.right{grid-column:3;grid-row:2}
+#fireworks{position:absolute;inset:0;pointer-events:none;z-index:80}
+.spark{position:absolute;width:5px;height:5px;border-radius:50%;pointer-events:none;animation:sf var(--sd) cubic-bezier(.15,.6,.4,1) forwards}
+@keyframes sf{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(.2);opacity:0}}
+.rocket{position:absolute;width:4px;height:16px;border-radius:2px;pointer-events:none;animation:rf var(--rd) linear forwards}
+@keyframes rf{0%{transform:translateY(0);opacity:1}90%{opacity:1}100%{transform:translateY(var(--rh));opacity:0}}
+@media(max-width:700px){
+  .scene-layer{padding:12px 12px 300px}
+  .invite-card{max-height:calc(100dvh - 310px);padding:14px}
+  .bstack{gap:12px;bottom:12px}.bbar{padding:9px 16px 8px;border-radius:16px}
+  .gbtn{width:54px;height:54px;border-radius:12px}.gbtn .gi{font-size:1.2rem}.gbtn .gn{font-size:.44rem}
+  .slink{width:40px;height:40px}.slink svg{width:20px;height:20px}
+  .float-wa,.float-call{bottom:290px}.float-wa,.float-call{width:50px;height:50px}
+  .float-wa svg,.float-call svg{width:24px;height:24px}
+}
+@media(max-width:480px){
+  .scene-layer{padding:10px 10px 310px}
+  .title-badge{font-size:1rem;padding:6px 16px}
+  .gbtn{width:48px;height:48px}.gbtn .gi{font-size:1.05rem}.gbtn .gn{font-size:.4rem}
+  .slink{width:34px;height:34px}.slink svg{width:17px;height:17px}
+  .float-wa,.float-call{bottom:280px;width:46px;height:46px}
+  .ttt-board{grid-template-columns:repeat(3,60px)}.ttt-cell{width:60px;height:60px;font-size:1.5rem}
+}
+@supports(padding:env(safe-area-inset-bottom)){.scene-layer{padding-bottom:max(310px,calc(env(safe-area-inset-bottom) + 310px))}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<div id="scene">
+  <div class="palace-bg"></div>
+  <div class="stars" id="stars"></div>
+  <div class="toran" id="toran"></div>
+  <div id="fireworks"></div>
+
+  <div id="env-scene" class="scene-layer">
+    <div class="env-group">
+      <div class="envelope-wrapper">
+        <div class="envelope" id="envelope" onclick="openEnvelope()">
+          <div class="fomo"><span class="sp">✨</span><span class="txt">આ ખાસ આમંત્રણ તમારા માટે છે — ખોલો</span><span class="sp">✨</span></div>
+          <div class="env-back"></div>
+          <div class="env-letter"><div style="font-size:1.6rem">🪔</div><div class="lt">૨૨૭મી જલારામ જયંતિ</div><div class="ls">રઘુવંશી એકતા ભવ્ય બાઇક રેલી</div><div class="lc">રઘુવંશી યુથ ક્લબ જેતપુર</div></div>
+          <div class="env-pocket"></div><div class="env-flap"></div><div class="env-seal">ૐ</div><div class="env-border"></div>
+        </div>
+      </div>
+      <button class="open-cta" onclick="openEnvelope()"><span>🪔</span><span>અહીં ક્લિક કરો — આમંત્રણ ખોલો</span><span class="ar">↓</span></button>
+    </div>
+  </div>
+
+  <div id="invite-scene" class="scene-layer hidden">
+    <div class="invite-card">
+      <div class="title-badge">૨૨૭મી જલારામ જયંતિ નિમિત્તે</div>
+      <div class="welcome">જેતપુરના સમગ્ર રઘુવંશી પરિવારને એકતા રેલીમાં જોડાવા જાહેર નિમંત્રણ અને વિનંતી.</div>
+      <div class="club-badge"><span>👳‍♂️</span>રઘુવંશી યુથ ક્લબ જેતપુર<span>👳‍♂️</span></div>
+      <div class="trad-box">૧૯૮૧ થી જેતપુરના ભાદરના પવિત્ર કાંઠે અમારા વડીલોએ દ્વારા નિયમિત સંચાલિત ૪૫ વર્ષથી સતત આજ સુધી ચાલતી આસ્થા અને જલારામ જયંતિ શોભાયાત્રાની ભવ્ય પરંપરાને અમે શ્રદ્ધા સાથે આગળ વધારીએ છીએ.</div>
+      <div class="det-box">
+        <div class="det-title">રઘુવંશી એકતા ભવ્ય બાઇક રેલી</div>
+        <div class="det-item"><strong>તારીખ:</strong> ૧૬ નવેમ્બર, ૨૦૨૭ (સોમવાર)</div>
+        <div class="det-item"><strong>સ્થળ:</strong> સ્વ. કાંતિલાલ ધનેશા, જલિયાણ પ્રોવિઝન, Jalram Chowk, ભાદરના સામેકાંઠે, જેતપુર.</div>
+        <div class="det-item"><strong>સમય:</strong> સવારે ૯:૦૦ થી ૧૧:૦૦</div>
+      </div>
+      <div class="info-grid">
+        <div class="icard"><h4>કાર્યક્રમનો સમયપત્રક</h4>
+          <div class="lr"><span>૭:૩૦ AM</span><span>પૂજા વિધિ</span></div>
+          <div class="lr"><span>૮:૦૦ AM</span><span>જલારામ પંડાલ</span></div>
+          <div class="lr"><span>૮:૩૦ AM</span><span>અન્નકૂટ</span></div>
+          <div class="lr"><span>૯:૦૦ AM</span><span>બાઇક રેલી શરૂ</span></div>
+        </div>
+        <div class="icard"><h4>રેલી રૂટ</h4>
+          <div class="lr"><span>૯:૦૦ AM</span><span>જલિયાણ પ્રોવિઝન</span></div>
+          <div class="lr"><span>૯:૧૫ AM</span><span>ભાદર પુલ</span></div>
+          <div class="lr"><span>૯:૩૦ AM</span><span>જૂની હવેલી ચોક</span></div>
+          <div class="lr"><span>૯:૪૫ AM</span><span>કુલવાડી ચાંદની ચોક</span></div>
+          <div class="lr"><span>૧૦:૦૦ AM</span><span>જૂની મહાજન વાડી</span></div>
+          <div class="lr"><span>૧૦:૧૫ AM</span><span>સ્ટેન્ડ ચોક</span></div>
+          <div class="lr"><span>૧૦:૩૦ AM</span><span>તીનબત્તી ચોક</span></div>
+          <div class="lr"><span>૧૦:૪૫ AM</span><span>સરદાર ચોક</span></div>
+          <div class="lr"><span>૧૦:૫૦ AM</span><span>જેતપુર યાર્ડ</span></div>
+          <div class="lr"><span>૧૧:૦૦ AM</span><span>જલારામ મંદિર</span></div>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://maps.google.com/maps?q=Jalaram%20Chowk%2C%20Jetpur%2C%20Gujarat&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" title="Jalaram Chowk"></iframe>
+        <a class="map-btn" href="https://maps.app.goo.gl/vp8BuGC5iEcG286x8" target="_blank" rel="noopener">📍 Maps માં ખોલો</a>
+      </div>
+
+      <!-- FOOTER 2 SECTIONS -->
+      <div class="footer-2">
+        <div class="fsec">
+          <div class="fsec-label">સંપર્ક</div>
+          <div class="fsec-val">રઘુવંશી યુથ ક્લબ જેતપુર<br>જેતપુર, ગુજરાત</div>
+        </div>
+        <div class="fsec">
+          <div class="fsec-label">Developed By</div>
+          <div class="fsec-val">ચિરાગ ધનેશા<br><a href="tel:9426138950">9426138950</a></div>
+        </div>
+      </div>
+
+      <div class="footer">જય જલારામ | જય શ્રી રામ | જય વીરબાઈ મા</div>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING WHATSAPP (LEFT) -->
+<a class="float-wa" href="https://wa.me/919426138950?text=જય%20જલારામ%20-%20હું%20227મી%20જલારામ%20જયંતિ%20રેલી%20વિશે%20જાણવા%20માંગું%20છું" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.54-13.58zM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 1 1 5.6 3.09zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.14-.42.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.36-.11-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33l-.38-.01c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66s.72 1.93.82 2.06c.1.13 1.41 2.16 3.42 3.03.48.2.85.33 1.14.42.48.15.92.13 1.26.08.38-.06 1.17-.48 1.34-.94.17-.47.17-.86.12-.95-.05-.08-.18-.13-.38-.23z"/></svg>
+</a>
+
+<!-- FLOATING CALL (RIGHT) -->
+<a class="float-call" href="tel:9428157173" aria-label="Call">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+</a>
+
+<!-- BOTTOM BARS -->
+<div class="bstack">
+  <div class="bbar game-bar" aria-label="Jalram Jayanti Special Games">
+    <div class="bbar-label">🎮 Jalram Jayanti Special Games</div>
+    <div class="game-buttons">
+      <button class="gbtn" onclick="openGame('quiz')"><span class="gi">🧠</span><span class="gn">Quiz</span></button>
+      <button class="gbtn" onclick="openGame('rangoli')"><span class="gi">🎨</span><span class="gn">Draw<br>Rangoli</span></button>
+      <button class="gbtn" onclick="openGame('ttt')"><span class="gi">❌</span><span class="gn">Tic<br>Toe</span></button>
+      <button class="gbtn" onclick="openGame('word')"><span class="gi">📝</span><span class="gn">Word<br>Cross</span></button>
+      <button class="gbtn" onclick="openGame('tap')"><span class="gi">✨</span><span class="gn">Crackers<br>Tap</span></button>
+      <button class="gbtn" onclick="openGame('count')"><span class="gi">🔢</span><span class="gn">Count<br>Diyas</span></button>
+      <button class="gbtn" onclick="openGame('snake')"><span class="gi">🐍</span><span class="gn">Snake<br>Game</span></button>
+    </div>
+  </div>
+  <div class="bbar social-bar">
+    <div class="bbar-label">અમને ફોલો કરો</div>
+    <div class="social-links">
+      <a href="https://www.instagram.com/billingxchange" target="_blank" rel="noopener" class="slink" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a>
+      <a href="https://www.linkedin.com/company/billing-xchange" target="_blank" rel="noopener" class="slink" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zM10 9h3.8v1.7h.1c.53-1 1.83-2.1 3.77-2.1 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.32-.02-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.92V21h-4V9z"/></svg></a>
+      <a href="https://www.facebook.com/people/BillingXchange/61579185790838" target="_blank" rel="noopener" class="slink" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.4h2.5l.4-2.9h-2.9V8.8c0-.84.23-1.41 1.44-1.41h1.54V4.8c-.27-.04-1.18-.11-2.24-.11-2.22 0-3.74 1.35-3.74 3.84v2.14H8v2.9h2.5V21h3z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-ov" id="gameModal">
+  <div class="modal-c">
+    <button class="modal-close" onclick="closeGame()">×</button>
+    <div class="modal-title" id="mTitle">રમત</div>
+    <div class="modal-desc" id="mDesc">રમો અને મજા કરો!</div>
+    <div id="gameContent"></div>
+  </div>
+</div>
+
+<script>
+// STARS
+(function(){const c=document.getElementById('stars');for(let i=0;i<120;i++){const s=document.createElement('div');s.className='star';const z=Math.random()*2.5+1;s.style.cssText=`width:${z}px;height:${z}px;left:${Math.random()*100}%;top:${Math.random()*55}%`;s.style.setProperty('--d',(Math.random()*3+2)+'s');s.style.setProperty('--dl',(Math.random()*4)+'s');c.appendChild(s)}})();
+// TORAN
+(function(){const c=document.getElementById('toran');for(let i=0;i<14;i++){const t=document.createElement('div');t.className='ti';t.innerHTML='<div class="ts"></div><div class="tl"></div><div class="tf"></div>';c.appendChild(t)}})();
+
+// ENVELOPE
+let opened=false;
+function openEnvelope(){if(opened)return;opened=true;const e=document.getElementById('envelope');if(e)e.classList.add('open');const cta=document.querySelector('.open-cta');if(cta){cta.style.pointerEvents='none';cta.style.opacity='0'}grandShow();setTimeout(()=>{document.getElementById('env-scene').classList.add('hidden');document.getElementById('invite-scene').classList.remove('hidden')},1500)}
+
+// FIREWORKS
+const fw=document.getElementById('fireworks');
+const pal=['#f5c542','#f5a623','#ff6b35','#ff4757','#d4af37','#fff3b3','#ffa502','#eccc68','#7bed9f','#70a1ff'];
+function burst(x,y,color,count=28){for(let i=0;i<count;i++){const s=document.createElement('div');s.className='spark';const a=(Math.PI*2*i)/count+Math.random()*.4;const v=60+Math.random()*110;s.style.cssText=`left:${x}px;top:${y}px;background:${color};box-shadow:0 0 8px ${color}`;s.style.setProperty('--tx',Math.cos(a)*v+'px');s.style.setProperty('--ty',Math.sin(a)*v+'px');s.style.setProperty('--sd',(.9+Math.random()*.7)+'s');fw.appendChild(s);setTimeout(()=>s.remove(),1800)}const f=document.createElement('div');f.style.cssText=`position:absolute;left:${x-60}px;top:${y-60}px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,${color}55,transparent 70%);pointer-events:none`;fw.appendChild(f);setTimeout(()=>f.remove(),500)}
+function rocket(tx){const r=document.createElement('div');const sx=tx??Math.random()*innerWidth;const fh=-(innerHeight*(.45+Math.random()*.3));const c=pal[Math.floor(Math.random()*pal.length)];r.className='rocket';r.style.cssText=`left:${sx}px;top:${innerHeight}px;background:linear-gradient(180deg,${c},#fff)`;r.style.setProperty('--rh',fh+'px');const d=1+Math.random()*.5;r.style.setProperty('--rd',d+'s');fw.appendChild(r);setTimeout(()=>{r.remove();burst(sx,innerHeight+fh,c)},d*1000)}
+function grandShow(){const cx=innerWidth/2,cy=innerHeight/2;setTimeout(()=>burst(cx,cy,'#f5c542',46),100);setTimeout(()=>burst(cx-160,cy-90,'#ff6b35',34),350);setTimeout(()=>burst(cx+160,cy-90,'#ff4757',34),550);setTimeout(()=>burst(cx,cy-160,'#7bed9f',26),800);for(let i=0;i<6;i++)setTimeout(()=>rocket(cx+(Math.random()-.5)*innerWidth*.75),400+i*240)}
+function startFW(){(function loop(){rocket();if(Math.random()>.6)setTimeout(()=>burst(Math.random()*innerWidth,Math.random()*innerHeight*.5,pal[Math.floor(Math.random()*pal.length)],18),900);setTimeout(loop,1200+Math.random()*1000)})()}
+
+// GAME MODAL
+const modal=document.getElementById('gameModal'),mTitle=document.getElementById('mTitle'),mDesc=document.getElementById('mDesc'),gameContent=document.getElementById('gameContent');
+let currentGame=null,quizTimer=null,clickTimer=null,snakeInt=null;
+
+function openGame(g){currentGame=g;modal.classList.add('open');gameContent.innerHTML='';clearInterval(clickTimer);clearInterval(snakeInt);
+  const titles={quiz:'જલારામ ક્વિઝ',rangoli:'Draw Rangoli',ttt:'Tic Tac Toe',word:'Word Cross',tap:'Crackers Tap',count:'Count Diyas',snake:'Snake Game'};
+  const descs={quiz:'100 પ્રશ્નો — સાચો જવાબ લીલો, ખોટો લાલ!',rangoli:'રંગ પસંદ કરો અને રંગોળી દોરો!',ttt:'તમે X, કમ્પ્યુટર O',word:'જલારામ સંબંધિત શબ્દ ઉકેલો!',tap:'20 સેકન્ડમાં ક્રેકર ટેપ કરો!',count:'દીવા ગણો અને સાચો જવાબ આપો!',snake:'દીવા ખાઓ! Arrow keys કે D-pad વાપરો'};
+  mTitle.innerText=titles[g];mDesc.innerText=descs[g];
+  if(g==='quiz')startQuiz();else if(g==='rangoli')startRangoli();else if(g==='ttt')startTTT();else if(g==='word')startWord();else if(g==='tap')startTap();else if(g==='count')startCount();else if(g==='snake')startSnake();
+}
+function closeGame(){modal.classList.remove('open');gameContent.innerHTML='';clearInterval(clickTimer);clearInterval(snakeInt);if(quizTimer)clearTimeout(quizTimer);currentGame=null}
+
+// QUIZ — 100 QUESTIONS
+const JQ=[
+{q:"જલારામ બાપાનો જન્મ ક્યાં થયો હતો?",a:["વિરપુર","જેતપુર","દ્વારકા","અમદાવાદ"],c:0},
+{q:"જલારામ બાપાનો જન્મ કઈ સદીમાં થયો?",a:["૧૮મી સદી","૧૯મી સદી","૨૦મી સદી","૧૭મી સદી"],c:0},
+{q:"જલારામ બાપાના પિતાનું નામ શું હતું?",a:["પ્રધાન ઠાકર","રામદાસ","કૃષ્ણદાસ","હરિદાસ"],c:0},
+{q:"જલારામ બાપાના માતાનું નામ શું હતું?",a:["રાજબાઈ","હીરાબાઈ","જમનાબાઈ","સીતાબાઈ"],c:0},
+{q:"જલારામ બાપાનું બીજું નામ શું છે?",a:["જાલો","જલુ","જયરામ","જગદીશ"],c:0},
+{q:"જલારામ બાપાએ કયા દેવતાની ઉપાસના કરી?",a:["રામ","કૃષ્ણ","શિવ","ગણેશ"],c:0},
+{q:"જલારામ બાપાનું મુખ્ય મંદિર ક્યાં છે?",a:["વિરપુર","જેતપુર","રાજકોટ","ભાવનગર"],c:0},
+{q:"જલારામ જયંતિ કઈ તિથિએ ઉજવાય છે?",a:["રામ નવમી","જન્માષ્ટમી","દિવાળી","નવરાત્રી"],c:0},
+{q:"જલારામ બાપાની સમાધિ ક્યાં છે?",a:["વિરપુર","જેતપુર","દ્વારકા","સોમનાથ"],c:0},
+{q:"જલારામ બાપાના ગુરુ કોણ હતા?",a:["ભોજલ ભગત","રામાનંદ","કબીર","નરસિંહ મહેતા"],c:0},
+{q:"જલારામ બાપાને કયો રોગ હતો?",a:["ક્ષય","કેન્સર","ડાયાબિટીસ","હૃદય રોગ"],c:0},
+{q:"જલારામ બાપાએ લોકોને કયો મંત્ર આપ્યો?",a:["રામ નામ","કૃષ્ણ નામ","શિવ નામ","જય જલારામ"],c:3},
+{q:"જલારામ બાપાના ભક્તો કયો નાદ કરે છે?",a:["જય જલારામ","જય રામ","જય કૃષ્ણ","જય શિવ"],c:0},
+{q:"જલારામ બાપાને શું પ્રિય હતું?",a:["દીવા","ફૂલ","મીઠાઈ","ધૂપ"],c:0},
+{q:"જલારામ બાપાનું જીવન કેવું હતું?",a:["સાદું","રાજશી","આરામદાયક","શ્રીમંત"],c:0},
+{q:"જલારામ બાપાએ ક્યાં તપ કર્યું?",a:["વિરપુર","જેતપુર","ભાદર કાંઠે","ગિરનાર"],c:2},
+{q:"જલારામ બાપાના ભક્તોમાં કોણ પ્રખ્યાત છે?",a:["વીરબાઈ","મીરાબાઈ","રાધા","સીતા"],c:0},
+{q:"જલારામ બાપાની માતા ક્યાં રહેતી હતી?",a:["વિરપુર","જેતપુર","રાજકોટ","દ્વારકા"],c:0},
+{q:"જલારામ બાપાને કયો રંગ પ્રિય હતો?",a:["પીળો","લાલ","લીલો","વાદળી"],c:0},
+{q:"જલારામ બાપાએ કેટલા વર્ષ જીવ્યા?",a:["૫૦","૬૦","૭૦","૮૦"],c:2},
+{q:"જલારામ બાપાના પિતા કયા ગામના હતા?",a:["વિરપુર","જેતપુર","દ્વારકા","રાજકોટ"],c:0},
+{q:"જલારામ બાપાને કયા દેવતા સ્વપ્નમાં આવ્યા?",a:["રામ","કૃષ્ણ","શિવ","ગણેશ"],c:0},
+{q:"જલારામ બાપાને ભગવાન રામે શું આપ્યું?",a:["દર્શન","ધન","રાજ્ય","આયુષ્ય"],c:0},
+{q:"જલારામ બાપાની ભક્તિ કેવી હતી?",a:["નિષ્કામ","સકામ","દંભી","લાલચી"],c:0},
+{q:"જલારામ બાપાને શું પ્રિય હતું?",a:["કથા","ગીત","નૃત્ય","નાટક"],c:0},
+{q:"જલારામ બાપાના ભજનો કઈ ભાષામાં છે?",a:["ગુજરાતી","હિન્દી","સંસ્કૃત","મરાઠી"],c:0},
+{q:"જલારામ જયંતિ કયા મહિનામાં આવે છે?",a:["કારતક","ચૈત્ર","શ્રાવણ","ફાગણ"],c:0},
+{q:"જલારામ બાપાનું મંદિર કયા જિલ્લામાં છે?",a:["રાજકોટ","જૂનાગઢ","ભાવનગર","અમરેલી"],c:0},
+{q:"જલારામ બાપાએ કેટલા દીવા પ્રગટાવ્યા?",a:["૧૦૮","૫૦","૨૧","૧૦૦"],c:0},
+{q:"જલારામ બાપાને કયું ફળ પ્રિય હતું?",a:["કેરી","કેળું","સફરજન","દ્રાક્ષ"],c:0},
+{q:"જલારામ બાપાની કથા કોણ લખે છે?",a:["ભક્તો","રાજા","પંડિત","ઋષિ"],c:0},
+{q:"જલારામ બાપાનું જીવન કેવું હતું?",a:["સેવાભાવી","સ્વાર્થી","આળસુ","ગુસ્સાવાળું"],c:0},
+{q:"જલારામ બાપાના ભક્તો કયો તહેવાર ઉજવે છે?",a:["જલારામ જયંતિ","દિવાળી","હોળી","નવરાત્રી"],c:0},
+{q:"જલારામ બાપાને કયો રોગ હતો?",a:["ક્ષય","મલેરિયા","ટાઇફોઇડ","કોલેરા"],c:0},
+{q:"જલારામ બાપાની સમાધિ કયા ગામમાં છે?",a:["વિરપુર","જેતપુર","રાજકોટ","દ્વારકા"],c:0},
+{q:"જલારામ બાપાને શું પ્રિય હતું?",a:["સેવા","ધન","રાજ્ય","આરામ"],c:0},
+{q:"જલારામ બાપાના ભક્તો કઈ ભાષામાં ભજન ગાય છે?",a:["ગુજરાતી","તમિલ","તેલુગુ","કન્નડ"],c:0},
+{q:"જલારામ બાપાને કયા દેવતાએ દર્શન આપ્યા?",a:["રામ","કૃષ્ણ","શિવ","વિષ્ણુ"],c:0},
+{q:"જલારામ બાપાનું મંદિર કયા નદી કાંઠે છે?",a:["ભાદર","નર્મદા","તાપી","સાબરમતી"],c:0},
+{q:"જલારામ બાપાની પૂજા કેવી રીતે થાય છે?",a:["દીવા પ્રગટાવીને","ફૂલથી","ધૂપથી","અભિષેકથી"],c:0},
+{q:"જલારામ બાપાને કયું અન્ન પ્રિય હતું?",a:["ખીચડી","પૂરી","ભાત","રોટલી"],c:0},
+{q:"જલારામ બાપાનું જીવન કેવું હતું?",a:["નિષ્કામ","સકામ","લાલચી","સ્વાર્થી"],c:0},
+{q:"જલારામ બાપાના ભક્તો કયો દિવસ ઉજવે છે?",a:["જલારામ જયંતિ","રામ નવમી","જન્માષ્ટમી","મહાશિવરાત્રી"],c:0},
+{q:"જલારામ બાપાને કયો રંગ પ્રિય હતો?",a:["કેસરી","લાલ","લીલો","વાદળી"],c:0},
+{q:"જલારામ બાપાની કથા કોણ ગાય છે?",a:["ભક્તો","રાજા","પંડિત","ઋષિ"],c:0},
+{q:"જલારામ બાપાનું મંદિર કયા રાજ્યમાં છે?",a:["ગુજરાત","મહારાષ્ટ્ર","રાજસ્થાન","મધ્યપ્રદેશ"],c:0},
+{q:"જલારામ બાપાને કયું ફૂલ પ્રિય હતું?",a:["ગલગોટો","ગુલાબ","કમળ","ચંપો"],c:0},
+{q:"જલારામ બાપાના ભક્તો કયો મંત્ર જપે છે?",a:["જય જલારામ","ઓમ નમઃ શિવાય","હરે કૃષ્ણ","જય રામ"],c:0},
+{q:"જલારામ બાપાનું જીવન કેવું હતું?",a:["સાદું","રાજશી","આરામદાયક","શ્રીમંત"],c:0},
+{q:"જલારામ બાપાને કયો રોગ હતો?",a:["ક્ષય","કેન્સર","ડાયાબિટીસ","હૃદય રોગ"],c:0},
+{q:"જલારામ બાપાની સમાધિ ક્યારે થઈ?",a:["૧૮૨૦","૧૮૫૦","૧૯૦૦","૧૯૫૦"],c:0},
+{q:"જલારામ બાપાનો જન્મ કયા વર્ષે થયો?",a:["૧૭૯૯","૧૮૦૦","૧૮૫૦","૧૯૦૦"],c:0},
+{q:"જલારામ બાપાનું બીજું નામ શું છે?",a:["જાલો","જલુ","જયરામ","જગદીશ"],c:0},
+{q:"જલારામ બાપાને ભગવાન રામે શું આપ્યું?",a:["દર્શન","ધન","રાજ્ય","આયુષ્ય"],c:0},
+{q:"જલારામ બાપાની ભક્તિ કેવી હતી?",a:["નિષ્કામ","સકામ","દંભી","લાલચી"],c:0},
+{q:"જલારામ બાપાને શું પ્રિય હતું?",a:["સેવા","ધન","રાજ્ય","આરામ"],c:0},
+{q:"જલારામ બાપાના ભક્તો કયો નાદ કરે છે?",a:["જય જલારામ","જય રામ","જય કૃષ્ણ","જય શિવ"],c:0},
+{q:"જલારામ બાપાનું મંદિર કયા નદી કાંઠે છે?",a:["ભાદર","નર્મદા","તાપી","સાબરમતી"],c:0},
+{q:"જલારામ બાપાને કયા દેવતાની ઉપાસના કરી?",a:["રામ","કૃષ્ણ","શિવ","ગણેશ"],c:0},
+{q:"જલારામ બાપાના ગુરુ કોણ હતા?",a:["ભોજલ ભગત","રામાનંદ","કબીર","નરસિંહ મહેતા"],c:0},
+{q:"જલારામ બાપાને કયો રોગ હતો?",a:["ક્ષય","મલેરિયા","ટાઇફોઇડ","કોલેરા"],c:0},
+{q:"જલારામ બાપાની સમાધિ કયા ગામમાં છે?",a:["વિરપુર","જેતપુર","રાજકોટ","દ્વારકા"],c:0},
+{q:"જલારામ બાપાને શું પ્રિય હતું?",a:["કથા","ગીત","નૃત્ય","નાટક"],c:0},
+{q:"જલારામ બાપાના ભજનો કઈ ભાષામાં છે?",a:["ગુજરાતી","હિન્દી","સંસ્કૃત","મરાઠી"],c:0},
+{q:"જલારામ જયંતિ કયા મહિનામાં આવે છે?",a:["કારતક","ચૈત્ર","શ્રાવણ","ફાગણ"],c:0},
+{q:"જલારામ બાપાનું મંદિર કયા જિલ્લામાં છે?",a:["રાજકોટ","જૂનાગઢ","ભાવનગર","અમરેલી"],c:0},
+{q:"જલારામ બાપાએ કેટલા દીવા પ્રગટાવ્યા?",a:["૧૦૮","૫૦","૨૧","૧૦૦"],c:0},
+{q:"જલારામ બાપાને કયું ફળ પ્રિય હતું?",a:["કેરી","કેળું","સફરજન","દ્રાક્ષ"],c:0},
+{q:"જલારામ બાપાની કથા કોણ લખે છે?",a:["ભક્તો","રાજા","પંડિત","ઋષિ"],c:0},
+{q:"જલારામ બાપાનું જીવન કેવું હતું?",a:["સેવાભાવી","સ્વાર્થી","આળસુ","ગુસ્સાવાળું"],c:0},
+{q:"જલારામ બાપાના ભક્તો કયો તહેવાર ઉજવે છે?",a:["જલારામ જયંતિ","દિવાળી","હોળી","નવરાત્રી"],c:0},
+{q:"જલારામ બાપાને કયો રોગ હતો?",a:["ક્ષય","કેન્સર","ડાયાબિટીસ","હૃદય રોગ"],c:0},
+{q:"જલારામ બાપાની સમાધિ ક્યારે થઈ?",a:["૧૮૨૦","૧૮૫૦","૧૯૦૦","૧૯૫૦"],c:0},
+{q:"જલારામ બાપાનો જન્મ કયા વર્ષે થયો?",a:["૧૭૯૯","૧૮૦૦","૧૮૫૦","૧૯૦૦"],c:0},
+{q:"જલારામ બાપાના ભક્તો કઈ ભાષામાં ભજન ગાય છે?",a:["ગુજરાતી","તમિલ","તેલુગુ","કન્નડ"],c:0},
+{q:"જલારામ બાપાને કયા દેવતાએ દર્શન આપ્યા?",a:["રામ","કૃષ્ણ","શિવ","વિષ્ણુ"],c:0},
+{q:"જલારામ બાપાની પૂજા કેવી રીતે થાય છે?",a:["દીવા પ્રગટાવીને","ફૂલથી","ધૂપથી","અભિષેકથી"],c:0},
+{q:"જલારામ બાપાને કયું અન્ન પ્રિય હતું?",a:["ખીચડી","પૂરી","ભાત","રોટલી"],c:0},
+{q:"જલારામ બાપાનું જીવન કેવું હતું?",a:["નિષ્કામ","સકામ","લાલચી","સ્વાર્થી"],c:0},
+{q:"જલારામ બાપાના ભક્તો કયો દિવસ ઉજવે છે?",a:["જલારામ જયંતિ","રામ નવમી","જન્માષ્ટમી","મહાશિવરાત્રી"],c:0},
+{q:"જલારામ બાપાને કયો રંગ પ્રિય હતો?",a:["કેસરી","લાલ","લીલો","વાદળી"],c:0},
+{q:"જલારામ બાપાની કથા કોણ ગાય છે?",a:["ભક્તો","રાજા","પંડિત","ઋષિ"],c:0},
+{q:"જલારામ બાપાનું મંદિર કયા રાજ્યમાં છે?",a:["ગુજરાત","મહારાષ્ટ્ર","રાજસ્થાન","મધ્યપ્રદેશ"],c:0},
+{q:"જલારામ બાપાને કયું ફૂલ પ્રિય હતું?",a:["ગલગોટો","ગુલાબ","કમળ","ચંપો"],c:0},
+{q:"જલારામ બાપાના ભક્તો કયો મંત્ર જપે છે?",a:["જય જલારામ","ઓમ નમઃ શિવાય","હરે કૃષ્ણ","જય રામ"],c:0},
+{q:"જલારામ બાપાનું જીવન કેવું હતું?",a:["સાદું","રાજશી","આરામદાયક","શ્રીમંત"],c:0},
+{q:"જલારામ બાપાને શું પ્રિય હતું?",a:["દીવા","ફૂલ","મીઠાઈ","ધૂપ"],c:0},
+{q:"જલારામ બાપાના પિતા કયા ગામના હતા?",a:["વિરપુર","જેતપુર","દ્વારકા","રાજકોટ"],c:0},
+{q:"જલારામ બાપાને કયા દેવતા સ્વપ્નમાં આવ્યા?",a:["રામ","કૃષ્ણ","શિવ","ગણેશ"],c:0},
+{q:"જલારામ બાપાને ભગવાન રામે શું આપ્યું?",a:["દર્શન","ધન","રાજ્ય","આયુષ્ય"],c:0},
+{q:"જલારામ બાપાની ભક્તિ કેવી હતી?",a:["નિષ્કામ","સકામ","દંભી","લાલચી"],c:0},
+{q:"જલારામ બાપાને કયું ફળ પ્રિય હતું?",a:["કેરી","કેળું","સફરજન","દ્રાક્ષ"],c:0},
+{q:"જલારામ બાપાને શું પ્રિય હતું?",a:["સેવા","ધન","રાજ્ય","આરામ"],c:0},
+{q:"જલારામ બાપાના ભક્તો કયો નાદ કરે છે?",a:["જય જલારામ","જય રામ","જય કૃષ્ણ","જય શિવ"],c:0},
+{q:"જલારામ બાપાનું મંદિર કયા નદી કાંઠે છે?",a:["ભાદર","નર્મદા","તાપી","સાબરમતી"],c:0},
+{q:"જલારામ બાપાને કયા દેવતાની ઉપાસના કરી?",a:["રામ","કૃષ્ણ","શિવ","ગણેશ"],c:0},
+{q:"જલારામ બાપાના ગુરુ કોણ હતા?",a:["ભોજલ ભગત","રામાનંદ","કબીર","નરસિંહ મહેતા"],c:0},
+{q:"જલારામ બાપાને કયો રોગ હતો?",a:["ક્ષય","મલેરિયા","ટાઇફોઇડ","કોલેરા"],c:0},
+{q:"જલારામ બાપાની સમાધિ કયા ગામમાં છે?",a:["વિરપુર","જેતપુર","રાજકોટ","દ્વારકા"],c:0},
+{q:"જલારામ બાપાને કયું અન્ન પ્રિય હતું?",a:["ખીચડી","પૂરી","ભાત","રોટલી"],c:0},
+{q:"જલારામ બાપાનું જીવન કેવું હતું?",a:["નિષ્કામ","સકામ","લાલચી","સ્વાર્થી"],c:0},
+{q:"જલારામ બાપાના ભક્તો કયો દિવસ ઉજવે છે?",a:["જલારામ જયંતિ","રામ નવમી","જન્માષ્ટમી","મહાશિવરાત્રી"],c:0},
+{q:"જલારામ બાપાને કયો રંગ પ્રિય હતો?",a:["કેસરી","લાલ","લીલો","વાદળી"],c:0},
+{q:"જલારામ બાપાની કથા કોણ ગાય છે?",a:["ભક્તો","રાજા","પંડિત","ઋષિ"],c:0},
+{q:"જલારામ બાપાનું મંદિર કયા રાજ્યમાં છે?",a:["ગુજરાત","મહારાષ્ટ્ર","રાજસ્થાન","મધ્યપ્રદેશ"],c:0},
+{q:"જલારામ બાપાને કયું ફૂલ પ્રિય હતું?",a:["ગલગોટો","ગુલાબ","કમળ","ચંપો"],c:0}
+];
+
+let qOrder=[],qIdx=0,qScore=0,qAnswered=false;
+function startQuiz(){qScore=0;qIdx=0;qAnswered=false;qOrder=[...Array(JQ.length).keys()].sort(()=>Math.random()-.5);renderQuiz()}
+function renderQuiz(){
+  if(qIdx>=qOrder.length){gameContent.innerHTML=`<div class="game-ui"><p style="font-size:1.3rem;color:var(--gb)">🎉 તમામ પ્રશ્નો પૂરા!</p><div class="quiz-score">તમારો સ્કોર: <strong>${qScore}/${qOrder.length}</strong></div><button class="game-btn-action" onclick="startQuiz()">ફરી રમો</button></div>`;return}
+  qAnswered=false;
+  const q=JQ[qOrder[qIdx]];
+  let h=`<div class="quiz-score">સ્કોર: ${qScore}/${qIdx} &nbsp;•&nbsp; પ્રશ્ન ${qIdx+1}/${qOrder.length}</div>`;
+  h+=`<div class="quiz-q">${q.q}</div>`;
+  q.a.forEach((opt,i)=>{h+=`<button class="quiz-opt" data-i="${i}" onclick="answerQuiz(${i})">${opt}<span class="mark"></span></button>`});
+  h+=`<div class="quiz-feedback" id="qFeed" style="display:none"></div>`;
+  gameContent.innerHTML=h;
+}
+function answerQuiz(sel){
+  if(qAnswered)return;qAnswered=true;
+  const q=JQ[qOrder[qIdx]];
+  const opts=gameContent.querySelectorAll('.quiz-opt');
+  const feed=document.getElementById('qFeed');
+  opts.forEach((o,i)=>{
+    o.style.pointerEvents='none';
+    if(i===q.c){o.classList.add('correct');o.querySelector('.mark').textContent='✓'}
+    else if(i===sel){o.classList.add('wrong');o.querySelector('.mark').textContent='✗'}
+  });
+  if(sel===q.c){qScore++;feed.className='quiz-feedback right';feed.textContent='✅ સાચો જવાબ!'}
+  else{feed.className='quiz-feedback wrong';feed.textContent='❌ ખોટો જવાબ — સાચો જવાબ લીલામાં દર્શાવ્યો છે.'}
+  feed.style.display='block';
+  qIdx++;
+  quizTimer=setTimeout(renderQuiz,1400);
+}
+
+// RANGOLI
+let rCtx=null,rDrawing=false,rColor='#f5c542';
+function startRangoli(){
+  gameContent.innerHTML=`<div class="rang-wrap"><canvas id="rangCanvas"></canvas></div><div class="colors">${['#f5c542','#ff6b35','#ff4757','#7bed9f','#70a1ff','#fff'].map((c,i)=>`<div class="csw ${i===0?'active':''}" style="background:${c}" data-c="${c}"></div>`).join('')}</div><button class="game-btn-action" onclick="clearRang()">Clear</button>`;
+  const cv=document.getElementById('rangCanvas');const w=cv.parentElement.clientWidth;const d=window.devicePixelRatio||1;cv.width=w*d;cv.height=w*d;cv.style.width=w+'px';cv.style.height=w+'px';
+  rCtx=cv.getContext('2d');rCtx.scale(d,d);rCtx.lineCap='round';rCtx.lineJoin='round';rCtx.lineWidth=4;rCtx.strokeStyle=rColor;
+  function pos(e){const r=cv.getBoundingClientRect();const cx=e.touches?e.touches[0].clientX:e.clientX;const cy=e.touches?e.touches[0].clientY:e.clientY;return{x:cx-r.left,y:cy-r.top}}
+  function start(e){e.preventDefault();rDrawing=true;const p=pos(e);rCtx.beginPath();rCtx.moveTo(p.x,p.y);rCtx.strokeStyle=rColor;rCtx.shadowColor=rColor;rCtx.shadowBlur=12}
+  function move(e){if(!rDrawing)return;e.preventDefault();const p=pos(e);rCtx.lineTo(p.x,p.y);rCtx.stroke()}
+  function end(){rDrawing=false}
+  cv.addEventListener('mousedown',start);cv.addEventListener('mousemove',move);cv.addEventListener('mouseup',end);cv.addEventListener('mouseleave',end);
+  cv.addEventListener('touchstart',start,{passive:false});cv.addEventListener('touchmove',move,{passive:false});cv.addEventListener('touchend',end);
+  document.querySelectorAll('.csw').forEach(s=>s.addEventListener('click',()=>{document.querySelectorAll('.csw').forEach(x=>x.classList.remove('active'));s.classList.add('active');rColor=s.dataset.c}));
+}
+function clearRang(){if(rCtx){const c=rCtx.canvas;rCtx.clearRect(0,0,c.width,c.height)}}
+
+// TIC TAC TOE
+let tb=['','','','','','','','',''],tCur='X';
+function startTTT(){tb=['','','','','','','','',''];tCur='X';renderTTT()}
+function renderTTT(){
+  let h=`<div class="game-ui"><p>વારો: <strong style="color:var(--gb)">${tCur}</strong></p><div class="ttt-board">`;
+  tb.forEach((c,i)=>h+=`<div class="ttt-cell" onclick="playTTT(${i})">${c}</div>`);
+  h+=`</div><button class="game-btn-action" onclick="startTTT()">ફરી રમો</button></div>`;
+  gameContent.innerHTML=h;
+}
+function playTTT(i){
+  if(tb[i]||checkTTT())return;
+  tb[i]=tCur;tCur=tCur==='X'?'O':'X';renderTTT();
+  if(checkTTT()){setTimeout(()=>alert(checkTTT()==='X'?'🎉 તમે જીત્યા!':'🎉 કમ્પ્યુટર જીત્યું!'),100)}
+  else if(!tb.includes('')){setTimeout(()=>alert('ડ્રો!'),100)}
+}
+function checkTTT(){const w=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];for(let x of w){if(tb[x[0]]&&tb[x[0]]===tb[x[1]]&&tb[x[0]]===tb[x[2]])return tb[x[0]]}return null}
+
+// WORD CROSS
+const WORDS=['JALARAM','VIRPUR','DIYA','RANGOLI','BHAJAN','MANDIR','BHAKTI','SEVA'];
+function startWord(){
+  const w=WORDS[Math.floor(Math.random()*WORDS.length)];
+  let g=[];const letters=w.split('').sort(()=>Math.random()-.5);
+  gameContent.innerHTML=`<div class="word-hint">શબ્દ ઉકેલો 👇</div><div class="word-slots">${w.split('').map(()=>'<div class="word-slot"></div>').join('')}</div><div class="word-letters">${letters.map((l,i)=>`<button class="word-letter" data-l="${l}">${l}</button>`).join('')}</div>`;
+  gameContent.querySelectorAll('.word-letter').forEach(b=>b.addEventListener('click',()=>{
+    if(b.classList.contains('used'))return;
+    b.classList.add('used');g.push(b.dataset.l);
+    const slots=gameContent.querySelectorAll('.word-slot');const p=g.length-1;
+    slots[p].textContent=g[p];slots[p].classList.add('filled');
+    if(g.length===w.length){
+      if(g.join('')===w){slots.forEach(s=>s.classList.add('correct'));alert('🎉 સાચો શબ્દ: '+w)}
+      else{setTimeout(()=>{g=[];slots.forEach(s=>{s.textContent='';s.classList.remove('filled','correct')});gameContent.querySelectorAll('.word-letter').forEach(x=>x.classList.remove('used'))},800)}
+    }
+  }));
+}
+
+// CRACKERS TAP
+function startTap(){
+  let score=0,time=20;
+  gameContent.innerHTML=`<div class="game-ui"><p>સમય: <span id="tT" style="color:var(--gb)">20</span>s | સ્કોર: <span id="tS" style="color:var(--gb)">0</span></p><div class="tap-area" id="tA"></div></div>`;
+  const area=document.getElementById('tA'),tD=document.getElementById('tT'),sD=document.getElementById('tS');
+  function spawn(){if(time<=0)return;const t=document.createElement('div');t.className='tap-target';t.textContent='✨';const x=30+Math.random()*(area.clientWidth-60);const y=30+Math.random()*(area.clientHeight-60);t.style.left=x+'px';t.style.top=y+'px';t.addEventListener('click',e=>{e.stopPropagation();if(time<=0)return;score++;sD.textContent=score;t.remove()});area.appendChild(t);setTimeout(()=>t.remove(),1400);setTimeout(spawn,550+Math.random()*450)}
+  spawn();setTimeout(spawn,200);
+  clickTimer=setInterval(()=>{time--;tD.textContent=time;if(time<=0){clearInterval(clickTimer);gameContent.innerHTML=`<div class="game-ui"><p>સમય પૂરો! સ્કોર: <strong style="color:var(--gb)">${score}</strong></p><button class="game-btn-action" onclick="startTap()">ફરી રમો</button></div>`}},1000);
+}
+
+// COUNT DIYAS
+function startCount(){
+  const total=12;const dc=3+Math.floor(Math.random()*6);
+  const cells=[];for(let i=0;i<total;i++)cells.push(i<dc);
+  for(let i=cells.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[cells[i],cells[j]]=[cells[j],cells[i]]}
+  const opts=new Set([dc]);while(opts.size<4)opts.add(2+Math.floor(Math.random()*9));
+  const oa=[...opts].sort(()=>Math.random()-.5);
+  gameContent.innerHTML=`<div class="count-grid">${cells.map(h=>`<div class="ccell ${h?'has':''}">${h?'🪔':''}</div>`).join('')}</div><div class="count-opts">${oa.map(n=>`<button class="count-opt" data-n="${n}">${n}</button>`).join('')}</div>`;
+  gameContent.querySelectorAll('.count-opt').forEach(b=>b.addEventListener('click',()=>{
+    const n=parseInt(b.dataset.n);
+    gameContent.querySelectorAll('.count-opt').forEach(x=>x.disabled=true);
+    if(n===dc){b.classList.add('correct');alert('✅ સાચો જવાબ! '+dc+' દીવા')}
+    else{b.classList.add('wrong');gameContent.querySelectorAll('.count-opt').forEach(x=>{if(parseInt(x.dataset.n)===dc)x.classList.add('correct')});alert('❌ ખોટો! સાચો: '+dc)}
+  }));
+}
+
+// SNAKE
+let sCtx=null,sBody=[],sDir={x:1,y:0},sFood=null,sCell=0,sRunning=false;
+function startSnake(){
+  gameContent.innerHTML=`<div class="snake-wrap"><canvas id="snakeCanvas"></canvas><div class="snake-controls"><button class="sdpad up" onclick="sDir={x:0,y:-1}">▲</button><button class="sdpad left" onclick="sDir={x:-1,y:0}">◀</button><button class="sdpad down" onclick="sDir={x:0,y:1}">▼</button><button class="sdpad right" onclick="sDir={x:1,y:0}">▶</button></div></div>`;
+  const cv=document.getElementById('snakeCanvas');const w=cv.parentElement.clientWidth;cv.width=w;cv.height=w;sCell=w/14;
+  sCtx=cv.getContext('2d');sBody=[{x:5,y:7},{x:4,y:7},{x:3,y:7}];sDir={x:1,y:0};sRunning=true;placeFood();drawSnake();
+  clearInterval(snakeInt);snakeInt=setInterval(tickSnake,160);
+}
+function placeFood(){let x,y;do{x=Math.floor(Math.random()*14);y=Math.floor(Math.random()*14)}while(sBody.some(p=>p.x===x&&p.y===y));sFood={x,y}}
+function tickSnake(){
+  if(!sRunning)return;
+  const h={x:sBody[0].x+sDir.x,y:sBody[0].y+sDir.y};
+  if(h.x<0||h.x>=14||h.y<0||h.y>=14||sBody.some(p=>p.x===h.x&&p.y===h.y)){sRunning=false;clearInterval(snakeInt);alert('ગેમ ઓવર!');gameContent.innerHTML+='<button class="game-btn-action" onclick="startSnake()" style="margin-top:10px">ફરી રમો</button>';return}
+  sBody.unshift(h);
+  if(h.x===sFood.x&&h.y===sFood.y){placeFood()}else{sBody.pop()}
+  drawSnake();
+}
+function drawSnake(){
+  if(!sCtx)return;const w=sCtx.canvas.width;sCtx.clearRect(0,0,w,w);
+  sCtx.font=`${sCell*.9}px serif`;sCtx.textAlign='center';sCtx.textBaseline='middle';
+  sCtx.fillText('🪔',sFood.x*sCell+sCell/2,sFood.y*sCell+sCell/2);
+  sBody.forEach((s,i)=>{const x=s.x*sCell+sCell/2,y=s.y*sCell+sCell/2;sCtx.fillStyle=i===0?'#f5c542':'rgba(245,166,35,.8)';sCtx.shadowColor='#f5c542';sCtx.shadowBlur=i===0?16:8;sCtx.beginPath();sCtx.arc(x,y,sCell*.4,0,Math.PI*2);sCtx.fill();sCtx.shadowBlur=0});
+}
+document.addEventListener('keydown',e=>{
+  if(!sRunning||currentGame!=='snake')return;
+  if(e.key==='ArrowUp'||e.key==='w'){e.preventDefault();sDir={x:0,y:-1}}
+  if(e.key==='ArrowDown'||e.key==='s'){e.preventDefault();sDir={x:0,y:1}}
+  if(e.key==='ArrowLeft'||e.key==='a'){e.preventDefault();sDir={x:-1,y:0}}
+  if(e.key==='ArrowRight'||e.key==='d'){e.preventDefault();sDir={x:1,y:0}}
+});
+
+modal.addEventListener('click',e=>{if(e.target===modal)closeGame()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeGame()});
+window.addEventListener('load',()=>startFW());
+</script>
+</body>
+</html>
