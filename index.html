@@ -21,10 +21,10 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 .ts{width:2px;height:20px;background:linear-gradient(var(--g),var(--gd))}
 .tl{width:12px;height:18px;background:linear-gradient(135deg,#ff6b35,#e85d04);border-radius:0 50% 0 50%}
 .tf{width:16px;height:16px;margin-top:2px;background:radial-gradient(circle,var(--gb),var(--gd));border-radius:50%;box-shadow:0 0 12px rgba(245,197,66,.6)}
-.scene-layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:opacity 1.2s,visibility 1.2s;padding:16px 16px 490px}
+.scene-layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:opacity 1.2s,visibility 1.2s;padding:16px 16px 280px}
 .scene-layer.hidden{opacity:0;visibility:hidden;pointer-events:none}
 #env-scene{z-index:100;flex-direction:column}
-.env-group{display:flex;flex-direction:column;align-items:center;gap:34px;width:100%;max-width:460px}
+.env-group{display:flex;flex-direction:column;align-items:center;gap:24px;width:100%;max-width:460px}
 .envelope-wrapper{position:relative;animation:envFloat 4s ease-in-out infinite;width:min(420px,88vw);margin:0 auto}
 @keyframes envFloat{0%,100%{transform:translateY(0) rotateX(4deg)}50%{transform:translateY(-12px) rotateX(-4deg)}}
 .envelope{position:relative;width:100%;aspect-ratio:420/280;cursor:pointer;transition:transform .3s}
@@ -41,18 +41,18 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 .env-letter .lc{font-size:clamp(.7rem,2.2vw,.82rem);font-weight:600;color:#6b7280;font-style:italic;margin-top:4px}
 .env-pocket{position:absolute;inset:0;background:linear-gradient(160deg,var(--nl),var(--n) 60%);border-radius:10px;clip-path:polygon(0 0,50% 45%,100% 0,100% 100%,0 100%);z-index:3;box-shadow:inset 0 2px 10px rgba(0,0,0,.35)}
 .env-flap{position:absolute;top:0;left:0;width:100%;height:55%;background:linear-gradient(180deg,#11509e,var(--n));clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s cubic-bezier(.4,0,.2,1);z-index:4;border-radius:10px 10px 0 0}
-.env-seal{position:absolute;bottom:6%;left:50%;transform:translateX(-50%);width:54px;height:54px;background:radial-gradient(circle at 35% 35%,var(--gb),var(--gd));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Yatra One',sans-serif;font-weight:700;color:var(--nd);font-size:1.4rem;z-index:5;animation:sg 2s ease-in-out infinite}
+.env-seal{position:absolute;bottom:6%;left:50%;transform:translateX(-50%);width:64px;height:64px;background:radial-gradient(circle at 35% 35%,var(--gb),var(--gd));border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Yatra One',sans-serif;font-weight:700;color:var(--nd);font-size:.95rem;text-align:center;line-height:1.1;padding:4px;z-index:5;animation:sg 2s ease-in-out infinite}
 @keyframes sg{0%,100%{box-shadow:0 4px 15px rgba(212,175,55,.5)}50%{box-shadow:0 4px 32px rgba(245,197,66,.95)}}
 .env-border{position:absolute;inset:6px;border:1px solid rgba(212,175,55,.4);border-radius:7px;z-index:6;pointer-events:none}
 .envelope.open .env-flap{transform:rotateX(180deg);z-index:1}
 .envelope.open .env-letter{transform:translateY(-108%) scale(1.04);z-index:10}
 .envelope.open .env-seal,.envelope.open .fomo{opacity:0;transition:opacity .3s}
-.open-cta{display:flex;align-items:center;justify-content:center;gap:12px;padding:18px 38px;font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.9rem,3vw,1.05rem);font-weight:800;color:var(--nd);background:linear-gradient(135deg,var(--gb),var(--g) 50%,var(--gd));background-size:200% auto;border:2px solid rgba(255,248,231,.85);border-radius:50px;cursor:pointer;animation:ctaP 1.6s ease-in-out infinite;transition:transform .25s;white-space:nowrap}
+.open-cta{display:flex;align-items:center;justify-content:center;gap:12px;padding:16px 34px;font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.88rem,2.8vw,1rem);font-weight:800;color:var(--nd);background:linear-gradient(135deg,var(--gb),var(--g) 50%,var(--gd));background-size:200% auto;border:2px solid rgba(255,248,231,.85);border-radius:50px;cursor:pointer;animation:ctaP 1.6s ease-in-out infinite;transition:transform .25s;white-space:nowrap}
 .open-cta:hover{transform:translateY(-3px) scale(1.05)}
 @keyframes ctaP{0%,100%{box-shadow:0 10px 30px rgba(0,0,0,.6),0 0 45px rgba(245,197,66,.6)}50%{box-shadow:0 10px 30px rgba(0,0,0,.6),0 0 80px rgba(245,197,66,1)}}
 .open-cta .ar{animation:ab 1.2s ease-in-out infinite}@keyframes ab{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
-#invite-scene{z-index:90;padding:10px 14px 490px}
-.invite-card{position:relative;width:min(920px,96vw);max-height:calc(100dvh - 510px);background:linear-gradient(165deg,rgba(6,44,90,.75),rgba(3,21,46,.9));border:1px solid rgba(212,175,55,.55);border-radius:20px;padding:16px 20px 18px;text-align:center;backdrop-filter:blur(14px);animation:ce 1.4s cubic-bezier(.34,1.56,.64,1) .3s both;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--g) transparent}
+#invite-scene{z-index:90;padding:10px 14px 280px}
+.invite-card{position:relative;width:min(920px,96vw);max-height:calc(100dvh - 300px);background:linear-gradient(165deg,rgba(6,44,90,.75),rgba(3,21,46,.9));border:1px solid rgba(212,175,55,.55);border-radius:20px;padding:16px 20px 18px;text-align:center;backdrop-filter:blur(14px);animation:ce 1.4s cubic-bezier(.34,1.56,.64,1) .3s both;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--g) transparent}
 @keyframes ce{from{transform:translateY(40px) rotateX(-10deg) scale(.92);opacity:0}to{transform:none;opacity:1}}
 .title-badge{display:inline-block;background:linear-gradient(135deg,var(--gb),var(--g) 50%,var(--gd));color:var(--nd);padding:8px 22px;border-radius:50px;font-family:'Yatra One',sans-serif;font-size:clamp(1.1rem,3.8vw,1.5rem);font-weight:800;margin:4px auto 10px;box-shadow:0 8px 25px rgba(212,175,55,.35)}
 .welcome{font-size:clamp(.85rem,2.4vw,1rem);color:#e2e8f0;line-height:1.5;margin-bottom:10px;font-weight:600}
@@ -68,58 +68,49 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 .icard h4{color:var(--gb);border-bottom:1px solid rgba(212,175,55,.4);padding-bottom:6px;margin-bottom:8px;font-size:clamp(.85rem,2.5vw,1rem);font-weight:800;text-align:center}
 .lr{display:flex;justify-content:space-between;font-size:clamp(.72rem,2vw,.85rem);margin-bottom:5px;color:#e2e8f0}
 .lr span:first-child{color:var(--gb);font-weight:bold}
+.loc-cta{display:flex;align-items:center;justify-content:center;gap:8px;margin:12px auto 10px;padding:12px 22px;background:linear-gradient(135deg,rgba(52,183,241,.28),rgba(13,110,253,.18));border:2px solid #34b7f1;border-radius:50px;color:#8fdcff;font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.78rem,2.5vw,.92rem);font-weight:800;cursor:pointer;text-decoration:none;text-align:center;line-height:1.4;box-shadow:0 6px 22px rgba(0,0,0,.4),0 0 28px rgba(52,183,241,.45);animation:lcp 2.5s ease-in-out infinite;transition:.3s cubic-bezier(.34,1.56,.64,1);max-width:100%}
+.loc-cta:hover{transform:translateY(-2px) scale(1.02);background:linear-gradient(135deg,rgba(52,183,241,.45),rgba(13,110,253,.3));box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 45px rgba(52,183,241,.75)}
+@keyframes lcp{0%,100%{box-shadow:0 6px 22px rgba(0,0,0,.4),0 0 22px rgba(52,183,241,.4)}50%{box-shadow:0 6px 22px rgba(0,0,0,.4),0 0 45px rgba(52,183,241,.8)}}
 .map-wrap{position:relative;border-radius:10px;overflow:hidden;border:1.5px solid var(--g);margin-bottom:10px}
 .map-wrap iframe{width:100%;height:160px;border:none;display:block;filter:invert(90%) hue-rotate(180deg) contrast(1.1)}
 .scroll-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;padding:8px 16px;background:rgba(212,175,55,.15);border:1px dashed rgba(212,175,55,.5);border-radius:30px;color:var(--gb);font-size:.8rem;font-weight:700;animation:sh 2s ease-in-out infinite}
 @keyframes sh{0%,100%{opacity:.6;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
 .scroll-hint .sarrow{display:inline-block;animation:ab 1.2s ease-in-out infinite}
-/* FOOTER 2 SECTIONS */
-.footer-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid rgba(212,175,55,.4);text-align:center}
-.footer-2 .fsec{background:rgba(3,21,46,.5);border:1px solid rgba(212,175,55,.35);border-radius:10px;padding:10px 12px}
-.footer-2 .fsec-label{font-size:clamp(.68rem,2vw,.78rem);font-weight:700;color:var(--gb);letter-spacing:.5px;margin-bottom:4px;text-transform:uppercase}
-.footer-2 .fsec-val{font-size:clamp(.78rem,2.3vw,.92rem);font-weight:700;color:#e2e8f0;line-height:1.4}
-.footer-2 .fsec-val a{color:var(--gb);text-decoration:none;font-weight:800}
-.footer-2 .fsec-val a:hover{text-decoration:underline}
-@media(max-width:500px){.footer-2{grid-template-columns:1fr}}
-.footer{color:var(--g);font-weight:700;font-size:clamp(.78rem,2.3vw,.92rem);margin-top:10px}
-/* STICKY INSPIRATION BAR (both scenes) */
-.inspire-sticky{position:fixed;bottom:250px;left:50%;transform:translateX(-50%);z-index:395;width:min(920px,96vw);background:linear-gradient(160deg,rgba(13,67,134,.96),rgba(4,30,63,.98));border:1.5px solid var(--gb);border-radius:16px;padding:10px 14px 12px;backdrop-filter:blur(16px);box-shadow:0 0 0 4px rgba(212,175,55,.2),0 16px 40px rgba(0,0,0,.75),0 0 50px rgba(245,197,66,.3);pointer-events:auto}
-.inspire-sticky::before{content:'';position:absolute;inset:5px;border:1px solid rgba(212,175,55,.25);border-radius:12px;pointer-events:none}
-.inspire-head{text-align:center;margin-bottom:8px;position:relative}
-.inspire-head .ih-title{font-family:'Yatra One',sans-serif;font-size:clamp(.82rem,2.6vw,.95rem);font-weight:800;color:var(--gb);text-shadow:0 0 12px rgba(245,197,66,.5);line-height:1.3}
-.inspire-head .ih-sub{font-size:clamp(.62rem,1.9vw,.7rem);font-weight:700;color:rgba(255,248,231,.75);margin-top:2px;font-style:italic}
-.inspire-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-@media(max-width:500px){.inspire-grid{grid-template-columns:1fr;gap:5px}}
-.inspire-card{background:linear-gradient(160deg,rgba(6,44,90,.9),rgba(3,21,46,.95));border:1px solid rgba(212,175,55,.55);border-radius:10px;padding:8px 6px;text-align:center;transition:.3s;box-shadow:0 4px 12px rgba(0,0,0,.4)}
-.inspire-card:hover{transform:translateY(-2px);border-color:var(--gb);box-shadow:0 6px 18px rgba(0,0,0,.6),0 0 20px rgba(245,197,66,.4)}
-.inspire-card .ic-icon{font-size:1.2rem;margin-bottom:2px;display:block;line-height:1}
-.inspire-card .ic-name{font-size:clamp(.6rem,1.9vw,.72rem);font-weight:800;color:var(--gb);line-height:1.25}
-/* bottom stack */
-.bstack{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:400;display:flex;flex-direction:column;align-items:center;gap:10px;width:max-content;max-width:96vw;pointer-events:none}
-.bstack .bbar,.bstack .bbar *{pointer-events:auto}
+.inspire-section{margin-top:14px;padding-top:14px;border-top:1px solid rgba(212,175,55,.35)}
+.inspire-head{text-align:center;margin-bottom:10px}
+.inspire-head .ih-title{font-family:'Yatra One',sans-serif;font-size:clamp(.9rem,2.8vw,1.05rem);font-weight:800;color:var(--gb);text-shadow:0 0 12px rgba(245,197,66,.5);line-height:1.35}
+.inspire-head .ih-sub{font-size:clamp(.65rem,2vw,.75rem);font-weight:700;color:rgba(255,248,231,.78);margin-top:3px;font-style:italic}
+.inspire-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(max-width:600px){.inspire-grid{grid-template-columns:1fr}}
+.inspire-card{display:block;background:linear-gradient(160deg,rgba(6,44,90,.9),rgba(3,21,46,.95));border:1px solid rgba(212,175,55,.55);border-radius:10px;padding:10px 8px;text-align:center;transition:.3s;box-shadow:0 4px 12px rgba(0,0,0,.4);text-decoration:none;cursor:pointer}
+.inspire-card:hover{transform:translateY(-3px);border-color:var(--gb);box-shadow:0 8px 22px rgba(0,0,0,.6),0 0 24px rgba(245,197,66,.45)}
+.inspire-card .ic-name{font-size:clamp(.68rem,2.1vw,.82rem);font-weight:800;color:var(--gb);line-height:1.35}
+.inspire-card .ic-hint{font-size:.55rem;color:rgba(255,248,231,.6);margin-top:3px;font-weight:600}
+.footer{color:var(--g);font-weight:700;font-size:clamp(.78rem,2.3vw,.92rem);margin-top:12px}
+/* BOTTOM ROW: WhatsApp | Games bar | Call */
+.bottom-row{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);z-index:400;display:flex;align-items:center;justify-content:center;gap:14px;width:max-content;max-width:98vw;pointer-events:none}
+.bottom-row > *{pointer-events:auto}
+/* WhatsApp LEFT */
+.float-wa{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(145deg,#25D366,#128C7E);box-shadow:0 10px 28px rgba(0,0,0,.65),0 0 32px rgba(37,211,102,.65),0 0 0 3px rgba(255,255,255,.2);text-decoration:none;animation:fa 3s ease-in-out infinite;transition:transform .3s cubic-bezier(.34,1.56,.64,1);border:2px solid rgba(255,255,255,.3);flex-shrink:0}
+.float-wa:hover{transform:scale(1.12) translateY(-4px)}
+.float-wa svg{width:38px;height:38px;display:block;pointer-events:none;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+/* Call RIGHT */
+.float-call{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(145deg,#34b7f1,#0d6efd);box-shadow:0 10px 28px rgba(0,0,0,.65),0 0 32px rgba(52,183,241,.65),0 0 0 3px rgba(255,255,255,.2);text-decoration:none;animation:fa 3s ease-in-out infinite .5s;transition:transform .3s cubic-bezier(.34,1.56,.64,1);border:2px solid rgba(255,255,255,.3);flex-shrink:0}
+.float-call:hover{transform:scale(1.12) translateY(-4px)}
+.float-call svg{width:38px;height:38px;display:block;pointer-events:none;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+@keyframes fa{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+/* Middle column: games + quiz CTA */
+.mid-col{display:flex;flex-direction:column;align-items:center;gap:8px}
 .bbar{display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 22px 9px;background:linear-gradient(160deg,rgba(13,67,134,.94),rgba(4,30,63,.96));border:1px solid rgba(212,175,55,.55);border-radius:18px;backdrop-filter:blur(16px);box-shadow:0 0 0 4px rgba(212,175,55,.15),0 16px 40px rgba(0,0,0,.7);max-width:96vw;position:relative}
 .bbar-label{font-size:.72rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gb);display:flex;align-items:center;gap:8px}
 .bbar-label::before,.bbar-label::after{content:'';height:1px;width:20px;background:linear-gradient(90deg,transparent,var(--g),transparent)}
 .game-buttons{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap}
-.gbtn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:62px;height:62px;border-radius:13px;border:1px solid rgba(255,248,231,.5);background:linear-gradient(145deg,var(--gb),var(--g) 55%,var(--gd));color:var(--nd);cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.45);transition:.3s cubic-bezier(.34,1.56,.64,1);font-family:'Noto Sans Gujarati',sans-serif;position:relative;overflow:hidden}
+.gbtn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:58px;height:58px;border-radius:13px;border:1px solid rgba(255,248,231,.5);background:linear-gradient(145deg,var(--gb),var(--g) 55%,var(--gd));color:var(--nd);cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.45);transition:.3s cubic-bezier(.34,1.56,.64,1);font-family:'Noto Sans Gujarati',sans-serif;position:relative;overflow:hidden}
 .gbtn:hover{transform:translateY(-5px) scale(1.08);box-shadow:0 12px 28px rgba(0,0,0,.6),0 0 40px rgba(245,197,66,.9)}
-.gbtn .gi{font-size:1.35rem;line-height:1}.gbtn .gn{font-size:.48rem;font-weight:800;line-height:1.1;text-align:center;padding:0 2px}
-/* CTA BUTTONS */
-.cta-rally,.cta-quiz{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:40px;font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.72rem,2.3vw,.85rem);font-weight:800;cursor:pointer;text-align:center;line-height:1.4;transition:.3s cubic-bezier(.34,1.56,.64,1);text-decoration:none;max-width:92vw}
-.cta-rally{background:linear-gradient(135deg,rgba(52,183,241,.25),rgba(13,110,253,.15));border:2px solid #34b7f1;color:#8fdcff;box-shadow:0 6px 20px rgba(0,0,0,.4),0 0 25px rgba(52,183,241,.4);animation:crp 2.5s ease-in-out infinite}
-.cta-rally:hover{transform:translateY(-2px) scale(1.02);background:linear-gradient(135deg,rgba(52,183,241,.4),rgba(13,110,253,.25));box-shadow:0 10px 28px rgba(0,0,0,.5),0 0 40px rgba(52,183,241,.7)}
-@keyframes crp{0%,100%{box-shadow:0 6px 20px rgba(0,0,0,.4),0 0 20px rgba(52,183,241,.4)}50%{box-shadow:0 6px 20px rgba(0,0,0,.4),0 0 40px rgba(52,183,241,.8)}}
-.cta-quiz{background:linear-gradient(135deg,rgba(212,175,55,.25),rgba(245,166,35,.15));border:2px solid var(--gb);color:var(--gb);box-shadow:0 6px 20px rgba(0,0,0,.4),0 0 30px rgba(245,197,66,.3);animation:qcp 2.5s ease-in-out infinite}
+.gbtn .gi{font-size:1.3rem;line-height:1}.gbtn .gn{font-size:.46rem;font-weight:800;line-height:1.1;text-align:center;padding:0 2px}
+.cta-quiz{display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;border-radius:40px;font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.68rem,2.2vw,.8rem);font-weight:800;cursor:pointer;text-align:center;line-height:1.4;transition:.3s cubic-bezier(.34,1.56,.64,1);max-width:92vw;background:linear-gradient(135deg,rgba(212,175,55,.25),rgba(245,166,35,.15));border:2px solid var(--gb);color:var(--gb);box-shadow:0 6px 20px rgba(0,0,0,.4),0 0 30px rgba(245,197,66,.3);animation:qcp 2.5s ease-in-out infinite}
 .cta-quiz:hover{transform:translateY(-2px) scale(1.02);background:linear-gradient(135deg,rgba(212,175,55,.4),rgba(245,166,35,.25));box-shadow:0 10px 28px rgba(0,0,0,.5),0 0 50px rgba(245,197,66,.7)}
 @keyframes qcp{0%,100%{box-shadow:0 6px 20px rgba(0,0,0,.4),0 0 20px rgba(245,197,66,.3)}50%{box-shadow:0 6px 20px rgba(0,0,0,.4),0 0 50px rgba(245,197,66,.7)}}
-/* FLOATING WHATSAPP + CALL */
-.float-wa{position:fixed;left:16px;bottom:225px;z-index:390;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(145deg,#25D366,#128C7E);box-shadow:0 10px 28px rgba(0,0,0,.6),0 0 32px rgba(37,211,102,.6);text-decoration:none;animation:fa 3s ease-in-out infinite;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
-.float-wa:hover{transform:scale(1.12) translateY(-3px)}
-.float-wa svg{width:30px;height:30px;display:block;pointer-events:none}
-.float-call{position:fixed;right:16px;bottom:225px;z-index:390;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:linear-gradient(145deg,#34b7f1,#0d6efd);box-shadow:0 10px 28px rgba(0,0,0,.6),0 0 32px rgba(52,183,241,.6);text-decoration:none;animation:fa 3s ease-in-out infinite .5s;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
-.float-call:hover{transform:scale(1.12) translateY(-3px)}
-.float-call svg{width:30px;height:30px;display:block;pointer-events:none}
-@keyframes fa{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 /* modal */
 .modal-ov{position:fixed;inset:0;z-index:500;background:rgba(2,13,31,.9);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:15px;opacity:0;visibility:hidden;transition:.3s}
 .modal-ov.open{opacity:1;visibility:visible}
@@ -149,6 +140,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 .ttt-board{display:grid;grid-template-columns:repeat(3,70px);gap:6px;justify-content:center;margin-bottom:15px}
 .ttt-cell{width:70px;height:70px;background:var(--n);border:2px solid rgba(212,175,55,.5);border-radius:10px;color:var(--gb);font-size:1.8rem;font-weight:bold;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s;font-family:inherit}
 .ttt-cell:hover{background:rgba(212,175,55,.1)}
+.ttt-cell.x{color:var(--gb)}.ttt-cell.o{color:#70a1ff}
 .rang-wrap{position:relative;width:100%;max-width:280px;aspect-ratio:1;margin:0 auto 12px;border-radius:50%;background:radial-gradient(circle,rgba(255,248,231,.06),rgba(3,21,46,.4));border:2px dashed rgba(212,175,55,.5);overflow:hidden}
 #rangCanvas{width:100%;height:100%;display:block;cursor:crosshair;touch-action:none}
 .colors{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
@@ -175,24 +167,42 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 @keyframes sf{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(.2);opacity:0}}
 .rocket{position:absolute;width:4px;height:16px;border-radius:2px;pointer-events:none;animation:rf var(--rd) linear forwards}
 @keyframes rf{0%{transform:translateY(0);opacity:1}90%{opacity:1}100%{transform:translateY(var(--rh));opacity:0}}
+@media(max-width:900px){
+  .bottom-row{gap:10px}
+  .float-wa,.float-call{width:64px;height:64px}
+  .float-wa svg,.float-call svg{width:34px;height:34px}
+  .gbtn{width:54px;height:54px}.gbtn .gi{font-size:1.2rem}.gbtn .gn{font-size:.44rem}
+}
 @media(max-width:700px){
-  .scene-layer{padding:12px 12px 510px}
-  .invite-card{max-height:calc(100dvh - 520px);padding:14px}
-  .bstack{gap:8px;bottom:12px}.bbar{padding:9px 16px 8px;border-radius:16px}
-  .gbtn{width:54px;height:54px;border-radius:12px}.gbtn .gi{font-size:1.2rem}.gbtn .gn{font-size:.44rem}
-  .inspire-sticky{bottom:240px;padding:8px 10px 10px}
-  .float-wa,.float-call{bottom:215px;width:54px;height:54px}.float-wa svg,.float-call svg{width:26px;height:26px}
+  .scene-layer{padding:12px 12px 340px}
+  .invite-card{max-height:calc(100dvh - 350px);padding:14px}
+  .bottom-row{gap:8px;bottom:12px;flex-wrap:nowrap}
+  .float-wa,.float-call{width:58px;height:58px}
+  .float-wa svg,.float-call svg{width:30px;height:30px}
+  .bbar{padding:9px 14px 8px;border-radius:16px}
+  .gbtn{width:50px;height:50px;border-radius:12px}.gbtn .gi{font-size:1.15rem}.gbtn .gn{font-size:.42rem}
+  .env-group{gap:20px}
 }
-@media(max-width:480px){
-  .scene-layer{padding:10px 10px 520px}
+@media(max-width:560px){
+  .scene-layer{padding:10px 10px 350px}
+  .bottom-row{gap:6px}
+  .float-wa,.float-call{width:50px;height:50px;border-width:2px}
+  .float-wa svg,.float-call svg{width:26px;height:26px}
+  .bbar{padding:8px 10px 7px}
+  .game-buttons{gap:5px}
+  .gbtn{width:44px;height:44px;border-radius:10px}.gbtn .gi{font-size:1rem}.gbtn .gn{font-size:.38rem;letter-spacing:.2px}
+  .cta-quiz{padding:8px 12px;font-size:.65rem}
   .title-badge{font-size:1rem;padding:6px 16px}
-  .gbtn{width:48px;height:48px}.gbtn .gi{font-size:1.05rem}.gbtn .gn{font-size:.4rem}
-  .inspire-sticky{bottom:230px;padding:7px 8px 9px;border-radius:12px}
-  .inspire-card .ic-icon{font-size:1rem}.inspire-card .ic-name{font-size:.58rem}
-  .float-wa,.float-call{bottom:205px;width:50px;height:50px}.float-wa svg,.float-call svg{width:24px;height:24px}
-  .ttt-board{grid-template-columns:repeat(3,60px)}.ttt-cell{width:60px;height:60px;font-size:1.5rem}
+  .ttt-board{grid-template-columns:repeat(3,58px)}.ttt-cell{width:58px;height:58px;font-size:1.4rem}
+  .env-seal{width:54px;height:54px;font-size:.8rem}
+  .open-cta{padding:14px 26px;font-size:.82rem}
 }
-@supports(padding:env(safe-area-inset-bottom)){.scene-layer{padding-bottom:max(510px,calc(env(safe-area-inset-bottom) + 510px))}}
+@media(max-width:420px){
+  .float-wa,.float-call{width:44px;height:44px}
+  .float-wa svg,.float-call svg{width:22px;height:22px}
+  .gbtn{width:40px;height:40px}.gbtn .gi{font-size:.9rem}.gbtn .gn{font-size:.34rem}
+}
+@supports(padding:env(safe-area-inset-bottom)){.scene-layer{padding-bottom:max(350px,calc(env(safe-area-inset-bottom) + 350px))}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
 </style>
 </head>
@@ -206,11 +216,11 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   <div id="env-scene" class="scene-layer">
     <div class="env-group">
       <div class="envelope-wrapper">
-        <div class="envelope" id="envelope" onclick="openEnvelope()">
+        <div class="envelope" id="envelope">
           <div class="fomo"><span class="sp">✨</span><span class="txt">આ ખાસ આમંત્રણ તમારા માટે છે — ખોલો</span><span class="sp">✨</span></div>
           <div class="env-back"></div>
           <div class="env-letter"><div style="font-size:1.6rem">🪔</div><div class="lt">૨૨૭મી જલારામ જયંતિ</div><div class="ls">રઘુવંશી એકતા ભવ્ય બાઇક રેલી</div><div class="lc">રઘુવંશી યુથ ક્લબ જેતપુર</div></div>
-          <div class="env-pocket"></div><div class="env-flap"></div><div class="env-seal">ૐ</div><div class="env-border"></div>
+          <div class="env-pocket"></div><div class="env-flap"></div><div class="env-seal">જય<br>જલારામ</div><div class="env-border"></div>
         </div>
       </div>
       <button class="open-cta" onclick="openEnvelope()"><span>🪔</span><span>અહીં ક્લિક કરો — આમંત્રણ ખોલો</span><span class="ar">↓</span></button>
@@ -249,20 +259,32 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
           <div class="lr"><span>૧૧:૦૦ AM</span><span>જલારામ મંદિર</span></div>
         </div>
       </div>
+      <a class="loc-cta" href="https://maps.app.goo.gl/hemm1cNx44rxUUMZ6" target="_blank" rel="noopener">
+        📍 રઘુવંશી એકતા રેલી લોકેશન પહોંચવા ક્લિક કરો 📍
+      </a>
       <div class="map-wrap">
         <iframe src="https://maps.google.com/maps?q=Jalaram%20Chowk%2C%20Jetpur%2C%20Gujarat&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" title="Jalaram Chowk"></iframe>
       </div>
       <div class="scroll-hint"><span>⬇ વધુ માહિતી માટે નીચે સ્ક્રોલ કરો</span><span class="sarrow">↓</span></div>
 
-      <!-- FOOTER 2 SECTIONS -->
-      <div class="footer-2">
-        <div class="fsec">
-          <div class="fsec-label">સંપર્ક</div>
-          <div class="fsec-val">રઘુવંશી યુથ ક્લબ જેતપુર<br>જેતપુર, ગુજરાત</div>
+      <div class="inspire-section">
+        <div class="inspire-head">
+          <div class="ih-title">🙏 આપણા જેતપુરના રઘુવંશી સમાજના પ્રેરણા સ્ત્રોત 🙏</div>
+          <div class="ih-sub">આપણા સમાજને માર્ગ દર્શન આપવા બદલ તમારો આભાર.</div>
         </div>
-        <div class="fsec">
-          <div class="fsec-label">Developed By</div>
-          <div class="fsec-val">ચિરાગ ધનેશા<br><a href="tel:9426138950">9426138950</a></div>
+        <div class="inspire-grid">
+          <a class="inspire-card" href="https://maps.app.goo.gl/dusu1iZUCwFFrotXA" target="_blank" rel="noopener">
+            <div class="ic-name">જેતપુર નવી લોહાણા મહાજન વાડી</div>
+            <div class="ic-hint">📍 Maps જુઓ</div>
+          </a>
+          <a class="inspire-card" href="https://maps.app.goo.gl/UZzSy4EAQjipMtYw7" target="_blank" rel="noopener">
+            <div class="ic-name">જેતપુર જલારામ મંદિર</div>
+            <div class="ic-hint">📍 Maps જુઓ</div>
+          </a>
+          <a class="inspire-card" href="https://maps.app.goo.gl/9y3knMf4itr5DkWw7" target="_blank" rel="noopener">
+            <div class="ic-name">જેતપુર જૂની લોહાણા મહાજન વાડી</div>
+            <div class="ic-hint">📍 Maps જુઓ</div>
+          </a>
         </div>
       </div>
 
@@ -271,54 +293,37 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   </div>
 </div>
 
-<!-- STICKY INSPIRATION BAR (BOTH SCENES) -->
-<div class="inspire-sticky">
-  <div class="inspire-head">
-    <div class="ih-title">🙏 અમારા જેતપુરના રઘુવંશી સમાજના પ્રેરણા સ્ત્રોત 🙏</div>
-    <div class="ih-sub">અપના સમાજને માર્ગ દર્શન આપવા બદલ તમારો આભાર.</div>
-  </div>
-  <div class="inspire-grid">
-    <div class="inspire-card"><span class="ic-icon">🛕</span><div class="ic-name">જેતપુર જલારામ નવી મહાજન વાડી</div></div>
-    <div class="inspire-card"><span class="ic-icon">🛕</span><div class="ic-name">જેતપુર જલારામ મંદિર</div></div>
-    <div class="inspire-card"><span class="ic-icon">🛕</span><div class="ic-name">જેતપુર જલારામ જૂની મહાજન વાડી</div></div>
-  </div>
-</div>
-
-<!-- FLOATING WHATSAPP (LEFT) -->
-<a class="float-wa" href="https://wa.me/919426138950?text=જય%20જલારામ%20-%20હું%20227મી%20જલારામ%20જયંતિ%20રેલી%20વિશે%20જાણવા%20માંગું%20છું" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.54-13.58zM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 1 1 5.6 3.09zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.14-.42.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.36-.11-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33l-.38-.01c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66s.72 1.93.82 2.06c.1.13 1.41 2.16 3.42 3.03.48.2.85.33 1.14.42.48.15.92.13 1.26.08.38-.06 1.17-.48 1.34-.94.17-.47.17-.86.12-.95-.05-.08-.18-.13-.38-.23z"/></svg>
-</a>
-
-<!-- FLOATING CALL (RIGHT) -->
-<a class="float-call" href="tel:9428157173" aria-label="Call">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
-</a>
-
-<!-- BOTTOM BARS -->
-<div class="bstack">
-  <!-- RALLY STARTING LOCATION CTA -->
-  <a class="cta-rally" href="https://maps.app.goo.gl/vp8BuGC5iEcG286x8" target="_blank" rel="noopener">
-    📍 રઘુવંશી એકતા રેલી સ્ટાર્ટિંગ લોકેશન પહોંચવા ક્લિક કરો
+<!-- BOTTOM ROW: WhatsApp | Games + Quiz CTA | Call -->
+<div class="bottom-row">
+  <!-- WhatsApp LEFT -->
+  <a class="float-wa" href="https://wa.me/919426138950?text=જય%20જલારામ%20-%20હું%20227મી%20જલારામ%20જયંતિ%20રેલી%20વિશે%20જાણવા%20માંગું%20છું" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.54-13.58zM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 1 1 5.6 3.09zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.14-.42.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.36-.11-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33l-.38-.01c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66s.72 1.93.82 2.06c.1.13 1.41 2.16 3.42 3.03.48.2.85.33 1.14.42.48.15.92.13 1.26.08.38-.06 1.17-.48 1.34-.94.17-.47.17-.86.12-.95-.05-.08-.18-.13-.38-.23z"/></svg>
   </a>
-  <!-- GAMES BAR -->
-  <div class="bbar game-bar" aria-label="Jalram Jayanti Special Games">
-    <div class="bbar-label">🎮 Jalram Jayanti Special Games</div>
-    <div class="game-buttons">
-      <button class="gbtn" onclick="openGame('quiz')"><span class="gi">🧠</span><span class="gn">Jalaram<br>Quiz</span></button>
-      <button class="gbtn" onclick="openGame('rangoli')"><span class="gi">🎨</span><span class="gn">Draw<br>Rangoli</span></button>
-      <button class="gbtn" onclick="openGame('ttt')"><span class="gi">❌</span><span class="gn">Tic<br>Toe</span></button>
-      <button class="gbtn" onclick="openGame('word')"><span class="gi">📝</span><span class="gn">Word<br>Cross</span></button>
-      <button class="gbtn" onclick="openGame('tap')"><span class="gi">✨</span><span class="gn">Crackers<br>Tap</span></button>
-      <button class="gbtn" onclick="openGame('snake')"><span class="gi">🐍</span><span class="gn">Snake<br>Game</span></button>
+
+  <!-- MIDDLE: Games bar + Quiz CTA -->
+  <div class="mid-col">
+    <div class="bbar game-bar" aria-label="Jalram Jayanti Special Games">
+      <div class="bbar-label">🎮 Jalram Jayanti Special Games</div>
+      <div class="game-buttons">
+        <button class="gbtn" onclick="openGame('quiz')"><span class="gi">🧠</span><span class="gn">Jalaram<br>Quiz</span></button>
+        <button class="gbtn" onclick="openGame('rangoli')"><span class="gi">🎨</span><span class="gn">Draw<br>Rangoli</span></button>
+        <button class="gbtn" onclick="openGame('ttt')"><span class="gi">❌</span><span class="gn">Tic<br>Toe</span></button>
+        <button class="gbtn" onclick="openGame('word')"><span class="gi">📝</span><span class="gn">Word<br>Cross</span></button>
+        <button class="gbtn" onclick="openGame('tap')"><span class="gi">✨</span><span class="gn">Crackers<br>Tap</span></button>
+        <button class="gbtn" onclick="openGame('snake')"><span class="gi">🐍</span><span class="gn">Snake<br>Game</span></button>
+      </div>
+    </div>
+    <div class="cta-quiz" onclick="openGame('quiz')">
+      🙏 જો તમે જલારામ બાપાના સાચા ભક્ત હો તો આ 108 પ્રશ્નોની ક્વિઝ લઈને તમારું જ્ઞાન ચકાસો!
     </div>
   </div>
-  <!-- QUIZ CTA -->
-  <div class="cta-quiz" onclick="openGame('quiz')">
-    🙏 જો તમે જલારામ બાપાના સાચા ભક્ત હો તો આ 108 પ્રશ્નોની ક્વિઝ લઈને તમારું જ્ઞાન ચકાસો!
-  </div>
+
+  <!-- Call RIGHT -->
+  <a class="float-call" href="tel:9428157173" aria-label="Call">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+  </a>
 </div>
 
-<!-- MODAL -->
 <div class="modal-ov" id="gameModal">
   <div class="modal-c">
     <button class="modal-close" onclick="closeGame()">×</button>
@@ -334,9 +339,10 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 // TORAN
 (function(){const c=document.getElementById('toran');for(let i=0;i<14;i++){const t=document.createElement('div');t.className='ti';t.innerHTML='<div class="ts"></div><div class="tl"></div><div class="tf"></div>';c.appendChild(t)}})();
 
-// ENVELOPE
+// AUTO-OPEN ENVELOPE ON PAGE LOAD
 let opened=false;
-function openEnvelope(){if(opened)return;opened=true;const e=document.getElementById('envelope');if(e)e.classList.add('open');const cta=document.querySelector('.open-cta');if(cta){cta.style.pointerEvents='none';cta.style.opacity='0'}grandShow();setTimeout(()=>{document.getElementById('env-scene').classList.add('hidden');document.getElementById('invite-scene').classList.remove('hidden')},1500)}
+function openEnvelope(){if(opened)return;opened=true;const e=document.getElementById('envelope');if(e)e.classList.add('open');grandShow();setTimeout(()=>{document.getElementById('env-scene').classList.add('hidden');document.getElementById('invite-scene').classList.remove('hidden')},1800)}
+setTimeout(openEnvelope,1200);
 
 // FIREWORKS
 const fw=document.getElementById('fireworks');
@@ -352,13 +358,13 @@ let currentGame=null,quizTimer=null,clickTimer=null,snakeInt=null;
 
 function openGame(g){currentGame=g;modal.classList.add('open');gameContent.innerHTML='';clearInterval(clickTimer);clearInterval(snakeInt);
   const titles={quiz:'Jalaram Quiz (108 પ્રશ્નો)',rangoli:'Draw Rangoli',ttt:'Tic Tac Toe',word:'Word Cross',tap:'Crackers Tap',snake:'Snake Game'};
-  const descs={quiz:'જલારામ બાપા વિશે 108 જ્ઞાનવર્ધક પ્રશ્નો — સાચો જવાબ લીલો, ખોટો લાલ, અને સમજૂતી સાથે!',rangoli:'રંગ પસંદ કરો અને રંગોળી દોરો!',ttt:'તમે X, કમ્પ્યુટર O',word:'જલારામ સંબંધિત શબ્દ ઉકેલો!',tap:'20 સેકન્ડમાં ક્રેકર ટેપ કરો!',snake:'દીવા ખાઓ! Arrow keys કે D-pad વાપરો'};
+  const descs={quiz:'જલારામ બાપા વિશે 108 જ્ઞાનવર્ધક પ્રશ્નો — સાચો જવાબ લીલો, ખોટો લાલ, અને સમજૂતી સાથે!',rangoli:'રંગ પસંદ કરો અને રંગોળી દોરો!',ttt:'તમે X, રોબોટ O — પહેલા તમારો વારો!',word:'જલારામ સંબંધિત શબ્દ ઉકેલો!',tap:'20 સેકન્ડમાં ક્રેકર ટેપ કરો!',snake:'દીવા ખાઓ! Arrow keys કે D-pad વાપરો'};
   mTitle.innerText=titles[g];mDesc.innerText=descs[g];
   if(g==='quiz')startQuiz();else if(g==='rangoli')startRangoli();else if(g==='ttt')startTTT();else if(g==='word')startWord();else if(g==='tap')startTap();else if(g==='snake')startSnake();
 }
 function closeGame(){modal.classList.remove('open');gameContent.innerHTML='';clearInterval(clickTimer);clearInterval(snakeInt);if(quizTimer)clearTimeout(quizTimer);currentGame=null}
 
-// QUIZ — 108 UNIQUE QUESTIONS
+// QUIZ
 const JQ=[
 {q:"જલારામ બાપાનો જન્મ કયા વર્ષમાં થયો હતો?",a:["1779","1799","1816","1881"],c:1,e:"શોધ પરિણામો અનુસાર, જલારામ બાપાનો જન્મ 1799માં થયો હતો."},
 {q:"જલારામ બાપાનું જન્મસ્થળ ક્યાં છે?",a:["રાજકોટ","જૂનાગઢ","વીરપુર","અમરેલી"],c:2,e:"તેઓ ગુજરાતના રાજકોટ જિલ્લાના વીરપુર ગામમાં જન્મ્યા હતા."},
@@ -409,16 +415,9 @@ const JQ=[
 {q:"જલારામ બાપાના ભક્તો માટે ગુરુવારનું શું મહત્વ છે?",a:["ઉપવાસનો દિવસ","તેમનો સંબંધિત દિવસ","મંદિર બંધ રહે","કોઈ મહત્વ નથી"],c:1,e:"ગુરુવાર જલારામ બાપા સાથે સંબંધિત દિવસ માનવામાં આવે છે."},
 {q:"જલારામ બાપાનો જન્મ કઈ તિથિએ થયો?",a:["કારતક શુક્લ સપ્તમી","દિવાળી","હોળી","નવરાત્રી"],c:0,e:"તેમનો જન્મ કારતક શુક્લ સપ્તમીએ થયો, જે જલારામ જયંતિ તરીકે ઉજવાય છે."},
 {q:"જલારામ બાપાના મંદિરમાં દાનપેટી કેમ નથી?",a:["ભૂલથી ભૂલી ગયા","પૈસા સ્વીકારવાની પરંપરા નથી","સુરક્ષા કારણોસર","જગ્યા નથી"],c:1,e:"મંદિરની પરંપરા મુજબ પૈસાનું દાન સ્વીકારાય નહીં, ફક્ત પ્રસાદ આપવામાં આવે છે."},
-{q:"જલારામ બાપાના જીવનકાળની ઘટનાઓ કયા ગ્રંથોમાં નોંધાયેલી છે?",a:["ફક્ત મૌખિક પરંપરા","વિવિધ ધાર્મિક ગ્રંથો અને શોધપત્રો","ફક્ત સરકારી દસ્તાવેજો","કોઈ નહીં"],c:1,e:"વિવિધ ધાર્મિક ગ્રંથો, શોધપત્રોમાં તેમના જીવનની નોંધ મળે છે."},
-{q:"જલારામ બાપાને કઈ ઉંમરે સદાવ્રત શરૂ કરવાની પ્રેરણા મળી?",a:["ગુરુના આશીર્વાદ પછી","લગ્ન પહેલાં","માતાના અવસાન પછી","સ્વયં નિર્ણય"],c:0,e:"ગુરુ ભોજા ભગતના આશીર્વાદ અને માર્ગદર્શન હેઠળ સદાવ્રત શરૂ કર્યું."},
-{q:"જલારામ બાપાને કઈ વસ્તુ અખૂટ બની ગઈ હતી?",a:["પાણી","અનાજ","દૂધ","કપડાં"],c:1,e:"દંતકથા અનુસાર, તેમના ઘરનું અનાજનું ભંડાર અખૂટ બની ગયું."},
-{q:"જલારામ બાપાના ભક્તોમાં કયા સમુદાયના લોકોનો સમાવેશ થાય છે?",a:["ફક્ત લોહાણા","ફક્ત બ્રાહ્મણ","વિવિધ જાતિઓ અને ધર્મો","ફક્ત વેપારીઓ"],c:2,e:"તેમના ભક્તોમાં વિવિધ જાતિઓ અને ધર્મોના લોકોનો સમાવેશ થાય છે."},
 {q:"જલારામ બાપાને કઈ ઉપાધિ આપવામાં આવી?",a:["સંત શિરોમણી","બાપા","મહાત્મા","ઉપરોક્ત તમામ"],c:3,e:"તેમને સંત, બાપા, મહાત્મા વગેરે ઉપાધિઓથી સંબોધવામાં આવે છે."},
 {q:"જલારામ બાપાના સદાવ્રતની ખાસિયત શું છે?",a:["ફક્ત દિવસમાં એક વાર","24 કલાક ખુલ્લું","ફક્ત શિયાળામાં","ફક્ત રવિવારે"],c:1,e:"સદાવ્રત ચોવીસે કલાક ભોજન પ્રદાન કરે છે."},
-{q:"જલારામ બાપાના જીવનકાળમાં કયા ચમત્કારની નોંધ છે?",a:["મૃત પક્ષીને સજીવન કરવું","માંદગી મટાડવી","અનાજ અખૂટ કરવું","ઉપરોક્ત તમામ"],c:3,e:"વિવિધ ચમત્કારોનો ઉલ્લેખ છે."},
-{q:"જલારામ બાપાનું મંદિર કયા જિલ્લામાં છે?",a:["જૂનાગઢ","રાજકોટ","અમરેલી","ભાવનગર"],c:1,e:"વીરપુર રાજકોટ જિલ્લામાં છે."},
 {q:"જલારામ બાપાને કઈ ઉંમરે વૃદ્ધ સાધુના રૂપમાં ભગવાનનું પરીક્ષણ મળ્યું?",a:["20 વર્ષ","25 વર્ષ","મધ્ય વય","બાળપણ"],c:2,e:"આ ઘટના તેમના પરિપક્વ જીવનકાળની છે, ચોક્કસ ઉંમર નથી."},
-{q:"જલારામ બાપાના ભક્તો માટે કઈ વસ્તુ પવિત્ર માનવામાં આવે છે?",a:["ઝોળી અને લાકડી","ફક્ત મૂર્તિ","ફક્ત મંદિર","ફક્ત ફોટો"],c:0,e:"ભગવાને આપેલી ઝોળી અને લાકડી પવિત્ર મનાય છે."},
 {q:"જલારામ બાપાનો જન્મ કયા સમુદાયમાં થયો?",a:["બ્રાહ્મણ","લોહાણા","પટેલ","જૈન"],c:1,e:"તેઓ લોહાણા સમુદાયમાં જન્મ્યા હતા."},
 {q:"જલારામ બાપાને કઈ ઉંમરે સંસાર ત્યાગની ભાવના આવી?",a:["10 વર્ષ","16 વર્ષ","25 વર્ષ","30 વર્ષ"],c:1,e:"લગ્ન સમયે જ તેમને સંસાર ત્યાગની ભાવના હતી."},
 {q:"જલારામ બાપાના ગુરુએ તેમને શું કહ્યું?",a:["ધન કમાઓ","રામનું નામ લો અને સેવા કરો","ઘર છોડી દો","મંદિર બનાવો"],c:1,e:"ગુરુએ રામનું નામ લેવા અને સેવા કરવાનું કહ્યું."},
@@ -430,7 +429,6 @@ const JQ=[
 {q:"જલારામ બાપાને કઈ ઉપાધિ દ્વારા સંબોધવામાં આવે છે?",a:["ભગવાન","બાપા","ગુરુ","સ્વામી"],c:1,e:"'બાપા' સૌથી સામાન્ય સંબોધન છે."},
 {q:"જલારામ બાપાના જીવનનો મુખ્ય હેતુ શું હતો?",a:["ધન સંગ્રહ","લોકોની સેવા","પ્રસિદ્ધિ","સત્તા"],c:1,e:"તેમનું જીવન લોકોની સેવામાં સમર્પિત હતું."},
 {q:"જલારામ બાપાના ચમત્કારોનો મુખ્ય વિષય શું છે?",a:["ભૌતિક વસ્તુઓ","માંદગી મટાડવી અને ભોજન દાન","રાજકીય ફેરફાર","યુદ્ધ"],c:1,e:"માંદગી મટાડવી અને ભોજન દાન તેમના ચમત્કારોના મુખ્ય વિષય છે."},
-{q:"જલારામ બાપાના ગુરુનું નામ શું હતું?",a:["ભોજા ભગત","રઘુવીરદાસ","હરજી","જમાલ"],c:0,e:"ભોજા ભગત (ભોજલરામ)."},
 {q:"જલારામ બાપાને કઈ ઉપાધિ દ્વારા ઓળખવામાં આવે છે?",a:["સંત","બાપા","અન્નદાતા","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ ઉપાધિઓ વપરાય છે."},
 {q:"જલારામ બાપાના મંદિરમાં શું નથી?",a:["મૂર્તિઓ","દાનપેટી","ઝોળી","લાકડી"],c:1,e:"દાનપેટી નથી."},
 {q:"જલારામ બાપાને કઈ ઉંમરે ગુરુ મળ્યા?",a:["18 વર્ષ","20 વર્ષ","25 વર્ષ","30 વર્ષ"],c:0,e:"18 વર્ષે."},
@@ -444,7 +442,6 @@ const JQ=[
 {q:"જલારામ બાપાના ભક્તોમાં કયા સમુદાયના લોકોનો સમાવેશ થાય છે?",a:["ફક્ત લોહાણા","ફક્ત બ્રાહ્મણ","વિવિધ જાતિઓ અને ધર્મો","ફક્ત વેપારીઓ"],c:2,e:"વિવિધ જાતિઓ અને ધર્મો."},
 {q:"જલારામ બાપાને કઈ ઉપાધિ આપવામાં આવી?",a:["સંત શિરોમણી","બાપા","મહાત્મા","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
 {q:"જલારામ બાપાના સદાવ્રતની ખાસિયત શું છે?",a:["ફક્ત દિવસમાં એક વાર","24 કલાક ખુલ્લું","ફક્ત શિયાળામાં","ફક્ત રવિવારે"],c:1,e:"24 કલાક."},
-{q:"જલારામ બાપાના જીવનકાળમાં કયા ચમત્કારની નોંધ છે?",a:["મૃત પક્ષીને સજીવન કરવું","માંદગી મટાડવી","અનાજ અખૂટ કરવું","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
 {q:"જલારામ બાપાને કઈ ઉંમરે વૃદ્ધ સાધુના રૂપમાં ભગવાનનું પરીક્ષણ મળ્યું?",a:["20 વર્ષ","25 વર્ષ","મધ્ય વય","બાળપણ"],c:2,e:"મધ્ય વય."},
 {q:"જલારામ બાપાના ભક્તો માટે કઈ વસ્તુ પવિત્ર માનવામાં આવે છે?",a:["ઝોળી અને લાકડી","ફક્ત મૂર્તિ","ફક્ત મંદિર","ફક્ત ફોટો"],c:0,e:"ઝોળી અને લાકડી."},
 {q:"જલારામ બાપાનો જન્મ કયા સમુદાયમાં થયો?",a:["બ્રાહ્મણ","લોહાણા","પટેલ","જૈન"],c:1,e:"લોહાણા."},
@@ -452,14 +449,11 @@ const JQ=[
 {q:"જલારામ બાપાના ગુરુએ તેમને શું કહ્યું?",a:["ધન કમાઓ","રામનું નામ લો અને સેવા કરો","ઘર છોડી દો","મંદિર બનાવો"],c:1,e:"રામનું નામ લો અને સેવા કરો."},
 {q:"જલારામ બાપાના ચમત્કારોથી કોને ફાયદો થયો?",a:["ફક્ત ધનવાનો","ફક્ત સાધુઓ","ગરીબ, માંદા અને જરૂરિયાતમંદ","ફક્ત પોતાના કુટુંબ"],c:2,e:"ગરીબ, માંદા અને જરૂરિયાતમંદ."},
 {q:"જલારામ બાપાને કઈ ઉપાધિ દ્વારા ઓળખવામાં આવે છે?",a:["સદાવ્રતના સ્વામી","અન્નદાતા","સંત","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
-{q:"જલારામ બાપાને કઈ ઉપાધિ દ્વારા ઓળખવામાં આવે છે?",a:["સંત","બાપા","અન્નદાતા","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
 {q:"જલારામ બાપાના ભક્તો માટે કઈ વસ્તુ શુભ માનવામાં આવે છે?",a:["તેમના દર્શન","તેમના પ્રસાદનું સેવન","ઉપરોક્ત બંને","ફક્ત મંદિરમાં જવું"],c:2,e:"ઉપરોક્ત બંને."},
 {q:"જલારામ બાપાને કઈ ઉપાધિ દ્વારા સંબોધવામાં આવે છે?",a:["ભગવાન","બાપા","ગુરુ","સ્વામી"],c:1,e:"બાપા."},
 {q:"જલારામ બાપાના જીવનનો મુખ્ય હેતુ શું હતો?",a:["ધન સંગ્રહ","લોકોની સેવા","પ્રસિદ્ધિ","સત્તા"],c:1,e:"લોકોની સેવા."},
 {q:"જલારામ બાપાના ચમત્કારોનો મુખ્ય વિષય શું છે?",a:["ભૌતિક વસ્તુઓ","માંદગી મટાડવી અને ભોજન દાન","રાજકીય ફેરફાર","યુદ્ધ"],c:1,e:"માંદગી મટાડવી અને ભોજન દાન."},
-{q:"જલારામ બાપાના ગુરુનું નામ શું હતું?",a:["ભોજા ભગત","રઘુવીરદાસ","હરજી","જમાલ"],c:0,e:"ભોજા ભગત."},
 {q:"જલારામ બાપાને કઈ ઉપાધિ દ્વારા ઓળખવામાં આવે છે?",a:["સંત","બાપા","અન્નદાતા","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
-{q:"જલારામ બાપાના મંદિરમાં શું નથી?",a:["મૂર્તિઓ","દાનપેટી","ઝોળી","લાકડી"],c:1,e:"દાનપેટી નથી."},
 {q:"જલારામ બાપાને કઈ ઉંમરે ગુરુ મળ્યા?",a:["18 વર્ષ","20 વર્ષ","25 વર્ષ","30 વર્ષ"],c:0,e:"18 વર્ષ."},
 {q:"જલારામ બાપાના ભક્તો માટે કઈ વસ્તુ મહત્વપૂર્ણ છે?",a:["ગુરુવારે દર્શન","પ્રસાદ","સદાવ્રતમાં ભાગ લેવો","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
 {q:"જલારામ બાપાના જીવનની મુખ્ય ઘટના શું છે?",a:["સદાવ્રતની સ્થાપના","લગ્ન","તીર્થયાત્રા","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
@@ -524,22 +518,52 @@ function startRangoli(){
 }
 function clearRang(){if(rCtx){const c=rCtx.canvas;rCtx.clearRect(0,0,c.width,c.height)}}
 
-/* TIC TAC TOE */
-let tb=['','','','','','','','',''],tCur='X';
-function startTTT(){tb=['','','','','','','','',''];tCur='X';renderTTT()}
+/* TIC TAC TOE — robot plays after user's first move */
+let tb=['','','','','','','','',''],tCur='X',tttGameOver=false,tttLocked=false;
+function startTTT(){tb=['','','','','','','','',''];tCur='X';tttGameOver=false;tttLocked=false;renderTTT()}
 function renderTTT(){
-  let h=`<div class="game-ui"><p>વારો: <strong style="color:var(--gb)">${tCur}</strong></p><div class="ttt-board">`;
-  tb.forEach((c,i)=>h+=`<div class="ttt-cell" onclick="playTTT(${i})">${c}</div>`);
+  let h=`<div class="game-ui"><p>વારો: <strong style="color:var(--gb)">${tCur==='X'?'તમારો (X)':'રોબોટ (O)'}</strong></p><div class="ttt-board">`;
+  tb.forEach((c,i)=>h+=`<div class="ttt-cell ${c==='X'?'x':c==='O'?'o':''}" onclick="playTTT(${i})">${c}</div>`);
   h+=`</div><button class="game-btn-action" onclick="startTTT()">ફરી રમો</button></div>`;
   gameContent.innerHTML=h;
 }
 function playTTT(i){
-  if(tb[i]||checkTTT())return;
-  tb[i]=tCur;tCur=tCur==='X'?'O':'X';renderTTT();
-  if(checkTTT()){setTimeout(()=>alert(checkTTT()==='X'?'🎉 તમે જીત્યા!':'🎉 કમ્પ્યુટર જીત્યું!'),100)}
-  else if(!tb.includes('')){setTimeout(()=>alert('ડ્રો!'),100)}
+  if(tttGameOver||tttLocked||tb[i]||tCur!=='X')return;
+  tb[i]='X';tCur='O';renderTTT();
+  let w=checkTTT();
+  if(w){return endTTT(w)}
+  if(!tb.includes('')){return endTTT('draw')}
+  tttLocked=true;
+  setTimeout(()=>{
+    const aiMove=pickAIMove();
+    if(aiMove!==-1){tb[aiMove]='O';tCur='X';renderTTT();tttLocked=false;
+      w=checkTTT();
+      if(w){return endTTT(w)}
+      if(!tb.includes('')){return endTTT('draw')}
+    }else{tttLocked=false}
+  },600);
 }
-function checkTTT(){const w=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];for(let x of w){if(tb[x[0]]&&tb[x[0]]===tb[x[1]]&&tb[x[0]]===tb[x[2]])return tb[x[0]]}return null}
+function pickAIMove(){
+  const lines=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  for(const [a,b,c] of lines){if(tb[a]==='O'&&tb[b]==='O'&&!tb[c])return c;if(tb[a]==='O'&&tb[c]==='O'&&!tb[b])return b;if(tb[b]==='O'&&tb[c]==='O'&&!tb[a])return a}
+  for(const [a,b,c] of lines){if(tb[a]==='X'&&tb[b]==='X'&&!tb[c])return c;if(tb[a]==='X'&&tb[c]==='X'&&!tb[b])return b;if(tb[b]==='X'&&tb[c]==='X'&&!tb[a])return a}
+  if(!tb[4])return 4;
+  const corners=[0,2,6,8].filter(i=>!tb[i]);
+  if(corners.length)return corners[Math.floor(Math.random()*corners.length)];
+  const empty=tb.map((v,i)=>v?null:i).filter(v=>v!==null);
+  return empty.length?empty[Math.floor(Math.random()*empty.length)]:-1;
+}
+function checkTTT(){
+  const w=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  for(const [a,b,c] of w){if(tb[a]&&tb[a]===tb[b]&&tb[a]===tb[c])return tb[a]}
+  return null;
+}
+function endTTT(winner){
+  tttGameOver=true;
+  if(winner==='X'){setTimeout(()=>alert('🎉 તમે જીત્યા!'),100);createBurst(innerWidth/2,innerHeight/2,'#7bed9f',30)}
+  else if(winner==='O'){setTimeout(()=>alert('🤖 રોબોટ જીત્યો! ફરી પ્રયાસ કરો.'),100)}
+  else{setTimeout(()=>alert('ડ્રો!'),100)}
+}
 
 /* WORD CROSS */
 const WORDS=['JALARAM','VIRPUR','DIYA','RANGOLI','BHAJAN','MANDIR','BHAKTI','SEVA'];
