@@ -138,6 +138,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 .inspire-card .ic-hint{font-size:clamp(.6rem, 1.8vw, .75rem);color:#fff;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.8);white-space: nowrap; margin-left: 8px;}
 
 .footer{color:var(--g);font-weight:700;font-size:clamp(.72rem,2.1vw,.85rem);margin-top:8px;text-shadow:0 1px 4px rgba(0,0,0,0.8)}
+
 /* ✦ FIXED BOTTOM ACTION BAR ✦ */
 .bottom-actions{position:fixed;bottom:0;left:0;right:0;z-index:450;display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 12px;background:linear-gradient(0deg,rgba(2,13,31,.98) 0%,rgba(2,13,31,.92) 60%,rgba(2,13,31,0) 100%);pointer-events:none;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}
 .bottom-actions .ba-btn{pointer-events:auto;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:50px;font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.78rem,2.4vw,.92rem);font-weight:800;text-decoration:none;transition:transform .15s;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.7)}
@@ -146,6 +147,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 .bottom-actions .ba-wa{background:linear-gradient(145deg,#25D366,#128C7E);color:#fff;border:2px solid rgba(255,255,255,.35);box-shadow:0 8px 24px rgba(0,0,0,.7),0 0 22px rgba(37,211,102,.6)}
 .bottom-actions .ba-call{background:linear-gradient(145deg,#34b7f1,#0d6efd);color:#fff;border:2px solid rgba(255,255,255,.35);box-shadow:0 8px 24px rgba(0,0,0,.7),0 0 22px rgba(52,183,241,.6)}
 .bottom-actions .ba-btn svg{width:22px;height:22px;flex-shrink:0;display:block}
+
 /* Games bar sits above bottom actions */
 .bstack{position:fixed;bottom:74px;left:50%;transform:translateX(-50%);z-index:400;display:flex;flex-direction:column;align-items:center;gap:8px;width:max-content;max-width:96vw;pointer-events:none;padding-bottom:env(safe-area-inset-bottom,0px)}
 .bstack .bbar,.bstack .bbar *{pointer-events:auto}
@@ -224,9 +226,9 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 @keyframes sf{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(.2);opacity:0}}
 .cracker{position:absolute;width:4px;height:4px;border-radius:50%;pointer-events:none;animation:rise var(--cd) ease-out forwards}
 @keyframes rise{0%{transform:translateY(0) scale(1);opacity:1}80%{opacity:.9}100%{transform:translateY(var(--cy)) scale(.3);opacity:0}}
+
 @media(max-width:700px){
   .scene-layer{padding:10px 10px 300px}
-  .invite-card{max-height:calc(100dvh - 310px);padding:12px 12px 14px}
   .bstack{gap:8px;bottom:74px}.bbar{padding:7px 12px 6px;border-radius:14px}
   .gbtn{width:50px;height:50px;border-radius:11px}.gbtn .gi{font-size:1.1rem}.gbtn .gn{font-size:.4rem}
   .bottom-actions{gap:10px;padding:8px 10px}
@@ -234,8 +236,31 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   .bottom-actions .ba-btn svg{width:18px;height:18px}
   .env-group{gap:18px}
 }
+
+/* ===== MOBILE VIEW: simplified, no forced scrolling ===== */
+@media(max-width:600px){
+  html,body{overflow-y:auto;-webkit-overflow-scrolling:touch}
+  #scene{position:relative;min-height:100vh;overflow:visible}
+  .scene-layer{position:relative;inset:auto;min-height:100vh;padding:10px 8px 180px; display:flex; flex-direction:column; justify-content:flex-start;}
+  #env-scene{min-height:100vh; display:flex; align-items:center; justify-content:center; padding-bottom:180px;}
+  #invite-scene{position:relative;display:block; padding-bottom: 180px;}
+  
+  /* Remove fixed max-height so it flows naturally */
+  .invite-card{max-height:none; overflow-y:visible; width:100%; padding:12px 10px 14px; background:rgba(6,44,90,0.15); backdrop-filter:blur(2px);}
+  
+  .quad-grid, .map-inspire-row{grid-template-columns:1fr; gap: 8px;}
+  .det-box, .icard, .inspire-section, .map-wrap { background: rgba(3,21,46,0.15); }
+  .map-wrap { min-height: 160px; }
+  
+  /* Schedule and Route tweaks */
+  .schedule-highlight .hl-line{flex-direction:row;gap:8px;align-items:center}
+  .schedule-highlight .hl-time{min-width:64px}
+  
+  /* Shrink quiz text slightly to avoid awkward line breaks */
+  .cta-quiz { font-size: 11px; padding: 6px 8px; }
+}
+
 @media(max-width:480px){
-  .scene-layer{padding:8px 8px 310px}
   .title-badge{font-size:.9rem;padding:5px 14px}
   .gbtn{width:44px;height:44px}.gbtn .gi{font-size:.95rem}.gbtn .gn{font-size:.36rem}
   .bottom-actions{gap:8px;padding:7px 8px}
@@ -245,27 +270,11 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   .env-seal{width:52px;height:52px;font-size:.78rem}
   .open-cta{padding:13px 24px;font-size:.8rem}
   .bbar-label{font-size:.58rem;letter-spacing:1px}
-  .cta-quiz{padding:7px 11px;font-size:.6rem}
+  .map-wrap{height:160px}
   .person .p-icon{font-size:1.6rem}.food-item{padding:6px 8px;min-width:48px}.food-item .f-icon{font-size:1.3rem}
   .schedule-highlight .hl-line{flex-direction:column;gap:2px}
   .schedule-highlight .hl-time{min-width:0}
   .glow-icon-wrapper { width: 90px; height: 90px; margin-bottom: 15px; }
-}
-
-/* ===== MOBILE VIEW: full message without scrolling ===== */
-@media(max-width:600px){
-  html,body{overflow:auto;-webkit-overflow-scrolling:touch}
-  #scene{position:relative;min-height:100vh;overflow:visible}
-  .scene-layer{position:relative;inset:auto;min-height:100vh;padding-bottom:180px}
-  #env-scene{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-bottom:180px}
-  #invite-scene{position:relative;padding:10px 8px 180px;display:block}
-  .invite-card{max-height:none;overflow-y:visible;width:100%;padding:12px 10px 14px;background:rgba(6,44,90,0.15);backdrop-filter:blur(2px)}
-  .bstack{bottom:74px}
-  .bottom-actions{padding:8px 10px}
-  .schedule-highlight .hl-line{flex-direction:row;gap:8px;align-items:center}
-  .schedule-highlight .hl-time{min-width:64px}
-  .det-box, .icard, .inspire-section, .map-wrap { background: rgba(3,21,46,0.15); }
-  .map-wrap { min-height: 180px; }
 }
 </style>
 </head>
