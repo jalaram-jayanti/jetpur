@@ -221,6 +221,32 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 .bottom-unified-bar .gbtn-compact .gi { font-size: 1.35rem; line-height: 1; }
 .bottom-unified-bar .gbtn-compact .gn { font-size: clamp(0.6rem, 1.8vw, 0.78rem); font-weight: 800; line-height: 1.1; text-align: center; white-space: nowrap; }
 
+/* ✦ JALARAM JAYANTI GAMES LABEL ABOVE GAME BAR ✦ */
+.jalaram-games-label {
+  position: fixed;
+  bottom: 92px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 998;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, rgba(212,175,55,.92), rgba(184,134,11,.92));
+  border: 1.5px solid rgba(255,248,231,.8);
+  border-radius: 30px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.6), 0 0 20px rgba(245,197,66,.4);
+  color: var(--nd);
+  font-family: 'Yatra One', 'Noto Sans Gujarati', sans-serif;
+  font-size: clamp(0.7rem, 2.6vw, 0.85rem);
+  font-weight: 800;
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 0.3px;
+}
+.jalaram-games-label .jg-emoji { font-size: 1rem; }
+
 /* Modal */
 .modal-ov{position:fixed;inset:0;z-index:500;background:rgba(2,13,31,.92);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:12px;opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s}
 .modal-ov.open{opacity:1;visibility:visible}
@@ -296,6 +322,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   .bottom-unified-bar .gbtn-compact .gn { font-size: clamp(0.55rem, 1.6vw, 0.7rem); }
   .bottom-unified-bar .icon-btn { width: 46px; height: 46px; }
   .bottom-unified-bar .icon-btn svg { width: 24px; height: 24px; }
+  .jalaram-games-label { bottom: 84px; font-size: 0.72rem; padding: 5px 12px; }
 }
 @media(max-width:480px){
   .scene-layer{padding:8px 8px 110px}
@@ -313,6 +340,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   .bottom-unified-bar .icon-btn { width: 42px; height: 42px; }
   .bottom-unified-bar .icon-btn svg { width: 20px; height: 20px; }
   .bottom-unified-bar .game-btn-group { gap: 3px; }
+  .jalaram-games-label { bottom: 74px; font-size: 0.65rem; padding: 4px 10px; }
 }
 
 /* ===== MOBILE VIEW FIXES ===== */
@@ -455,6 +483,13 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
       <div class="footer">જય જલારામ | જય શ્રી રામ | જય વીરબાઈ મા</div>
     </div>
   </div>
+</div>
+
+<!-- ✦ JALARAM JAYANTI GAMES LABEL ✦ -->
+<div class="jalaram-games-label">
+  <span class="jg-emoji">🎮</span>
+  <span>જલારામ જયંતિ ગેમ્સ</span>
+  <span class="jg-emoji">🪔</span>
 </div>
 
 <!-- ✦ UNIFIED BOTTOM BAR (Call + WhatsApp + Games) ✦ -->
