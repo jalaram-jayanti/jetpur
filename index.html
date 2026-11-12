@@ -125,7 +125,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 .cta-quiz .cta-inner:hover { transform: translateY(-2px); }
 .cta-quiz .cta-inner:active { transform: scale(.97); }
 
-/* ✦ UNIFIED BOTTOM BAR (Call + WhatsApp + Game Buttons) ✦ */
+/* ✦ UNIFIED BOTTOM BAR (Call + WhatsApp + Games) ✦ */
 .bottom-unified-bar {
   position: fixed;
   bottom: 12px;
@@ -133,21 +133,44 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   transform: translateX(-50%);
   z-index: 999;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
   padding: 8px 14px;
   background: linear-gradient(160deg, rgba(13,67,134,.95), rgba(4,30,63,.98));
   border: 1px solid rgba(212,175,55,.55);
-  border-radius: 60px;
+  border-radius: 24px;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 25px rgba(0,0,0,.8);
   width: max-content;
   max-width: 98vw;
-  flex-wrap: nowrap;
   pointer-events: auto;
   padding-bottom: env(safe-area-inset-bottom, 8px);
   margin-bottom: 4px;
+}
+
+/* Row that holds call btn + game buttons + whatsapp */
+.bottom-bar-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+/* ✦ GAMES LABEL — ABOVE GAME BUTTONS, NO EMOJIS ✦ */
+.games-label-top {
+  text-align: center;
+  font-family: 'Yatra One', 'Noto Sans Gujarati', sans-serif;
+  font-size: clamp(0.6rem, 1.8vw, 0.74rem);
+  font-weight: 800;
+  color: var(--gb);
+  white-space: nowrap;
+  line-height: 1.1;
+  text-shadow: 0 0 8px rgba(245,197,66,.5);
+  letter-spacing: 0.3px;
+  padding: 2px 0 4px;
+  border-bottom: 1px solid rgba(212,175,55,.3);
 }
 
 /* Round icon buttons inside bottom bar */
@@ -221,32 +244,6 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 .bottom-unified-bar .gbtn-compact .gi { font-size: 1.35rem; line-height: 1; }
 .bottom-unified-bar .gbtn-compact .gn { font-size: clamp(0.6rem, 1.8vw, 0.78rem); font-weight: 800; line-height: 1.1; text-align: center; white-space: nowrap; }
 
-/* ✦ JALARAM JAYANTI GAMES LABEL ABOVE GAME BAR ✦ */
-.jalaram-games-label {
-  position: fixed;
-  bottom: 92px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 998;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 6px 16px;
-  background: linear-gradient(135deg, rgba(212,175,55,.92), rgba(184,134,11,.92));
-  border: 1.5px solid rgba(255,248,231,.8);
-  border-radius: 30px;
-  box-shadow: 0 4px 16px rgba(0,0,0,.6), 0 0 20px rgba(245,197,66,.4);
-  color: var(--nd);
-  font-family: 'Yatra One', 'Noto Sans Gujarati', sans-serif;
-  font-size: clamp(0.7rem, 2.6vw, 0.85rem);
-  font-weight: 800;
-  white-space: nowrap;
-  pointer-events: none;
-  letter-spacing: 0.3px;
-}
-.jalaram-games-label .jg-emoji { font-size: 1rem; }
-
 /* Modal */
 .modal-ov{position:fixed;inset:0;z-index:500;background:rgba(2,13,31,.92);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:12px;opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s}
 .modal-ov.open{opacity:1;visibility:visible}
@@ -277,12 +274,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 .ttt-board{display:grid;grid-template-columns:repeat(3,64px);gap:5px;justify-content:center;margin-bottom:12px}
 .ttt-cell{width:64px;height:64px;background:var(--n);border:2px solid rgba(212,175,55,.5);border-radius:10px;color:var(--gb);font-size:1.6rem;font-weight:bold;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s;font-family:inherit}
 .ttt-cell:hover{background:rgba(212,175,55,.1)}
-.ttt-cell.x{color:var(--gb)}.ttt-cell.o{color:#70a1ff}
-.rang-wrap{position:relative;width:100%;max-width:260px;aspect-ratio:1;margin:0 auto 10px;border-radius:50%;background:radial-gradient(circle,rgba(255,248,231,.06),rgba(3,21,46,.4));border:2px dashed rgba(212,175,55,.5);overflow:hidden}
-#rangCanvas{width:100%;height:100%;display:block;cursor:crosshair;touch-action:none}
-.colors{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
-.csw{width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,248,231,.4);cursor:pointer;transition:transform .15s}
-.csw.active{border-color:#fff;transform:scale(1.2)}
+.ttt-cell.j{color:var(--gb)}.ttt-cell.x{color:#70a1ff}
 .word-hint{font-style:italic;color:rgba(255,248,231,.8);text-align:center;font-size:.85rem;margin-bottom:10px}
 .word-lvl{background:rgba(212,175,55,.15);border:1px solid var(--g);border-radius:8px;padding:6px 12px;margin-bottom:10px;color:var(--gb);font-weight:800;font-size:.82rem;display:flex;justify-content:space-between}
 .word-slots{display:flex;gap:5px;justify-content:center;margin-bottom:10px;flex-wrap:wrap}
@@ -322,7 +314,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   .bottom-unified-bar .gbtn-compact .gn { font-size: clamp(0.55rem, 1.6vw, 0.7rem); }
   .bottom-unified-bar .icon-btn { width: 46px; height: 46px; }
   .bottom-unified-bar .icon-btn svg { width: 24px; height: 24px; }
-  .jalaram-games-label { bottom: 84px; font-size: 0.72rem; padding: 5px 12px; }
+  .games-label-top { font-size: 0.62rem; }
 }
 @media(max-width:480px){
   .scene-layer{padding:8px 8px 110px}
@@ -333,14 +325,15 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   .person .p-icon{font-size:1.6rem}.food-item{padding:6px 8px;min-width:48px}.food-item .f-icon{font-size:1.3rem}
   .schedule-highlight .hl-line{flex-direction:column;gap:2px}
   .schedule-highlight .hl-time{min-width:0}
-  .bottom-unified-bar { gap: 6px; padding: 6px 8px; }
+  .bottom-unified-bar { gap: 5px; padding: 6px 8px; border-radius: 20px; }
   .bottom-unified-bar .gbtn-compact { width: 48px; height: 48px; border-radius: 10px; gap: 2px; }
   .bottom-unified-bar .gbtn-compact .gi { font-size: 1.1rem; }
   .bottom-unified-bar .gbtn-compact .gn { font-size: clamp(0.5rem, 1.8vw, 0.62rem); }
   .bottom-unified-bar .icon-btn { width: 42px; height: 42px; }
   .bottom-unified-bar .icon-btn svg { width: 20px; height: 20px; }
   .bottom-unified-bar .game-btn-group { gap: 3px; }
-  .jalaram-games-label { bottom: 74px; font-size: 0.65rem; padding: 4px 10px; }
+  .bottom-bar-row { gap: 6px; }
+  .games-label-top { font-size: 0.55rem; padding: 2px 0 3px; }
 }
 
 /* ===== MOBILE VIEW FIXES ===== */
@@ -485,34 +478,32 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   </div>
 </div>
 
-<!-- ✦ JALARAM JAYANTI GAMES LABEL ✦ -->
-<div class="jalaram-games-label">
-  <span class="jg-emoji">🎮</span>
-  <span>જલારામ જયંતિ ગેમ્સ</span>
-  <span class="jg-emoji">🪔</span>
-</div>
-
-<!-- ✦ UNIFIED BOTTOM BAR (Call + WhatsApp + Games) ✦ -->
+<!-- ✦ UNIFIED BOTTOM BAR — Label above, then Call + Games + WhatsApp row ✦ -->
 <div class="bottom-unified-bar">
-  <!-- Call Button (Left) -->
-  <a class="icon-btn ca-call" href="tel:9428157173" aria-label="Call">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
-  </a>
+  <!-- Games label — ABOVE the game buttons, no emojis -->
+  <div class="games-label-top">જલારામ જયંતિ ગેમ્સ</div>
 
-  <!-- Game Buttons Group -->
-  <div class="game-btn-group">
-    <button class="gbtn-compact" data-game="quiz" type="button"><span class="gi">🧠</span><span class="gn">ક્વિઝ</span></button>
-    <button class="gbtn-compact" data-game="rangoli" type="button"><span class="gi">🎨</span><span class="gn">રંગોળી</span></button>
-    <button class="gbtn-compact" data-game="ttt" type="button"><span class="gi">❌</span><span class="gn">ટીક ટેક</span></button>
-    <button class="gbtn-compact" data-game="word" type="button"><span class="gi">📝</span><span class="gn">શબ્દ ખેલ</span></button>
-    <button class="gbtn-compact" data-game="tap" type="button"><span class="gi">🍲</span><span class="gn">ખીચડી</span></button>
-    <button class="gbtn-compact" data-game="sadavrat" type="button"><span class="gi">🍛</span><span class="gn">સદાવ્રત</span></button>
+  <!-- Row: Call + Game buttons + WhatsApp -->
+  <div class="bottom-bar-row">
+    <!-- Call Button (Left) -->
+    <a class="icon-btn ca-call" href="tel:9428157173" aria-label="Call">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+    </a>
+
+    <!-- Game Buttons Group -->
+    <div class="game-btn-group">
+      <button class="gbtn-compact" data-game="quiz" type="button"><span class="gi">🧠</span><span class="gn">ક્વિઝ</span></button>
+      <button class="gbtn-compact" data-game="ttt" type="button"><span class="gi">❌</span><span class="gn">ટીક ટેક</span></button>
+      <button class="gbtn-compact" data-game="word" type="button"><span class="gi">📝</span><span class="gn">શબ્દ ખેલ</span></button>
+      <button class="gbtn-compact" data-game="tap" type="button"><span class="gi">🍲</span><span class="gn">ખીચડી</span></button>
+      <button class="gbtn-compact" data-game="sadavrat" type="button"><span class="gi">🍛</span><span class="gn">સદાવ્રત</span></button>
+    </div>
+
+    <!-- WhatsApp Button (Right) -->
+    <a class="icon-btn ca-wa" href="https://wa.me/919426138950?text=જય%20જલારામ%20-%20હું%20227મી%20જલારામ%20જયંતિ%20રેલી%20વિશે%20જાણવા%20માંગું%20છું" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.54-13.58zM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 1 1 5.6 3.09zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.14-.42.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.36-.11-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33l-.38-.01c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66s.72 1.93.82 2.06c.1.13 1.41 2.16 3.42 3.03.48.2.85.33 1.14.42.48.15.92.13 1.26.08.38-.06 1.17-.48 1.34-.94.17-.47.17-.86.12-.95-.05-.08-.18-.13-.38-.23z"/></svg>
+    </a>
   </div>
-
-  <!-- WhatsApp Button (Right) -->
-  <a class="icon-btn ca-wa" href="https://wa.me/919426138950?text=જય%20જલારામ%20-%20હું%20227મી%20જલારામ%20જયંતિ%20રેલી%20વિશે%20જાણવા%20માંગું%20છું" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.54-13.58zM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 1 1 5.6 3.09zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.14-.42.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.36-.11-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33l-.38-.01c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66s.72 1.93.82 2.06c.1.13 1.41 2.16 3.42 3.03.48.2.85.33 1.14.42.48.15.92.13 1.26.08.38-.06 1.17-.48 1.34-.94.17-.47.17-.86.12-.95-.05-.08-.18-.13-.38-.23z"/></svg>
-  </a>
 </div>
 
 <div class="modal-ov" id="gameModal">
@@ -645,8 +636,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 
   const GAME_INFO = {
     quiz: { title:'જલારામ ક્વિઝ (૧૦૮ પ્રશ્નો)', desc:'જલારામ બાપા વિશે ૧૦૮ પ્રશ્નો — સાચો લીલો, ખોટો લાલ, સમજૂતી સાથે!' },
-    rangoli: { title:'રંગોળી દોરો', desc:'રંગ પસંદ કરો અને રંગોળી દોરો!' },
-    ttt: { title:'ટીક ટેક ટો', desc:'તમે X, રોબોટ O — પહેલા તમારો વારો!' },
+    ttt: { title:'જલારામ ટીક ટેક', desc:'તમે J (જલારામ), રોબોટ X — પહેલા તમારો વારો!' },
     word: { title:'શબ્દ ખેલ', desc:'જલારામ નામો ઉકેલો — લેવલ પ્રમાણે!' },
     tap: { title:'ખીચડી ટેપ', desc:'લેવલ પ્રમાણે વધતી ઝડપે ખીચડી ટેપ કરો!' },
     sadavrat: { title:'સદાવ્રત સેવા', desc:'ભૂખ્યા લોકોને સાચો ખોરાક પહોંચાડો!' }
@@ -664,7 +654,6 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
     clearInterval(sadavratTimer);
     try {
       if(gameId === 'quiz') startQuiz();
-      else if(gameId === 'rangoli') startRangoli();
       else if(gameId === 'ttt') startTTT();
       else if(gameId === 'word') startWord();
       else if(gameId === 'tap') startKhichdiTap();
@@ -763,38 +752,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
     {q:"જલારામ બાપાના મંદિરમાં શું નથી?",a:["મૂર્તિઓ","દાનપેટી","ઝોળી","લાકડી"],c:1,e:"દાનપેટી નથી."},
     {q:"જલારામ બાપાને કઈ ઉંમરે ગુરુ મળ્યા?",a:["18 વર્ષ","20 વર્ષ","25 વર્ષ","30 વર્ષ"],c:0,e:"18 વર્ષે."},
     {q:"જલારામ બાપાના ભક્તો માટે કઈ વસ્તુ મહત્વપૂર્ણ છે?",a:["ગુરુવારે દર્શન","પ્રસાદ","સદાવ્રતમાં ભાગ લેવો","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ ભક્તો માટે મહત્વપૂર્ણ છે."},
-    {q:"જલારામ બાપાના જીવનની મુખ્ય ઘટના શું છે?",a:["સદાવ્રતની સ્થાપના","લગ્ન","તીર્થયાત્રા","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ તેમના જીવનની મુખ્ય ઘટનાઓ છે."},
-    {q:"જલારામ બાપાને કઈ ઉપાધિ દ્વારા સંબોધવામાં આવે છે?",a:["ભગવાન","બાપા","ગુરુ","સ્વામી"],c:1,e:"\"બાપા\"."},
-    {q:"જલારામ બાપાના જીવનનો મુખ્ય સંદેશ શું છે?",a:["નિઃસ્વાર્થ સેવા","ધન સંગ્રહ","પ્રસિદ્ધિ","સત્તા"],c:0,e:"નિઃસ્વાર્થ સેવા."},
-    {q:"જલારામ બાપાને કઈ ઉંમરે ગૃહસ્થ જીવન છોડ્યું?",a:["તેમણે ક્યારેય ગૃહસ્થ જીવન સ્વીકાર્યું નહીં","30 વર્ષે","40 વર્ષે","50 વર્ષે"],c:0,e:"તેમણે ગૃહસ્થ જીવનથી દૂર રહીને સેવામાં જીવન વિતાવ્યું."},
-    {q:"જલારામ બાપાને કઈ ઉપાધિ દ્વારા ઓળખવામાં આવે છે?",a:["સંત","બાપા","અન્નદાતા","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
-    {q:"જલારામ બાપાના મંદિરમાં કઈ વસ્તુ પ્રદર્શિત છે?",a:["ઝોળી","લાકડી","ઉપરોક્ત બંને","ફક્ત મૂર્તિઓ"],c:2,e:"ઝોળી અને લાકડી બંને."},
-    {q:"જલારામ બાપાને કઈ ઉંમરે સદાવ્રતની પ્રેરણા મળી?",a:["ગુરુના આશીર્વાદ પછી","લગ્ન પહેલાં","માતાના અવસાન પછી","સ્વયં નિર્ણય"],c:0,e:"ગુરુના આશીર્વાદ પછી."},
-    {q:"જલારામ બાપાના ભક્તોમાં કયા સમુદાયના લોકોનો સમાવેશ થાય છે?",a:["ફક્ત લોહાણા","ફક્ત બ્રાહ્મણ","વિવિધ જાતિઓ અને ધર્મો","ફક્ત વેપારીઓ"],c:2,e:"વિવિધ જાતિઓ અને ધર્મો."},
-    {q:"જલારામ બાપાને કઈ ઉપાધિ આપવામાં આવી?",a:["સંત શિરોમણી","બાપા","મહાત્મા","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
-    {q:"જલારામ બાપાના સદાવ્રતની ખાસિયત શું છે?",a:["ફક્ત દિવસમાં એક વાર","24 કલાક ખુલ્લું","ફક્ત શિયાળામાં","ફક્ત રવિવારે"],c:1,e:"24 કલાક."},
-    {q:"જલારામ બાપાના જીવનકાળમાં કયા ચમત્કારની નોંધ છે?",a:["મૃત પક્ષીને સજીવન કરવું","માંદગી મટાડવી","અનાજ અખૂટ કરવું","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
-    {q:"જલારામ બાપાનું મંદિર કયા જિલ્લામાં છે?",a:["જૂનાગઢ","રાજકોટ","અમરેલી","ભાવનગર"],c:1,e:"રાજકોટ."},
-    {q:"જલારામ બાપાને કઈ ઉંમરે વૃદ્ધ સાધુના રૂપમાં ભગવાનનું પરીક્ષણ મળ્યું?",a:["20 વર્ષ","25 વર્ષ","મધ્ય વય","બાળપણ"],c:2,e:"મધ્ય વય."},
-    {q:"જલારામ બાપાના ભક્તો માટે કઈ વસ્તુ પવિત્ર માનવામાં આવે છે?",a:["ઝોળી અને લાકડી","ફક્ત મૂર્તિ","ફક્ત મંદિર","ફક્ત ફોટો"],c:0,e:"ઝોળી અને લાકડી."},
-    {q:"જલારામ બાપાનો જન્મ કયા સમુદાયમાં થયો?",a:["બ્રાહ્મણ","લોહાણા","પટેલ","જૈન"],c:1,e:"લોહાણા."},
-    {q:"જલારામ બાપાને કઈ ઉંમરે સંસાર ત્યાગની ભાવના આવી?",a:["10 વર્ષ","16 વર્ષ","25 વર્ષ","30 વર્ષ"],c:1,e:"16 વર્ષ."},
-    {q:"જલારામ બાપાના ગુરુએ તેમને શું કહ્યું?",a:["ધન કમાઓ","રામનું નામ લો અને સેવા કરો","ઘર છોડી દો","મંદિર બનાવો"],c:1,e:"રામનું નામ લો અને સેવા કરો."},
-    {q:"જલારામ બાપાના ચમત્કારોથી કોને ફાયદો થયો?",a:["ફક્ત ધનવાનો","ફક્ત સાધુઓ","ગરીબ, માંદા અને જરૂરિયાતમંદ","ફક્ત પોતાના કુટુંબ"],c:2,e:"ગરીબ, માંદા અને જરૂરિયાતમંદ."},
-    {q:"જલારામ બાપાને કઈ ઉપાધિ દ્વારા ઓળખવામાં આવે છે?",a:["સદાવ્રતના સ્વામી","અન્નદાતા","સંત","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
-    {q:"જલારામ બાપાના મંદિરમાં કઈ મૂર્તિઓ છે?",a:["રામ, સીતા, લક્ષ્મણ, હનુમાન","ફક્ત રામ","ફક્ત હનુમાન","ફક્ત કૃષ્ણ"],c:0,e:"રામ, સીતા, લક્ષ્મણ, હનુમાન."},
-    {q:"જલારામ બાપાને કઈ ઉંમરે ગૃહસ્થ જીવનનો અંત આવ્યો?",a:["તેમણે ક્યારેય ગૃહસ્થ જીવન સ્વીકાર્યું નહીં","30 વર્ષે","40 વર્ષે","50 વર્ષે"],c:0,e:"તેમણે ગૃહસ્થ જીવનથી દૂર રહીને સેવામાં જીવન વિતાવ્યું."},
-    {q:"જલારામ બાપાના ભક્તો માટે કઈ વસ્તુ શુભ માનવામાં આવે છે?",a:["તેમના દર્શન","તેમના પ્રસાદનું સેવન","ઉપરોક્ત બંને","ફક્ત મંદિરમાં જવું"],c:2,e:"ઉપરોક્ત બંને."},
-    {q:"જલારામ બાપાને કઈ ઉપાધિ દ્વારા સંબોધવામાં આવે છે?",a:["ભગવાન","બાપા","ગુરુ","સ્વામી"],c:1,e:"બાપા."},
-    {q:"જલારામ બાપાના જીવનનો મુખ્ય હેતુ શું હતો?",a:["ધન સંગ્રહ","લોકોની સેવા","પ્રસિદ્ધિ","સત્તા"],c:1,e:"લોકોની સેવા."},
-    {q:"જલારામ બાપાના ચમત્કારોનો મુખ્ય વિષય શું છે?",a:["ભૌતિક વસ્તુઓ","માંદગી મટાડવી અને ભોજન દાન","રાજકીય ફેરફાર","યુદ્ધ"],c:1,e:"માંદગી મટાડવી અને ભોજન દાન."},
-    {q:"જલારામ બાપાને કઈ ઉંમરે સદાવ્રતની સ્થાપના કરી?",a:["18 વર્ષ","20 વર્ષ","25 વર્ષ","30 વર્ષ"],c:1,e:"20 વર્ષ."},
-    {q:"જલારામ બાપાના ગુરુનું નામ શું હતું?",a:["ભોજા ભગત","રઘુવીરદાસ","હરજી","જમાલ"],c:0,e:"ભોજા ભગત."},
-    {q:"જલારામ બાપાને કઈ ઉપાધિ દ્વારા ઓળખવામાં આવે છે?",a:["સંત","બાપા","અન્નદાતા","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
-    {q:"જલારામ બાપાના મંદિરમાં શું નથી?",a:["મૂર્તિઓ","દાનપેટી","ઝોળી","લાકડી"],c:1,e:"દાનપેટી નથી."},
-    {q:"જલારામ બાપાને કઈ ઉંમરે ગુરુ મળ્યા?",a:["18 વર્ષ","20 વર્ષ","25 વર્ષ","30 વર્ષ"],c:0,e:"18 વર્ષ."},
-    {q:"જલારામ બાપાના ભક્તો માટે કઈ વસ્તુ મહત્વપૂર્ણ છે?",a:["ગુરુવારે દર્શન","પ્રસાદ","સદાવ્રતમાં ભાગ લેવો","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."},
-    {q:"જલારામ બાપાના જીવનની મુખ્ય ઘટના શું છે?",a:["સદાવ્રતની સ્થાપના","લગ્ન","તીર્થયાત્રા","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ."}
+    {q:"જલારામ બાપાના જીવનની મુખ્ય ઘટના શું છે?",a:["સદાવ્રતની સ્થાપના","લગ્ન","તીર્થયાત્રા","ઉપરોક્ત તમામ"],c:3,e:"ઉપરોક્ત તમામ તેમના જીવનની મુખ્ય ઘટનાઓ છે."}
   ];
 
   let qOrder = [], qIdx = 0, qScore = 0, qAnswered = false;
@@ -856,74 +814,19 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
     quizTimer = setTimeout(renderQuiz, 2800);
   }
 
-  // ========== RANGOLI ==========
-  let rCtx = null, rDrawing = false, rColor = '#f5c542';
-
-  function startRangoli(){
-    gameContent.innerHTML = '<div class="rang-wrap"><canvas id="rangCanvas"></canvas></div><div class="colors">'+['#f5c542','#ff6b35','#ff4757','#7bed9f','#70a1ff','#fff'].map(function(c,i){return '<div class="csw '+(i===0?'active':'')+'" style="background:'+c+'" data-c="'+c+'"></div>';}).join('')+'</div><button class="game-btn-action" id="clearRangBtn">Clear</button>';
-    const cv = document.getElementById('rangCanvas');
-    const w = cv.parentElement.clientWidth;
-    const d = window.devicePixelRatio || 1;
-    cv.width = w*d; cv.height = w*d;
-    cv.style.width = w+'px'; cv.style.height = w+'px';
-    rCtx = cv.getContext('2d');
-    rCtx.scale(d,d);
-    rCtx.lineCap = 'round';
-    rCtx.lineJoin = 'round';
-    rCtx.lineWidth = 4;
-    rCtx.strokeStyle = rColor;
-    function pos(e){
-      const r = cv.getBoundingClientRect();
-      const cx = e.touches ? e.touches[0].clientX : e.clientX;
-      const cy = e.touches ? e.touches[0].clientY : e.clientY;
-      return {x:cx-r.left, y:cy-r.top};
-    }
-    function start(e){
-      e.preventDefault(); rDrawing = true;
-      const p = pos(e);
-      rCtx.beginPath(); rCtx.moveTo(p.x,p.y);
-      rCtx.strokeStyle = rColor; rCtx.shadowColor = rColor; rCtx.shadowBlur = 12;
-    }
-    function move(e){
-      if(!rDrawing) return;
-      e.preventDefault();
-      const p = pos(e);
-      rCtx.lineTo(p.x,p.y); rCtx.stroke();
-    }
-    function end(){ rDrawing = false; }
-    cv.addEventListener('mousedown', start);
-    cv.addEventListener('mousemove', move);
-    cv.addEventListener('mouseup', end);
-    cv.addEventListener('mouseleave', end);
-    cv.addEventListener('touchstart', start, {passive:false});
-    cv.addEventListener('touchmove', move, {passive:false});
-    cv.addEventListener('touchend', end);
-    document.querySelectorAll('.csw').forEach(function(s){
-      s.addEventListener('click', function(){
-        document.querySelectorAll('.csw').forEach(function(x){x.classList.remove('active');});
-        s.classList.add('active');
-        rColor = s.dataset.c;
-      });
-    });
-    const clearBtn = document.getElementById('clearRangBtn');
-    if(clearBtn) clearBtn.addEventListener('click', function(){
-      if(rCtx){ const c = rCtx.canvas; rCtx.clearRect(0,0,c.width,c.height); }
-    });
-  }
-
-  // ========== TIC TAC TOE ==========
+  // ========== JALARAM TIC TAC TOE (J vs X) ==========
   let tb = ['','','','','','','','',''];
-  let tCur = 'X', tttGameOver = false, tttLocked = false;
+  let tCur = 'J', tttGameOver = false, tttLocked = false;
 
   function startTTT(){
     tb = ['','','','','','','','',''];
-    tCur = 'X'; tttGameOver = false; tttLocked = false;
+    tCur = 'J'; tttGameOver = false; tttLocked = false;
     renderTTT();
   }
   function renderTTT(){
-    let h = '<div class="game-ui"><p>વારો: <strong style="color:var(--gb)">'+(tCur==='X'?'તમારો (X)':'રોબોટ (O)')+'</strong></p><div class="ttt-board">';
+    let h = '<div class="game-ui"><p>વારો: <strong style="color:var(--gb)">'+(tCur==='J'?'તમારો (જ)':'રોબોટ (X)')+'</strong></p><div class="ttt-board">';
     tb.forEach(function(c,i){
-      h += '<div class="ttt-cell '+(c==='X'?'x':c==='O'?'o':'')+'" data-i="'+i+'">'+c+'</div>';
+      h += '<div class="ttt-cell '+(c==='J'?'j':c==='X'?'x':'')+'" data-i="'+i+'">'+c+'</div>';
     });
     h += '</div><button class="game-btn-action" id="tttRestart">ફરી રમો</button></div>';
     gameContent.innerHTML = h;
@@ -936,8 +839,8 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
     if(rb) rb.addEventListener('click', startTTT);
   }
   function playTTT(i){
-    if(tttGameOver || tttLocked || tb[i] || tCur !== 'X') return;
-    tb[i] = 'X'; tCur = 'O';
+    if(tttGameOver || tttLocked || tb[i] || tCur !== 'J') return;
+    tb[i] = 'J'; tCur = 'X';
     renderTTT();
     let w = checkTTT();
     if(w){ return endTTT(w); }
@@ -946,7 +849,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
     setTimeout(function(){
       const ai = pickAIMove();
       if(ai !== -1){
-        tb[ai] = 'O'; tCur = 'X';
+        tb[ai] = 'X'; tCur = 'J';
         renderTTT();
         tttLocked = false;
         let w2 = checkTTT();
@@ -960,14 +863,14 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   function pickAIMove(){
     const lines = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
     for(const [a,b,c] of lines){
-      if(tb[a]==='O'&&tb[b]==='O'&&!tb[c]) return c;
-      if(tb[a]==='O'&&tb[c]==='O'&&!tb[b]) return b;
-      if(tb[b]==='O'&&tb[c]==='O'&&!tb[a]) return a;
-    }
-    for(const [a,b,c] of lines){
       if(tb[a]==='X'&&tb[b]==='X'&&!tb[c]) return c;
       if(tb[a]==='X'&&tb[c]==='X'&&!tb[b]) return b;
       if(tb[b]==='X'&&tb[c]==='X'&&!tb[a]) return a;
+    }
+    for(const [a,b,c] of lines){
+      if(tb[a]==='J'&&tb[b]==='J'&&!tb[c]) return c;
+      if(tb[a]==='J'&&tb[c]==='J'&&!tb[b]) return b;
+      if(tb[b]==='J'&&tb[c]==='J'&&!tb[a]) return a;
     }
     if(!tb[4]) return 4;
     const corners = [0,2,6,8].filter(function(i){ return !tb[i]; });
@@ -984,8 +887,8 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   }
   function endTTT(winner){
     tttGameOver = true;
-    if(winner==='X'){ setTimeout(function(){ alert('🎉 તમે જીત્યા!'); }, 100); }
-    else if(winner==='O'){ setTimeout(function(){ alert('🤖 રોબોટ જીત્યો!'); }, 100); }
+    if(winner==='J'){ setTimeout(function(){ alert('🎉 તમે જીત્યા! જય જલારામ!'); }, 100); }
+    else if(winner==='X'){ setTimeout(function(){ alert('🤖 રોબોટ જીત્યો!'); }, 100); }
     else { setTimeout(function(){ alert('ડ્રો!'); }, 100); }
   }
 
