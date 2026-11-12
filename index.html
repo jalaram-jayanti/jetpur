@@ -102,49 +102,61 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 
 .footer{color:var(--g);font-weight:700;font-size:clamp(.72rem,2.1vw,.85rem);margin-top:8px;text-shadow:0 1px 4px rgba(0,0,0,0.8)}
 
-/* ✦ INTEGRATED QUIZ CTA (Not Sticky, Spaced from top) ✦ */
+/* ✦ STICKY TOP QUIZ CTA (One Line) ✦ */
 .cta-quiz {
-  position: relative; z-index: 10;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 450;
   display: flex; align-items: center; justify-content: center;
-  margin: 15px auto 12px; width: 95%;
+  padding: 10px 10px; margin: 0 auto;
+  background: linear-gradient(180deg, rgba(2,13,31,.98) 0%, rgba(2,13,31,.92) 80%, rgba(2,13,31,0) 100%);
   pointer-events: none;
 }
 .cta-quiz .cta-inner {
   pointer-events: auto;
   background: linear-gradient(135deg, rgba(212,175,55,.25), rgba(245,166,35,.15));
   border: 2px solid var(--gb); color: var(--gb);
-  padding: 10px 20px; border-radius: 40px;
+  padding: 8px 16px; border-radius: 40px;
   font-family: 'Noto Sans Gujarati', sans-serif;
-  font-size: clamp(0.65rem, 3.2vw, 0.9rem); font-weight: 800;
+  font-size: clamp(0.6rem, 3.2vw, 0.88rem); font-weight: 800;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   box-shadow: 0 6px 20px rgba(0,0,0,.4);
   cursor: pointer; transition: transform .15s;
-  max-width: 100%;
-  text-align: center;
+  max-width: 98vw;
 }
 .cta-quiz .cta-inner:hover { transform: translateY(-2px); }
 .cta-quiz .cta-inner:active { transform: scale(.97); }
 
-/* ✦ SIDE FLOATING WHATSAPP & CALL ✦ */
-.side-actions {
-  position: fixed; right: 12px; top: 50%; transform: translateY(-50%);
-  z-index: 450; display: flex; flex-direction: column; gap: 12px; pointer-events: none;
+/* ✦ STICKY CORNER CALL & WHATSAPP ✦ */
+.corner-actions {
+  position: fixed; left: 0; right: 0; bottom: 15px; /* Stick to bottom */
+  z-index: 999; display: flex; justify-content: space-between; 
+  padding: 0 15px; pointer-events: none;
 }
-.side-actions .sa-btn {
+.corner-actions .ca-btn {
   pointer-events: auto;
-  width: 54px; height: 54px; border-radius: 50%;
+  width: 50px; height: 50px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   color: #fff; text-decoration: none; transition: transform .15s;
-  box-shadow: 0 8px 24px rgba(0,0,0,.7);
+  box-shadow: 0 4px 15px rgba(0,0,0,.4);
 }
-.side-actions .sa-btn:hover { transform: scale(1.1); }
-.side-actions .sa-btn:active { transform: scale(.95); }
-.side-actions .sa-wa { background: linear-gradient(145deg,#25D366,#128C7E); border: 2px solid rgba(255,255,255,.35); box-shadow: 0 8px 24px rgba(0,0,0,.7), 0 0 22px rgba(37,211,102,.6); }
-.side-actions .sa-call { background: linear-gradient(145deg,#34b7f1,#0d6efd); border: 2px solid rgba(255,255,255,.35); box-shadow: 0 8px 24px rgba(0,0,0,.7), 0 0 22px rgba(52,183,241,.6); }
-.side-actions .sa-btn svg { width: 24px; height: 24px; }
+.corner-actions .ca-btn:hover { transform: scale(1.1); }
+.corner-actions .ca-btn:active { transform: scale(.95); }
+/* Call button styling (Left) */
+.corner-actions .ca-call { 
+  background: #ffffff; 
+  color: #0d6efd; 
+  border: 1px solid #e0e0e0; 
+}
+.corner-actions .ca-call svg { width: 24px; height: 24px; }
+/* WhatsApp button styling (Right) */
+.corner-actions .ca-wa { 
+  background: #25D366; 
+  color: #ffffff; 
+  border: 1px solid #1ebe5d;
+}
+.corner-actions .ca-wa svg { width: 28px; height: 28px; }
 
-/* Games bar sits bottom */
-.bstack{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:400;display:flex;flex-direction:column;align-items:center;gap:8px;width:max-content;max-width:96vw;pointer-events:none;padding-bottom:env(safe-area-inset-bottom,0px)}
+/* Games bar sits bottom - pushed up slightly to avoid corner buttons */
+.bstack{position:fixed;bottom:75px;left:50%;transform:translateX(-50%);z-index:400;display:flex;flex-direction:column;align-items:center;gap:8px;width:max-content;max-width:96vw;pointer-events:none;padding-bottom:env(safe-area-inset-bottom,0px)}
 .bstack .bbar,.bstack .bbar *{pointer-events:auto}
 .bbar{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 18px 7px;background:linear-gradient(160deg,rgba(13,67,134,.94),rgba(4,30,63,.96));border:1px solid rgba(212,175,55,.55);border-radius:16px;backdrop-filter:blur(16px);box-shadow:0 0 0 4px rgba(212,175,55,.15),0 16px 40px rgba(0,0,0,.7);max-width:96vw;position:relative}
 .bbar-label{font-size:.68rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gb);display:flex;align-items:center;gap:8px}
@@ -223,12 +235,10 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 @media(max-width:700px){
   .scene-layer{padding:10px 10px 120px}
   .invite-card{max-height:calc(100dvh - 150px);padding:12px 12px 14px}
-  .bstack{gap:8px;bottom:10px}.bbar{padding:7px 12px 6px;border-radius:14px}
   .gbtn{width:50px;height:50px;border-radius:11px}.gbtn .gi{font-size:1.1rem}.gbtn .gn{font-size:.4rem}
   .env-group{gap:18px}
-  .side-actions { right: 8px; gap: 8px; }
-  .side-actions .sa-btn { width: 46px; height: 46px; }
-  .side-actions .sa-btn svg { width: 20px; height: 20px; }
+  .corner-actions .ca-btn { width: 45px; height: 45px; }
+  .corner-actions .ca-btn svg { width: 22px; height: 22px; }
 }
 @media(max-width:480px){
   .scene-layer{padding:8px 8px 110px}
@@ -241,26 +251,35 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   .person .p-icon{font-size:1.6rem}.food-item{padding:6px 8px;min-width:48px}.food-item .f-icon{font-size:1.3rem}
   .schedule-highlight .hl-line{flex-direction:column;gap:2px}
   .schedule-highlight .hl-time{min-width:0}
-  .side-actions { right: 6px; gap: 6px; }
-  .side-actions .sa-btn { width: 42px; height: 42px; }
-  .side-actions .sa-btn svg { width: 18px; height: 18px; }
+  .corner-actions { padding: 0 10px; bottom: 10px; }
+  .corner-actions .ca-btn { width: 42px; height: 42px; }
+  .corner-actions .ca-btn svg { width: 20px; height: 20px; }
 }
 
-/* ===== MOBILE VIEW ===== */
+/* ===== MOBILE VIEW - SCROLL FIX ===== */
 @media(max-width:600px){
-  html,body{overflow:auto;-webkit-overflow-scrolling:touch}
-  #scene{position:relative;min-height:100vh;overflow:visible}
-  .scene-layer{position:relative;inset:auto;min-height:100vh;padding-bottom:120px}
-  #env-scene{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-bottom:120px}
-  #invite-scene{position:relative;padding:55px 8px 120px;display:block}
-  .invite-card{max-height:none;overflow-y:visible;width:100%;padding:12px 10px 14px;background:rgba(6,44,90,0.15);backdrop-filter:blur(2px)}
+  html,body{overflow:hidden;}
+  #scene{position:relative;height:100dvh;overflow:hidden;}
+  .scene-layer{position:relative;inset:auto;height:100dvh;padding-bottom:120px;}
+  #env-scene{height:100dvh;display:flex;align-items:center;justify-content:center;padding-bottom:120px}
+  
+  #invite-scene{position:relative;padding:60px 8px 80px;display:flex;align-items:center;justify-content:center;height:100dvh;}
+  .invite-card{
+    max-height:calc(100dvh - 160px); 
+    overflow-y:auto; 
+    width:100%; 
+    padding:12px 10px 14px;
+    background:rgba(6,44,90,0.15);
+    backdrop-filter:blur(2px);
+    -webkit-overflow-scrolling: touch;
+  }
+  
   .quad-grid{grid-template-columns:1fr}
   .inspire-grid{flex-direction:column}
   .map-wrap{height:180px;margin-bottom:8px}
   .schedule-highlight .hl-line{flex-direction:row;gap:8px;align-items:center}
   .schedule-highlight .hl-time{min-width:64px}
   .det-box, .icard, .inspire-section { background: rgba(3,21,46,0.15); }
-  .cta-quiz { margin: 10px auto 10px; width: 100%; }
 }
 @media(max-width:400px){
   .map-wrap{height:150px}
@@ -273,6 +292,11 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   <div class="stars" id="stars"></div>
   <div class="toran" id="toran"></div>
   <div id="fireworks"></div>
+
+  <!-- ✦ STICKY TOP QUIZ CTA ✦ -->
+  <div class="cta-quiz" data-game="quiz">
+    <div class="cta-inner" onclick="window.triggerQuiz && window.triggerQuiz()">🙏 જો તમે જલારામ બાપાના સાચા ભક્ત હો તો આ ૧૦૮ પ્રશ્નોની ક્વિઝથી તમારું જ્ઞાન ચકાસો!</div>
+  </div>
 
   <div id="env-scene" class="scene-layer">
     <div class="env-group">
@@ -291,12 +315,6 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   <div id="invite-scene" class="scene-layer hidden">
     <div class="invite-card">
       <div class="title-badge">૨૨૭મી જલારામ જયંતિ નિમિત્તે</div>
-
-      <!-- ✦ QUIZ CTA (moved inside card with margin) ✦ -->
-      <div class="cta-quiz" data-game="quiz">
-        <div class="cta-inner" onclick="window.triggerQuiz && window.triggerQuiz()">🙏 જો તમે જલારામ બાપાના સાચા ભક્ત હો તો આ ૧૦૮ પ્રશ્નોની ક્વિઝથી તમારું જ્ઞાન ચકાસો!</div>
-      </div>
-
       <div class="welcome">જેતપુરના સમગ્ર રઘુવંશી પરિવારને એકતા રેલીમાં જોડાવા જાહેર નિમંત્રણ.</div>
       <div class="club-badge"><span>👳‍♂️</span>રઘુવંશી યુથ ક્લબ જેતપુર<span>👳‍♂️</span></div>
       <div class="trad-box">૧૯૮૧ થી જેતપુરના ભાદરના પવિત્ર કાંઠે અમારા વડીલોએ દ્વારા નિયમિત સંચાલિત ૪૫ વર્ષથી સતત આજ સુધી ચાલતી આસ્થા & જલારામ જયંતિ શોભાયાત્રાની પરંપરાને અમે શ્રદ્ધા સાથે આગળ વધારીએ છીએ.</div>
@@ -308,7 +326,6 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
       </div>
       
       <div class="quad-grid">
-        <!-- Left Col: Schedule -->
         <div class="icard">
           <h4>કાર્યક્રમનો સમયપત્રક</h4>
           <div class="schedule-highlight">
@@ -323,7 +340,6 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
           </div>
         </div>
         
-        <!-- Right Col: Route -->
         <div class="icard">
           <h4>રેલી રૂટ</h4>
           <div class="lr"><span>૯:૦૦ AM</span><span>જલારામ ચોક</span></div>
@@ -338,7 +354,6 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
           <div class="lr"><span>૧૧:૦૦ AM</span><span>જલારામ મંદિર</span></div>
         </div>
         
-        <!-- Left Col (bottom): Map -->
         <div class="map-wrapper-col">
           <a class="loc-cta" href="https://maps.app.goo.gl/hemm1cNx44rxUUMZ6" target="_blank" rel="noopener">📍 રેલી લોકેશન પહોંચવા ક્લિક કરો 📍</a>
           <div class="map-wrap">
@@ -347,7 +362,6 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
           </div>
         </div>
         
-        <!-- Right Col (bottom): Inspiration -->
         <div class="inspire-section">
           <div class="inspire-head">
             <div class="ih-title">🙏 આપણા જેતપુરના રઘુવંશી સમાજના પ્રેરણા સ્ત્રોત 🙏</div>
@@ -375,13 +389,16 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   </div>
 </div>
 
-<!-- ✦ SIDE FLOATING WHATSAPP & CALL ✦ -->
-<div class="side-actions">
-  <a class="sa-btn sa-wa" href="https://wa.me/919426138950?text=જય%20જલારામ%20-%20હું%20227મી%20જલારામ%20જયંતિ%20રેલી%20વિશે%20જાણવા%20માંગું%20છું" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.54-13.58zM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 1 1 5.6 3.09zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.14-.42.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.36-.11-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33l-.38-.01c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66s.72 1.93.82 2.06c.1.13 1.41 2.16 3.42 3.03.48.2.85.33 1.14.42.48.15.92.13 1.26.08.38-.06 1.17-.48 1.34-.94.17-.47.17-.86.12-.95-.05-.08-.18-.13-.38-.23z"/></svg>
-  </a>
-  <a class="sa-btn sa-call" href="tel:9428157173" aria-label="Call">
+<!-- ✦ STICKY CORNER BUTTONS (Left Call, Right WhatsApp) ✦ -->
+<div class="corner-actions">
+  <!-- Call Button (Left) -->
+  <a class="ca-btn ca-call" href="tel:9428157173" aria-label="Call">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+  </a>
+  
+  <!-- WhatsApp Button (Right) -->
+  <a class="ca-btn ca-wa" href="https://wa.me/919426138950?text=જય%20જલારામ%20-%20હું%20227મી%20જલારામ%20જયંતિ%20રેલી%20વિશે%20જાણવા%20માંગું%20છું" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.54-13.58zM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.6 6.6 0 1 1 5.6 3.09zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.14-.42.05-.2-.1-.83-.31-1.58-.98-.58-.52-.98-1.16-1.09-1.36-.11-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.11.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33l-.38-.01c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66s.72 1.93.82 2.06c.1.13 1.41 2.16 3.42 3.03.48.2.85.33 1.14.42.48.15.92.13 1.26.08.38-.06 1.17-.48 1.34-.94.17-.47.17-.86.12-.95-.05-.08-.18-.13-.38-.23z"/></svg>
   </a>
 </div>
 
@@ -474,7 +491,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
     fw.appendChild(c);
     setTimeout(function(){
       const y = window.innerHeight + rise;
-      burst(x, y, color, 25 + Math.floor(Math.random()*15)); // Increased burst count
+      burst(x, y, color, 25 + Math.floor(Math.random()*15));
       c.remove();
     }, 1200);
   }
@@ -484,15 +501,12 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
     const x = Math.random()*window.innerWidth;
     const y = Math.random()*window.innerHeight*0.6;
     const color = pal[Math.floor(Math.random()*pal.length)];
-    burst(x, y, color, 20 + Math.floor(Math.random()*15)); // Increased burst count
+    burst(x, y, color, 20 + Math.floor(Math.random()*15));
   }
 
   function startFireworksLoop(){
-    // Increased frequency of fireworks
     setInterval(crackerRise, 400); 
     setInterval(continuousBursts, 800);
-    
-    // Initial burst
     setTimeout(crackerRise, 100);
     setTimeout(crackerRise, 300);
     setTimeout(continuousBursts, 150);
@@ -520,10 +534,6 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
       const inviteScene = document.getElementById('invite-scene');
       if(envScene) envScene.classList.add('hidden');
       if(inviteScene) inviteScene.classList.remove('hidden');
-      // On mobile, ensure scroll to top after opening
-      if(window.innerWidth <= 600){
-        window.scrollTo({top: 0, behavior: 'smooth'});
-      }
     }, 1000);
   }
 
