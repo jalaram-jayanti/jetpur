@@ -24,6 +24,42 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 .scene-layer{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:opacity .5s ease,visibility .5s;padding:12px 12px 250px}
 .scene-layer.hidden{opacity:0;visibility:hidden;pointer-events:none}
 #env-scene{z-index:100;flex-direction:column}
+
+/* ✦ GLOWING ROUND ICON ✦ */
+.glow-icon-wrapper {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--gb), var(--fl), var(--g), var(--fl), var(--gb));
+  background-size: 300% 300%;
+  animation: spinGlow 3s linear infinite, pulseGlow 2s ease-in-out infinite alternate;
+  box-shadow: 0 0 15px rgba(245,197,66,0.8), 0 0 30px rgba(245,166,35,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.glow-icon-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: #03152e;
+}
+@keyframes spinGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 15px rgba(245,197,66,0.8), 0 0 30px rgba(245,166,35,0.5); }
+  100% { box-shadow: 0 0 25px rgba(245,197,66,1), 0 0 50px rgba(245,166,35,0.8); }
+}
+
 .env-group{display:flex;flex-direction:column;align-items:center;gap:22px;width:100%;max-width:460px}
 .envelope-wrapper{position:relative;width:min(420px,88vw);margin:0 auto}
 .envelope{position:relative;width:100%;aspect-ratio:420/280;cursor:pointer;transition:transform .2s}
@@ -46,52 +82,63 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 .open-cta:hover{transform:translateY(-2px) scale(1.02)}
 .open-cta:active{transform:scale(0.97)}
 #invite-scene{z-index:90;padding:10px 12px 250px}
-.invite-card{position:relative;width:min(920px,96vw);max-height:calc(100dvh - 270px);background:linear-gradient(165deg,rgba(6,44,90,.75),rgba(3,21,46,.9));border:1px solid rgba(212,175,55,.55);border-radius:20px;padding:14px 16px 16px;text-align:center;backdrop-filter:blur(14px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--g) transparent}
+
+/* ✦ TRANSPARENT MAIN CARD ✦ */
+.invite-card{position:relative;width:min(920px,96vw);max-height:calc(100dvh - 270px);background:rgba(6,44,90,0.25);border:1px solid rgba(212,175,55,.55);border-radius:20px;padding:14px 16px 16px;text-align:center;backdrop-filter:blur(4px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--g) transparent;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
 .title-badge{display:inline-block;background:linear-gradient(135deg,var(--gb),var(--g) 50%,var(--gd));color:var(--nd);padding:7px 20px;border-radius:50px;font-family:'Yatra One',sans-serif;font-size:clamp(1rem,3.4vw,1.35rem);font-weight:800;margin:2px auto 8px;box-shadow:0 8px 25px rgba(212,175,55,.35)}
-.welcome{font-size:clamp(.78rem,2.2vw,.92rem);color:#e2e8f0;line-height:1.45;margin-bottom:8px;font-weight:600}
-.club-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.3);border-radius:10px;padding:6px 14px;margin:0 auto 10px;color:var(--gb);font-size:clamp(.88rem,2.8vw,1.1rem);font-weight:800}
-.trad-box{background:var(--cr);color:var(--nd);padding:10px 14px;border-radius:10px;font-size:clamp(.72rem,2vw,.85rem);font-weight:700;line-height:1.5;margin-bottom:10px;border-left:3px solid var(--g);border-right:3px solid var(--g);text-align:left}
-.det-box{background:rgba(3,21,46,.6);border:1.5px solid var(--g);border-radius:10px;padding:10px 14px;margin-bottom:10px;text-align:left}
-.det-title{color:var(--gb);font-size:clamp(.9rem,2.6vw,1.05rem);font-weight:800;margin-bottom:6px;text-align:center}
-.det-item{font-size:clamp(.75rem,2.1vw,.88rem);color:#cbd5e1;margin-bottom:5px;line-height:1.45}
+.welcome{font-size:clamp(.78rem,2.2vw,.92rem);color:#fff;line-height:1.45;margin-bottom:8px;font-weight:600;text-shadow:0 1px 4px rgba(0,0,0,0.8)}
+.club-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(212,175,55,.3);border-radius:10px;padding:6px 14px;margin:0 auto 10px;color:var(--gb);font-size:clamp(.88rem,2.8vw,1.1rem);font-weight:800;backdrop-filter:blur(4px)}
+.trad-box{background:rgba(255,248,231,.95);color:var(--nd);padding:10px 14px;border-radius:10px;font-size:clamp(.72rem,2vw,.85rem);font-weight:700;line-height:1.5;margin-bottom:10px;border-left:3px solid var(--g);border-right:3px solid var(--g);text-align:left;box-shadow:0 4px 15px rgba(0,0,0,0.4)}
+/* ✦ TRANSPARENT DETAILS BOX ✦ */
+.det-box{background:rgba(3,21,46,.3);border:1.5px solid var(--g);border-radius:10px;padding:10px 14px;margin-bottom:10px;text-align:left;backdrop-filter:blur(4px);box-shadow:0 4px 15px rgba(0,0,0,0.2)}
+.det-title{color:var(--gb);font-size:clamp(.9rem,2.6vw,1.05rem);font-weight:800;margin-bottom:6px;text-align:center;text-shadow:0 1px 4px rgba(0,0,0,0.8)}
+.det-item{font-size:clamp(.75rem,2.1vw,.88rem);color:#fff;margin-bottom:5px;line-height:1.45;text-shadow:0 1px 3px rgba(0,0,0,0.8)}
 .det-item strong{color:var(--gb)}
-.quad-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;text-align:left}
+
+/* ✦ EQUAL HEIGHT GRID ✦ */
+.quad-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;text-align:left;align-items:stretch}
 @media(max-width:600px){.quad-grid{grid-template-columns:1fr}}
-.icard{background:linear-gradient(180deg,rgba(13,67,134,.6),rgba(4,30,63,.9));border:1px solid rgba(212,175,55,.4);border-radius:10px;padding:8px 10px}
-.icard h4{color:var(--gb);border-bottom:1px solid rgba(212,175,55,.4);padding-bottom:5px;margin-bottom:6px;font-size:clamp(.78rem,2.3vw,.92rem);font-weight:800;text-align:center}
-.lr{display:flex;justify-content:space-between;font-size:clamp(.65rem,1.8vw,.78rem);margin-bottom:4px;color:#e2e8f0;line-height:1.35}
+
+/* ✦ TRANSPARENT INNER CARDS ✦ */
+.icard{background:rgba(13,67,134,.25);border:1px solid rgba(212,175,55,.4);border-radius:10px;padding:8px 10px;backdrop-filter:blur(4px);box-shadow:0 4px 15px rgba(0,0,0,0.2);display:flex;flex-direction:column}
+.icard h4{color:var(--gb);border-bottom:1px solid rgba(212,175,55,.4);padding-bottom:5px;margin-bottom:6px;font-size:clamp(.78rem,2.3vw,.92rem);font-weight:800;text-align:center;text-shadow:0 1px 4px rgba(0,0,0,0.8)}
+.lr{display:flex;justify-content:space-between;font-size:clamp(.65rem,1.8vw,.78rem);margin-bottom:4px;color:#fff;line-height:1.35;text-shadow:0 1px 3px rgba(0,0,0,0.8)}
 .lr span:first-child{color:var(--gb);font-weight:bold}
 /* ✦ HIGHLIGHTED SCHEDULE (neon) ✦ */
-.schedule-highlight{background:rgba(245,197,66,.08);border:1px solid rgba(245,197,66,.6);border-radius:10px;padding:8px 10px;margin-top:6px;box-shadow:0 0 12px rgba(245,197,66,.3),inset 0 0 10px rgba(245,197,66,.08)}
+.schedule-highlight{background:rgba(245,197,66,.1);border:1px solid rgba(245,197,66,.6);border-radius:10px;padding:8px 10px;margin-top:6px;box-shadow:0 0 12px rgba(245,197,66,.3),inset 0 0 10px rgba(245,197,66,.08)}
 .schedule-highlight .hl-line{font-size:clamp(.62rem,1.9vw,.78rem);color:#fff8e7;font-weight:700;line-height:1.6;margin:0;padding:3px 0;border-bottom:1px dashed rgba(245,197,66,.25);display:flex;gap:6px;align-items:flex-start}
 .schedule-highlight .hl-line:last-child{border-bottom:none}
 .schedule-highlight .hl-time{color:var(--gb);font-weight:800;white-space:nowrap;flex-shrink:0;min-width:58px;text-shadow:0 0 6px rgba(245,197,66,.6)}
-.schedule-highlight .hl-text{color:#e2e8f0;font-weight:600}
+.schedule-highlight .hl-text{color:#fff;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.8)}
 .schedule-highlight .hl-text strong{color:#fff2b3;text-shadow:0 0 8px rgba(245,197,66,.8)}
-.schedule-extra{font-size:clamp(.58rem,1.8vw,.72rem);color:#ffd97a;font-weight:700;line-height:1.5;margin-top:8px;padding-top:6px;border-top:1px solid rgba(245,197,66,.35);text-align:left;font-style:italic;text-shadow:0 0 8px rgba(245,197,66,.4)}
+.schedule-extra{font-size:clamp(.58rem,1.8vw,.72rem);color:#ffd97a;font-weight:700;line-height:1.5;margin-top:8px;padding-top:6px;border-top:1px solid rgba(245,197,66,.35);text-align:left;font-style:italic;text-shadow:0 1px 3px rgba(0,0,0,0.8)}
 .schedule-extra .mem{color:#b8f0c0;font-weight:800}
 .schedule-extra .shraddha{color:#ffcdc7;font-weight:800}
-.loc-cta{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 14px;background:linear-gradient(135deg,rgba(52,183,241,.28),rgba(13,110,253,.18));border:2px solid #34b7f1;border-radius:40px;color:#8fdcff;font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.68rem,2.2vw,.8rem);font-weight:800;cursor:pointer;text-decoration:none;text-align:center;line-height:1.35;box-shadow:0 6px 22px rgba(0,0,0,.4);transition:transform .15s;margin-bottom:6px}
+.loc-cta{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 14px;background:linear-gradient(135deg,rgba(52,183,241,.4),rgba(13,110,253,.3));border:2px solid #34b7f1;border-radius:40px;color:#fff;font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.68rem,2.2vw,.8rem);font-weight:800;cursor:pointer;text-decoration:none;text-align:center;line-height:1.35;box-shadow:0 6px 22px rgba(0,0,0,.4);transition:transform .15s;margin-bottom:6px;text-shadow:0 1px 3px rgba(0,0,0,0.8)}
 .loc-cta:hover{transform:translateY(-2px)}
-/* ✦ COMPACT MAP — fits available space, not a big square ✦ */
-.map-wrap{position:relative;border-radius:12px;overflow:hidden;border:2px solid var(--g);margin-bottom:0;height:120px;box-shadow:0 0 14px rgba(245,197,66,.7),0 0 35px rgba(245,166,35,.4),inset 0 0 18px rgba(245,197,66,.2);transition:box-shadow .3s}
-.map-wrap:hover{box-shadow:0 0 22px rgba(245,197,66,1),0 0 50px rgba(245,166,35,.6),inset 0 0 22px rgba(245,197,66,.3)}
-.map-wrap iframe{width:100%;height:100%;border:none;display:block;filter:invert(90%) hue-rotate(180deg) contrast(1.1)}
+
+/* ✦ MAP & INSPIRATION EQUAL HEIGHT SETUP ✦ */
+.map-inspire-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: stretch; margin-bottom: 10px; text-align: left; }
+@media(max-width: 700px){ .map-inspire-row { grid-template-columns: 1fr; } }
+
+.map-wrap{position:relative;border-radius:12px;overflow:hidden;border:2px solid var(--g);height:100%;min-height: 210px; box-shadow:0 0 14px rgba(245,197,66,.7),0 0 35px rgba(245,166,35,.4),inset 0 0 18px rgba(245,197,66,.2);transition:box-shadow .3s; display: flex; flex-direction: column;}
+.map-wrap iframe{width:100%;height:100%;border:none;display:block;filter:invert(90%) hue-rotate(180deg) contrast(1.1);flex-grow: 1;}
 .map-neon-label{position:absolute;bottom:4px;left:50%;transform:translateX(-50%);z-index:2;background:rgba(2,13,31,.85);border:1px solid var(--gb);border-radius:16px;padding:2px 10px;font-size:.55rem;font-weight:800;color:var(--gb);white-space:nowrap;box-shadow:0 0 12px rgba(245,197,66,.7);pointer-events:none}
+
 /* Inspiration section */
-.inspire-section{margin-top:10px;padding:12px;border-top:1px solid rgba(212,175,55,.35);background:rgba(3,21,46,.35);border-radius:12px}
+.inspire-section{padding:12px;background:rgba(3,21,46,.25);border-radius:12px;backdrop-filter:blur(4px);border:1px solid rgba(212,175,55,.4);display: flex; flex-direction: column;}
 .inspire-head{text-align:center;margin-bottom:10px}
 .inspire-head .ih-title{font-family:'Yatra One',sans-serif;font-size:clamp(.88rem,2.7vw,1rem);font-weight:800;color:var(--gb);text-shadow:0 0 12px rgba(245,197,66,.5);line-height:1.3}
-.inspire-head .ih-sub{font-size:clamp(.65rem,2vw,.75rem);font-weight:700;color:rgba(255,248,231,.78);margin-top:3px;font-style:italic}
-.inspire-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-@media(max-width:600px){.inspire-grid{grid-template-columns:1fr}}
-.inspire-card{display:block;background:linear-gradient(160deg,rgba(6,44,90,.9),rgba(3,21,46,.95));border:1px solid rgba(212,175,55,.55);border-radius:10px;padding:10px 8px;text-align:center;transition:transform .15s;box-shadow:0 4px 12px rgba(0,0,0,.4);text-decoration:none;cursor:pointer}
+.inspire-head .ih-sub{font-size:clamp(.65rem,2vw,.75rem);font-weight:700;color:#fff;margin-top:3px;font-style:italic;text-shadow:0 1px 3px rgba(0,0,0,0.8)}
+.inspire-grid{display:flex; flex-direction: column; gap:8px; flex-grow: 1; justify-content: space-evenly;}
+.inspire-card{display:flex; justify-content: space-between; align-items: center; background:rgba(6,44,90,.5);border:1px solid rgba(212,175,55,.55);border-radius:10px;padding:10px 14px;text-align:left;transition:transform .15s;box-shadow:0 4px 12px rgba(0,0,0,.4);text-decoration:none;cursor:pointer; flex-grow: 1;}
 .inspire-card:hover{transform:translateY(-2px);border-color:var(--gb);box-shadow:0 8px 22px rgba(0,0,0,.6),0 0 24px rgba(245,197,66,.45)}
 .inspire-card:active{transform:scale(.97)}
-.inspire-card .ic-name{font-size:clamp(.68rem,2.1vw,.82rem);font-weight:800;color:var(--gb);line-height:1.35}
-.inspire-card .ic-hint{font-size:.55rem;color:rgba(255,248,231,.6);margin-top:3px;font-weight:600}
-.footer{color:var(--g);font-weight:700;font-size:clamp(.72rem,2.1vw,.85rem);margin-top:8px}
-/* ✦ FIXED BOTTOM ACTION BAR — WhatsApp + Call always visible, overlapping nav ✦ */
+.inspire-card .ic-name{font-size:clamp(.68rem,2.1vw,.82rem);font-weight:800;color:var(--gb);line-height:1.35;text-shadow:0 1px 3px rgba(0,0,0,0.8)}
+.inspire-card .ic-hint{font-size:clamp(.6rem, 1.8vw, .75rem);color:#fff;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.8);white-space: nowrap; margin-left: 8px;}
+
+.footer{color:var(--g);font-weight:700;font-size:clamp(.72rem,2.1vw,.85rem);margin-top:8px;text-shadow:0 1px 4px rgba(0,0,0,0.8)}
+/* ✦ FIXED BOTTOM ACTION BAR ✦ */
 .bottom-actions{position:fixed;bottom:0;left:0;right:0;z-index:450;display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 12px;background:linear-gradient(0deg,rgba(2,13,31,.98) 0%,rgba(2,13,31,.92) 60%,rgba(2,13,31,0) 100%);pointer-events:none;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}
 .bottom-actions .ba-btn{pointer-events:auto;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:50px;font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.78rem,2.4vw,.92rem);font-weight:800;text-decoration:none;transition:transform .15s;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.7)}
 .bottom-actions .ba-btn:hover{transform:translateY(-3px) scale(1.03)}
@@ -186,7 +233,6 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   .bottom-actions .ba-btn{padding:10px 16px;font-size:.76rem}
   .bottom-actions .ba-btn svg{width:18px;height:18px}
   .env-group{gap:18px}
-  .map-wrap{height:100px}
 }
 @media(max-width:480px){
   .scene-layer{padding:8px 8px 310px}
@@ -200,10 +246,26 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   .open-cta{padding:13px 24px;font-size:.8rem}
   .bbar-label{font-size:.58rem;letter-spacing:1px}
   .cta-quiz{padding:7px 11px;font-size:.6rem}
-  .map-wrap{height:88px}
   .person .p-icon{font-size:1.6rem}.food-item{padding:6px 8px;min-width:48px}.food-item .f-icon{font-size:1.3rem}
   .schedule-highlight .hl-line{flex-direction:column;gap:2px}
   .schedule-highlight .hl-time{min-width:0}
+  .glow-icon-wrapper { width: 90px; height: 90px; margin-bottom: 15px; }
+}
+
+/* ===== MOBILE VIEW: full message without scrolling ===== */
+@media(max-width:600px){
+  html,body{overflow:auto;-webkit-overflow-scrolling:touch}
+  #scene{position:relative;min-height:100vh;overflow:visible}
+  .scene-layer{position:relative;inset:auto;min-height:100vh;padding-bottom:180px}
+  #env-scene{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-bottom:180px}
+  #invite-scene{position:relative;padding:10px 8px 180px;display:block}
+  .invite-card{max-height:none;overflow-y:visible;width:100%;padding:12px 10px 14px;background:rgba(6,44,90,0.15);backdrop-filter:blur(2px)}
+  .bstack{bottom:74px}
+  .bottom-actions{padding:8px 10px}
+  .schedule-highlight .hl-line{flex-direction:row;gap:8px;align-items:center}
+  .schedule-highlight .hl-time{min-width:64px}
+  .det-box, .icard, .inspire-section, .map-wrap { background: rgba(3,21,46,0.15); }
+  .map-wrap { min-height: 180px; }
 }
 </style>
 </head>
@@ -216,6 +278,12 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 
   <div id="env-scene" class="scene-layer">
     <div class="env-group">
+      
+      <!-- GLOWING ROUND ICON (SCREEN 1) -->
+      <div class="glow-icon-wrapper">
+        <img src="https://esyid.com/wp-content/uploads/2024/11/Virpur-Jalaram-Mandir-Photo-Image.jpg" alt="Jalaram Icon">
+      </div>
+
       <div class="envelope-wrapper">
         <div class="envelope" id="envelope">
           <div class="fomo"><span class="sp">✨</span><span class="txt">આ ખાસ આમંત્રણ તમારા માટે છે — ખોલો</span><span class="sp">✨</span></div>
@@ -230,16 +298,24 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
 
   <div id="invite-scene" class="scene-layer hidden">
     <div class="invite-card">
+      
+      <!-- GLOWING ROUND ICON (SCREEN 2) -->
+      <div class="glow-icon-wrapper">
+        <img src="https://esyid.com/wp-content/uploads/2024/11/Virpur-Jalaram-Mandir-Photo-Image.jpg" alt="Jalaram Icon">
+      </div>
+
       <div class="title-badge">૨૨૭મી જલારામ જયંતિ નિમિત્તે</div>
-      <div class="welcome">જેતપુરના સમગ્ર રઘુવંશી પરિવારને એકતા રેલીમાં જોડાવા જાહેર નિમંત્રણ અને વિનંતી.</div>
+      <div class="welcome">જેતપુરના સમગ્ર રઘુવંશી પરિવારને એકતા રેલીમાં જોડાવા જાહેર નિમંત્રણ.</div>
       <div class="club-badge"><span>👳‍♂️</span>રઘુવંશી યુથ ક્લબ જેતપુર<span>👳‍♂️</span></div>
-      <div class="trad-box">૧૯૮૧ થી જેતપુરના ભાદરના પવિત્ર કાંઠે અમારા વડીલોએ દ્વારા નિયમિત સંચાલિત ૪૫ વર્ષથી સતત આજ સુધી ચાલતી આસ્થા અને જલારામ જયંતિ શોભાયાત્રાની ભવ્ય પરંપરાને અમે શ્રદ્ધા સાથે આગળ વધારીએ છીએ.</div>
+      <div class="trad-box">૧૯૮૧ થી જેતપુરના ભાદરના પવિત્ર કાંઠે અમારા વડીલોએ દ્વારા નિયમિત સંચાલિત ૪૫ વર્ષથી સતત આજ સુધી ચાલતી આસ્થા & જલારામ જયંતિ શોભાયાત્રાની પરંપરાને અમે શ્રદ્ધા સાથે આગળ વધારીએ છીએ.</div>
       <div class="det-box">
         <div class="det-title">રઘુવંશી એકતા ભવ્ય બાઇક રેલી</div>
         <div class="det-item"><strong>તારીખ:</strong> ૧૬ નવેમ્બર, ૨૦૨૭ (સોમવાર)</div>
         <div class="det-item"><strong>સ્થળ:</strong> સ્વ. કાંતિલાલ ધનેશા, જલિયાણ પ્રોવિઝન, જલારામ ચોક, ભાદરના સામેકાંઠે, જેતપુર.</div>
         <div class="det-item"><strong>સમય:</strong> સવારે ૯:૦૦ થી ૧૧:૦૦</div>
       </div>
+      
+      <!-- ROW 1: Schedule & Route -->
       <div class="quad-grid">
         <div class="icard"><h4>કાર્યક્રમનો સમયપત્રક</h4>
           <div class="schedule-highlight">
@@ -265,34 +341,42 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
           <div class="lr"><span>૧૦:૫૦ AM</span><span>જેતપુર યાર્ડ</span></div>
           <div class="lr"><span>૧૧:૦૦ AM</span><span>જલારામ મંદિર</span></div>
         </div>
-        <div style="display:flex;flex-direction:column;gap:4px">
+      </div>
+
+      <!-- ROW 2: Map & Inspiration (Equal Height) -->
+      <div class="map-inspire-row">
+        <!-- Map Box -->
+        <div style="display:flex;flex-direction:column;gap:6px;height:100%;">
           <a class="loc-cta" href="https://maps.app.goo.gl/hemm1cNx44rxUUMZ6" target="_blank" rel="noopener">📍 રેલી લોકેશન પહોંચવા ક્લિક કરો 📍</a>
           <div class="map-wrap">
             <iframe src="https://maps.google.com/maps?q=Jalaram%20Chowk%2C%20Jetpur%2C%20Gujarat&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy" title="Jalaram Chowk"></iframe>
             <div class="map-neon-label">📍 જલારામ ચોક — ક્લિક કરો</div>
           </div>
         </div>
-        <div class="inspire-section" style="margin:0;padding:10px;border-top:none">
+
+        <!-- Inspiration Box -->
+        <div class="inspire-section">
           <div class="inspire-head">
-            <div class="ih-title">🙏 આપણા જેતપુરના રઘુવંશી સમાજના પ્રેરણા સ્ત્રોત 🙏</div>
-            <div class="ih-sub">આપણા સમાજને માર્ગ દર્શન આપવા બદલ તમારો આભાર.</div>
+            <div class="ih-title">🙏 પ્રેરણા સ્ત્રોત 🙏</div>
+            <div class="ih-sub">આપણા સમાજને માર્ગ દર્શન આપવા બદલ આભાર.</div>
           </div>
-          <div class="inspire-grid" style="grid-template-columns:1fr;gap:6px">
+          <div class="inspire-grid">
             <a class="inspire-card" href="https://maps.app.goo.gl/dusu1iZUCwFFrotXA" target="_blank" rel="noopener">
-              <div class="ic-name">જેતપુર નવી લોહાણા મહાજન વાડી</div>
-              <div class="ic-hint">📍 Maps જુઓ</div>
+              <span class="ic-name">નવી લોહાણા મહાજન વાડી</span>
+              <span class="ic-hint">📍 Maps જુઓ</span>
             </a>
             <a class="inspire-card" href="https://maps.app.goo.gl/UZzSy4EAQjipMtYw7" target="_blank" rel="noopener">
-              <div class="ic-name">જેતપુર જલારામ મંદિર</div>
-              <div class="ic-hint">📍 Maps જુઓ</div>
+              <span class="ic-name">જેતપુર જલારામ મંદિર</span>
+              <span class="ic-hint">📍 Maps જુઓ</span>
             </a>
             <a class="inspire-card" href="https://maps.app.goo.gl/9y3knMf4itr5DkWw7" target="_blank" rel="noopener">
-              <div class="ic-name">જેતપુર જૂની લોહાણા મહાજન વાડી</div>
-              <div class="ic-hint">📍 Maps જુઓ</div>
+              <span class="ic-name">જૂની લોહાણા મહાજન વાડી</span>
+              <span class="ic-hint">📍 Maps જુઓ</span>
             </a>
           </div>
         </div>
       </div>
+
       <div class="footer">જય જલારામ | જય શ્રી રામ | જય વીરબાઈ મા</div>
     </div>
   </div>
@@ -322,7 +406,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
       <button class="gbtn" data-game="sadavrat" type="button"><span class="gi">🍛</span><span class="gn">સદાવ્રત<br>સેવા</span></button>
     </div>
   </div>
-  <div class="cta-quiz" data-game="quiz">🙏 જો તમે જલારામ બાપાના સાચા ભક્ત હો તો આ ૧૦૮ પ્રશ્નોની ક્વિઝ લઈને તમારું જ્ઞાન ચકાસો!</div>
+  <div class="cta-quiz" data-game="quiz">🙏 જો તમે જલારામ બાપાના સાચા ભક્ત હો તો આ ૧૦૮ પ્રશ્નોની ક્વિઝથી તમારું જ્ઞાન ચકાસો!</div>
 </div>
 
 <div class="modal-ov" id="gameModal">
@@ -365,7 +449,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
     }
   })();
 
-  // ========== FIREWORKS ==========
+  // ========== FIREWORKS (ENHANCED) ==========
   const fw = document.getElementById('fireworks');
   const pal = ['#f5c542','#f5a623','#ff6b35','#ff4757','#d4af37','#fff3b3','#ffa502','#eccc68','#7bed9f','#70a1ff'];
 
@@ -377,7 +461,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
       s.className = 'spark';
       const a = (Math.PI*2*i)/count + Math.random()*.4;
       const v = 50 + Math.random()*100;
-      s.style.cssText = 'left:'+x+'px;top:'+y+'px;background:'+color+';box-shadow:0 0 8px '+color;
+      s.style.cssText = 'left:'+x+'px;top:'+y+'px;background:'+color+';box-shadow:0 0 10px '+color+', 0 0 20px '+color;
       s.style.setProperty('--tx',Math.cos(a)*v+'px');
       s.style.setProperty('--ty',Math.sin(a)*v+'px');
       s.style.setProperty('--sd',(.8+Math.random()*.6)+'s');
@@ -399,7 +483,7 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
     fw.appendChild(c);
     setTimeout(function(){
       const y = window.innerHeight + rise;
-      burst(x, y, color, 14);
+      burst(x, y, color, 25 + Math.floor(Math.random()*15)); 
       c.remove();
     }, 1200);
   }
@@ -407,24 +491,26 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
   function continuousBursts(){
     if(!fw) return;
     const x = Math.random()*window.innerWidth;
-    const y = Math.random()*window.innerHeight*0.5;
+    const y = Math.random()*window.innerHeight*0.6;
     const color = pal[Math.floor(Math.random()*pal.length)];
-    burst(x, y, color, 16 + Math.floor(Math.random()*12));
+    burst(x, y, color, 20 + Math.floor(Math.random()*15)); 
   }
 
   function startFireworksLoop(){
-    setInterval(crackerRise, 700);
-    setInterval(continuousBursts, 1800);
-    setTimeout(crackerRise, 200);
-    setTimeout(crackerRise, 500);
-    setTimeout(continuousBursts, 300);
+    setInterval(crackerRise, 400); 
+    setInterval(continuousBursts, 800);
+    
+    setTimeout(crackerRise, 100);
+    setTimeout(crackerRise, 300);
+    setTimeout(continuousBursts, 150);
   }
 
   function grandShow(){
     const cx = window.innerWidth/2, cy = window.innerHeight/2;
-    setTimeout(function(){ burst(cx, cy, '#f5c542', 36); }, 100);
-    setTimeout(function(){ burst(cx-160, cy-90, '#ff6b35', 26); }, 350);
-    setTimeout(function(){ burst(cx+160, cy-90, '#ff4757', 26); }, 550);
+    setTimeout(function(){ burst(cx, cy, '#f5c542', 40); }, 100);
+    setTimeout(function(){ burst(cx-160, cy-90, '#ff6b35', 30); }, 350);
+    setTimeout(function(){ burst(cx+160, cy-90, '#ff4757', 30); }, 550);
+    setTimeout(function(){ burst(cx, cy-150, '#7bed9f', 30); }, 700);
   }
 
   // ========== ENVELOPE OPEN ==========
@@ -441,6 +527,9 @@ html,body{height:100%;overflow:hidden;background:var(--nd);font-family:'Noto San
       const inviteScene = document.getElementById('invite-scene');
       if(envScene) envScene.classList.add('hidden');
       if(inviteScene) inviteScene.classList.remove('hidden');
+      if(window.innerWidth <= 600){
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      }
     }, 1000);
   }
 
